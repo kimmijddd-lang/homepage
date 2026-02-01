@@ -6,6 +6,8 @@
     <title>대윤세무회계 | The Intelligent Fintech</title>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         :root {
             /* Primary Colors */
@@ -824,10 +826,111 @@
         }
 
         @media (max-width: 768px) {
-            html {
-                scroll-snap-type: y mandatory;
-                overflow-y: scroll;
-                -webkit-overflow-scrolling: touch;
+            /* Swiper 모바일 전용 */
+            .swiper {
+                display: none;
+            }
+
+            .mobile-swiper-active .swiper {
+                display: block;
+                width: 100%;
+                height: 100vh;
+                height: 100dvh;
+            }
+
+            .mobile-swiper-active .desktop-content,
+            .mobile-swiper-active footer {
+                display: none;
+            }
+
+            .swiper-slide {
+                height: 100vh;
+                height: 100dvh;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 60px 1rem 1rem 1rem;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+
+            /* Swiper Pagination */
+            .swiper-pagination {
+                right: 10px !important;
+                left: auto !important;
+            }
+
+            .swiper-pagination-bullet {
+                width: 8px;
+                height: 8px;
+                background: var(--gray-500);
+                opacity: 1;
+            }
+
+            .swiper-pagination-bullet-active {
+                background: var(--neon-cyan);
+            }
+
+            /* Swiper slide 내부 스타일 */
+            .swiper-slide .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            .swiper-slide .hero-text {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                padding-top: 8vh;
+            }
+
+            .swiper-slide .hero-center {
+                display: block;
+                margin-top: 2rem;
+                flex: 1;
+                max-height: 40vh;
+            }
+
+            .swiper-slide .services-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 0.5rem;
+                width: 100%;
+                flex: 1;
+                max-height: calc(100vh - 180px);
+            }
+
+            .swiper-slide .about-content {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                text-align: center;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .swiper-slide .location-card {
+                padding: 1rem;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                max-height: calc(100vh - 160px);
+            }
+
+            .swiper-slide .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+                gap: 0.5rem;
+                max-width: 100%;
+                flex: 1;
+                max-height: calc(100vh - 160px);
             }
 
             body {
@@ -835,8 +938,6 @@
             }
 
             section, .hero {
-                scroll-snap-align: start;
-                scroll-snap-stop: always;
                 min-height: 100vh;
                 min-height: 100dvh;
                 height: 100vh;
@@ -1287,6 +1388,194 @@
         </nav>
     </header>
 
+    <!-- Swiper for Mobile -->
+    <div class="swiper mobile-swiper">
+        <div class="swiper-wrapper">
+            <!-- Slide 1: Hero -->
+            <div class="swiper-slide">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>세금 관리를<br><span>스마트하게</span></h1>
+                        <p>복잡한 세무를 데이터 기반으로 분석하고,<br>최적의 절세 전략을 설계합니다.</p>
+                        <a href="https://open.kakao.com/o/sWdJyOKh" target="_blank" class="hero-btn">무료 상담 신청</a>
+                    </div>
+                    <div class="hero-center">
+                        <div class="orbit-container">
+                            <div class="floating-card card-1">
+                                <div class="card-icon">📊</div>
+                                <div class="card-text">절세율</div>
+                                <div class="card-value">+23.5%</div>
+                            </div>
+                            <div class="floating-card card-2">
+                                <div class="card-icon">💰</div>
+                                <div class="card-text">평균 절세</div>
+                                <div class="card-value">1,245만원</div>
+                            </div>
+                            <div class="floating-card card-3">
+                                <div class="card-icon">✅</div>
+                                <div class="card-text">신고 정확도</div>
+                                <div class="card-value">100%</div>
+                            </div>
+                            <div class="floating-card card-4">
+                                <div class="card-icon">⚡</div>
+                                <div class="card-text">빠른 처리</div>
+                                <div class="card-value">24시간</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Services -->
+            <div class="swiper-slide">
+                <p class="section-title">Services</p>
+                <h2 class="section-heading">서비스 소개</h2>
+                <div class="services-grid">
+                    <div class="glass-card service-card">
+                        <div class="service-icon">📋</div>
+                        <h3>기장대리</h3>
+                        <p>매월 장부 정리부터 재무 분석까지 체계적으로 관리합니다</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <div class="service-icon">💰</div>
+                        <h3>세무신고</h3>
+                        <p>종소세, 부가세, 법인세 기한 내 정확하게 처리합니다</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <div class="service-icon">🏠</div>
+                        <h3>재산세제</h3>
+                        <p>양도세, 상속증여 절세 전략을 설계합니다</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <div class="service-icon">💼</div>
+                        <h3>기타</h3>
+                        <p>법인설립, 4대보험 등 사업 운영에 필요한 업무를 지원합니다</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: About -->
+            <div class="swiper-slide">
+                <p class="section-title">About</p>
+                <h2 class="section-heading">세무사 소개</h2>
+                <div class="about-content">
+                    <div class="profile-image">
+                        <img src="profile.jpg" alt="김민준 세무사">
+                    </div>
+                    <div class="profile-info">
+                        <h3>김민준 세무사</h3>
+                        <p class="title">대윤세무회계 대표</p>
+                        <p class="credentials">동국대학교 정보통신공학과<br>세무사 자격 취득 (2016년)</p>
+                        <p class="quote">"복잡한 세금 문제,<br>명쾌하게 풀어드립니다"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Location -->
+            <div class="swiper-slide">
+                <p class="section-title">Location</p>
+                <h2 class="section-heading">오시는 길</h2>
+                <div class="glass-card location-card">
+                    <div class="location-content">
+                        <div class="location-icon">📍</div>
+                        <div class="location-info">
+                            <h3>대윤세무회계</h3>
+                            <p>서울시 강남구 강남대로112길 33, 3층 (논현동, 삼화빌딩)</p>
+                            <a href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EA%B0%95%EB%82%A8%EB%8C%80%EB%A1%9C112%EA%B8%B8%2033" target="_blank">
+                                네이버 지도에서 보기 →
+                            </a>
+                        </div>
+                    </div>
+                    <div class="location-extra">
+                        <div class="location-extra-item">
+                            <h4>신논현역</h4>
+                            <p>도보 5분</p>
+                        </div>
+                        <div class="location-extra-item">
+                            <h4>강남역</h4>
+                            <p>도보 10분</p>
+                        </div>
+                        <div class="location-extra-item">
+                            <h4>주차</h4>
+                            <p>건물 내 주차 가능</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Contact -->
+            <div class="swiper-slide">
+                <p class="section-title">Contact</p>
+                <h2 class="section-heading">상담 문의</h2>
+                <div class="contact-grid">
+                    <div class="glass-card contact-card">
+                        <div class="contact-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <h4>전화</h4>
+                        <a href="tel:010-4946-4505">010-4946-4505</a>
+                    </div>
+                    <div class="glass-card contact-card">
+                        <div class="contact-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <h4>운영시간</h4>
+                        <p>평일 09:00 - 18:00</p>
+                    </div>
+                    <div class="glass-card contact-card">
+                        <div class="contact-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <h4>이메일</h4>
+                        <a href="mailto:cptamj@naver.com">cptamj@naver.com</a>
+                    </div>
+                    <a href="https://open.kakao.com/o/sWdJyOKh" target="_blank" class="glass-card contact-card contact-link">
+                        <div class="contact-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                        </div>
+                        <h4>카카오톡</h4>
+                        <p>채팅 상담하기</p>
+                    </a>
+                    <a href="https://instagram.com/tax.kim1368" target="_blank" class="glass-card contact-card contact-link">
+                        <div class="contact-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </div>
+                        <h4>인스타그램</h4>
+                        <p>@tax.kim1368</p>
+                    </a>
+                    <a href="https://blog.naver.com/calculator1368" target="_blank" class="glass-card contact-card contact-link">
+                        <div class="contact-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h4>블로그</h4>
+                        <p>네이버 블로그</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination dots -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Desktop Content -->
+    <div class="desktop-content">
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text fade-in">
@@ -1498,12 +1787,49 @@
             </a>
         </div>
     </section>
+    </div><!-- End desktop-content -->
 
     <footer>
         <p>&copy; 2025 대윤세무회계</p>
     </footer>
 
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // Mobile Swiper initialization
+        let mobileSwiper = null;
+
+        function initMobileSwiper() {
+            if (window.innerWidth <= 768) {
+                document.body.classList.add('mobile-swiper-active');
+                if (!mobileSwiper) {
+                    mobileSwiper = new Swiper('.mobile-swiper', {
+                        direction: 'vertical',
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                        mousewheel: true,
+                        speed: 600,
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                        touchRatio: 1.5,
+                        threshold: 10,
+                    });
+                }
+            } else {
+                document.body.classList.remove('mobile-swiper-active');
+                if (mobileSwiper) {
+                    mobileSwiper.destroy(true, true);
+                    mobileSwiper = null;
+                }
+            }
+        }
+
+        // Initialize on load and resize
+        initMobileSwiper();
+        window.addEventListener('resize', initMobileSwiper);
+
         // Mobile menu toggle
         function toggleMenu() {
             document.querySelector('.nav-links').classList.toggle('active');
