@@ -836,14 +836,21 @@
         @media (max-width: 768px) {
             html {
                 scroll-snap-type: y mandatory;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            body {
+                overflow-x: hidden;
             }
 
             section, .hero {
                 scroll-snap-align: start;
                 scroll-snap-stop: always;
                 min-height: 100vh;
+                min-height: 100dvh;
                 height: 100vh;
-                max-height: 100vh;
+                height: 100dvh;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
