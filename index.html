@@ -524,6 +524,20 @@
         /* About */
         #about {
             padding-top: 1rem;
+            position: relative;
+        }
+
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0,122,255,0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .about-content {
@@ -531,6 +545,8 @@
             grid-template-columns: 300px 1fr;
             gap: 4rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .profile-image {
@@ -827,13 +843,11 @@
                 scroll-snap-stop: always;
                 min-height: 100vh;
                 height: 100vh;
-                max-height: 100vh;
-                overflow: hidden;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                padding-top: 80px;
-                padding-bottom: 2rem;
+                padding: 70px 1.5rem 1.5rem 1.5rem;
+                box-sizing: border-box;
             }
 
             .logo {
@@ -863,62 +877,235 @@
             }
 
             .hero {
-                padding-left: 1.2rem;
-                padding-right: 1.2rem;
-                padding-top: 70px;
-                gap: 1rem;
+                padding: 70px 1.5rem 1rem 1.5rem;
             }
 
             .hero-content {
-                gap: 1rem;
+                gap: 0.8rem;
+                height: 100%;
             }
 
             .hero-text h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .hero-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .orbit-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .floating-card {
+                padding: 0.6rem 0.8rem;
+            }
+
+            .floating-card .card-icon { font-size: 1rem; margin-bottom: 0.2rem; }
+            .floating-card .card-value { font-size: 0.9rem; }
+            .floating-card .card-text { font-size: 0.7rem; }
+
+            .card-1, .card-3 { transform: translateX(-50%) scale(0.9); }
+            .card-2 { right: -12%; transform: translateY(-50%) scale(0.9); }
+            .card-4 { left: -12%; transform: translateY(-50%) scale(0.9); }
+
+            .center-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .center-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .center-glow {
+                width: 90px;
+                height: 90px;
+            }
+
+            .hero-right .savings-card {
+                max-width: 260px;
+                padding: 1.2rem;
+            }
+
+            .hero-right .savings-amount {
+                font-size: 1.6rem;
+            }
+
+            .hero-right .chart-container {
+                height: 60px;
+            }
+
+            .savings-desc {
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                height: auto;
+            }
+
+            .service-card {
+                padding: 1.2rem;
+            }
+
+            .service-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .service-card p {
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 0.85rem;
                 margin-bottom: 0.8rem;
+            }
+
+            .section-heading {
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .about-content {
+                gap: 1.5rem;
+            }
+
+            .profile-image {
+                max-width: 160px;
+            }
+
+            .profile-info h3 {
+                font-size: 1.4rem;
+            }
+
+            .profile-info .title {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .profile-info .credentials {
+                font-size: 0.9rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .profile-info .quote {
+                font-size: 1.1rem;
+                padding-top: 1rem;
+            }
+
+            .location-card {
+                padding: 1.5rem;
+            }
+
+            .location-icon {
+                font-size: 2.5rem;
+            }
+
+            .location-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .location-info p {
+                font-size: 0.9rem;
+            }
+
+            .location-extra {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            .location-extra-item h4 {
+                font-size: 1.2rem;
+            }
+
+            .location-extra-item p {
+                font-size: 0.8rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .contact-card {
+                padding: 1.2rem;
+            }
+
+            .contact-icon {
+                margin-bottom: 0.8rem;
+            }
+
+            .contact-icon svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .contact-card h4 {
+                font-size: 0.85rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .contact-card p, .contact-card a {
+                font-size: 0.9rem;
+            }
+
+            footer {
+                padding: 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .hero-text h1 {
+                font-size: 1.7rem;
             }
 
             .hero-text p {
                 font-size: 0.9rem;
-                margin-bottom: 1rem;
             }
 
             .hero-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
+                padding: 0.9rem 1.8rem;
+                font-size: 0.95rem;
             }
 
             .orbit-container {
-                width: 160px;
-                height: 160px;
+                width: 170px;
+                height: 170px;
             }
 
             .floating-card {
-                padding: 0.4rem 0.6rem;
+                padding: 0.5rem 0.7rem;
             }
 
-            .floating-card .card-icon { font-size: 0.8rem; margin-bottom: 0.1rem; }
-            .floating-card .card-value { font-size: 0.7rem; }
-            .floating-card .card-text { font-size: 0.55rem; }
-
-            .card-1, .card-3 { transform: translateX(-50%) scale(0.85); }
-            .card-2 { right: -8%; transform: translateY(-50%) scale(0.85); }
-            .card-4 { left: -8%; transform: translateY(-50%) scale(0.85); }
-
-            .center-icon {
-                width: 40px;
-                height: 40px;
-            }
-
-            .center-icon svg {
-                width: 18px;
-                height: 18px;
-            }
-
-            .center-glow {
-                width: 70px;
-                height: 70px;
-            }
+            .floating-card .card-icon { font-size: 0.9rem; margin-bottom: 0.1rem; }
+            .floating-card .card-value { font-size: 0.8rem; }
+            .floating-card .card-text { font-size: 0.6rem; }
 
             .hero-right .savings-card {
                 max-width: 220px;
@@ -933,13 +1120,7 @@
                 height: 50px;
             }
 
-            .savings-desc {
-                font-size: 0.75rem;
-                margin-bottom: 0.8rem;
-            }
-
             .services-grid {
-                grid-template-columns: 1fr 1fr;
                 gap: 0.8rem;
             }
 
@@ -947,87 +1128,12 @@
                 padding: 1rem;
             }
 
-            .service-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .service-card h3 {
-                font-size: 1rem;
-                margin-bottom: 0.3rem;
-            }
-
-            .service-card p {
-                font-size: 0.75rem;
-            }
-
-            .section-title {
-                font-size: 0.75rem;
-                margin-bottom: 0.5rem;
-            }
-
             .section-heading {
                 font-size: 1.4rem;
-                margin-bottom: 1rem;
-            }
-
-            .about-content {
-                gap: 1rem;
             }
 
             .profile-image {
-                max-width: 120px;
-            }
-
-            .profile-info h3 {
-                font-size: 1.2rem;
-            }
-
-            .profile-info .title {
-                font-size: 0.9rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .profile-info .credentials {
-                font-size: 0.8rem;
-                margin-bottom: 1rem;
-            }
-
-            .profile-info .quote {
-                font-size: 1rem;
-                padding-top: 1rem;
-            }
-
-            .location-card {
-                padding: 1.2rem;
-            }
-
-            .location-icon {
-                font-size: 2rem;
-            }
-
-            .location-info h3 {
-                font-size: 1rem;
-            }
-
-            .location-info p {
-                font-size: 0.8rem;
-            }
-
-            .location-extra {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.5rem;
-                margin-top: 1.5rem;
-            }
-
-            .location-extra-item h4 {
-                font-size: 1rem;
-            }
-
-            .location-extra-item p {
-                font-size: 0.7rem;
+                max-width: 140px;
             }
 
             .contact-grid {
@@ -1039,10 +1145,6 @@
                 padding: 1rem 0.8rem;
             }
 
-            .contact-icon {
-                margin-bottom: 0.5rem;
-            }
-
             .contact-icon svg {
                 width: 24px;
                 height: 24px;
@@ -1050,94 +1152,10 @@
 
             .contact-card h4 {
                 font-size: 0.75rem;
-                margin-bottom: 0.3rem;
             }
 
             .contact-card p, .contact-card a {
                 font-size: 0.8rem;
-            }
-
-            footer {
-                padding: 1rem;
-                font-size: 0.75rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .hero-text h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-text p {
-                font-size: 0.8rem;
-            }
-
-            .orbit-container {
-                width: 140px;
-                height: 140px;
-            }
-
-            .floating-card {
-                padding: 0.3rem 0.5rem;
-            }
-
-            .floating-card .card-icon { font-size: 0.7rem; margin-bottom: 0; }
-            .floating-card .card-value { font-size: 0.6rem; }
-            .floating-card .card-text { font-size: 0.5rem; }
-
-            .hero-right .savings-card {
-                max-width: 180px;
-                padding: 0.8rem;
-            }
-
-            .hero-right .savings-amount {
-                font-size: 1.2rem;
-            }
-
-            .hero-right .chart-container {
-                height: 40px;
-            }
-
-            .services-grid {
-                gap: 0.5rem;
-            }
-
-            .service-card {
-                padding: 0.8rem;
-            }
-
-            .section-heading {
-                font-size: 1.2rem;
-            }
-
-            .profile-image {
-                max-width: 100px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.5rem;
-            }
-
-            .contact-card {
-                padding: 0.8rem 0.5rem;
-            }
-
-            .contact-icon svg {
-                width: 20px;
-                height: 20px;
-            }
-
-            .contact-card h4 {
-                font-size: 0.65rem;
-            }
-
-            .contact-card p, .contact-card a {
-                font-size: 0.7rem;
             }
         }
     </style>
