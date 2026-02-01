@@ -252,25 +252,25 @@
 
         .floating-card.card-1 {
             top: 5%;
-            right: 10%;
+            left: 15%;
             animation-delay: 0s;
         }
 
         .floating-card.card-2 {
-            top: 25%;
+            top: 35%;
             left: 0;
             animation-delay: 1s;
         }
 
         .floating-card.card-3 {
-            bottom: 25%;
-            right: 5%;
+            bottom: 35%;
+            left: 20%;
             animation-delay: 2s;
         }
 
         .floating-card.card-4 {
             bottom: 5%;
-            left: 10%;
+            left: 5%;
             animation-delay: 3s;
         }
 
@@ -300,8 +300,8 @@
         .main-card {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            right: 0;
+            transform: translateY(-50%);
             width: 320px;
             z-index: 10;
         }
@@ -310,10 +310,10 @@
         .orbit-ring {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 25%;
             transform: translate(-50%, -50%);
-            width: 450px;
-            height: 450px;
+            width: 400px;
+            height: 400px;
             border: 1px dashed var(--glass-border);
             border-radius: 50%;
             animation: spin 30s linear infinite;
