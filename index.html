@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대윤세무회계 | The Intelligent Fintech</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Primary Colors */
+            --bg-dark: #0d0d0f;
+            --bg-card: rgba(255,255,255,0.03);
+
+            /* Accent Colors */
+            --neon-blue: #007aff;
+            --neon-mint: #00c853;
+            --neon-cyan: #00d4ff;
+
+            /* Glass Effect */
+            --glass: rgba(255,255,255,0.05);
+            --glass-border: rgba(255,255,255,0.08);
+
+            /* Text Colors */
+            --white: #ffffff;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Glow Effects */
+        .glow-blue {
+            position: fixed;
+            top: 20%;
+            left: 10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,122,255,0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-mint {
+            position: fixed;
+            bottom: 20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,200,83,0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: rgba(13,13,15,0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        /* Sections */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0,122,255,0.3);
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,122,255,0.15);
+        }
+
+        /* Tax Savings Card */
+        .savings-card {
+            padding: 2.5rem;
+        }
+
+        .savings-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .savings-card .card-title {
+            font-size: 1.1rem;
+            color: var(--gray-400);
+        }
+
+        .savings-card .badge {
+            background: rgba(0,200,83,0.2);
+            color: var(--neon-mint);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .savings-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .savings-amount span {
+            color: var(--neon-mint);
+        }
+
+        .savings-desc {
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+
+        /* Chart */
+        .chart-container {
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            padding-top: 1rem;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, var(--neon-blue), var(--neon-cyan));
+            border-radius: 4px 4px 0 0;
+            opacity: 0.8;
+            animation: growBar 1.5s ease-out forwards;
+            transform-origin: bottom;
+        }
+
+        @keyframes growBar {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+        }
+
+        /* Services */
+        #services {
+            padding-top: 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 30px rgba(0,122,255,0.1);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+        }
+
+        /* About */
+        #about {
+            padding-top: 4rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--glass), var(--bg-card));
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--gray-500);
+        }
+
+        .profile-info h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info .title {
+            color: var(--neon-blue);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-info .credentials {
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+        }
+
+        .profile-info .quote {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.6;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--neon-blue);
+        }
+
+        /* Location */
+        #location {
+            padding-top: 4rem;
+        }
+
+        .location-card {
+            padding: 3rem;
+        }
+
+        .location-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .location-icon {
+            font-size: 3rem;
+        }
+
+        .location-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-info p {
+            color: var(--gray-400);
+        }
+
+        .location-info a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            transition: color 0.3s;
+        }
+
+        .location-info a:hover {
+            color: var(--neon-blue);
+        }
+
+        /* Contact */
+        #contact {
+            padding-top: 4rem;
+            padding-bottom: 8rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h4 {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .contact-card p, .contact-card a {
+            font-size: 1.1rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            color: var(--neon-cyan);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--gray-500);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .savings-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .profile-info .quote {
+                border-left: none;
+                padding-left: 0;
+                border-top: 3px solid var(--neon-blue);
+                padding-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(13,13,15,0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--glass-border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section-heading {
+                font-size: 1.8rem;
+            }
+
+            .savings-amount {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="glow-blue"></div>
+    <div class="glow-mint"></div>
+
+    <header>
+        <nav>
+            <div class="logo">대윤세무회계</div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">서비스</a></li>
+                <li><a href="#about">세무사 소개</a></li>
+                <li><a href="#location">오시는 길</a></li>
+                <li><a href="#contact">상담 문의</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text fade-in">
+                <h1>세금 관리를<br><span>스마트하게</span></h1>
+                <p>복잡한 세무를 데이터 기반으로 분석하고,<br>최적의 절세 전략을 설계합니다.</p>
+                <a href="#contact" class="hero-btn">무료 상담 신청</a>
+            </div>
+            <div class="glass-card savings-card fade-in">
+                <div class="card-header">
+                    <span class="card-title">예상 절세 효과</span>
+                    <span class="badge">+23.5%</span>
+                </div>
+                <div class="savings-amount"><span>₩</span> 12,450,000</div>
+                <p class="savings-desc">연간 평균 절세 금액</p>
+                <div class="chart-container">
+                    <div class="chart-bar" style="height: 40%; animation-delay: 0.1s;"></div>
+                    <div class="chart-bar" style="height: 55%; animation-delay: 0.2s;"></div>
+                    <div class="chart-bar" style="height: 45%; animation-delay: 0.3s;"></div>
+                    <div class="chart-bar" style="height: 70%; animation-delay: 0.4s;"></div>
+                    <div class="chart-bar" style="height: 60%; animation-delay: 0.5s;"></div>
+                    <div class="chart-bar" style="height: 85%; animation-delay: 0.6s;"></div>
+                    <div class="chart-bar" style="height: 75%; animation-delay: 0.7s;"></div>
+                    <div class="chart-bar" style="height: 100%; animation-delay: 0.8s;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="fade-in">
+        <p class="section-title">Services</p>
+        <h2 class="section-heading">서비스 소개</h2>
+        <div class="services-grid">
+            <div class="glass-card service-card">
+                <div class="service-icon">📋</div>
+                <h3>기장대리</h3>
+                <p>매월 장부 정리부터 재무 분석까지 체계적으로 관리합니다</p>
+            </div>
+            <div class="glass-card service-card">
+                <div class="service-icon">💰</div>
+                <h3>세무신고</h3>
+                <p>종소세, 부가세, 법인세 기한 내 정확하게 처리합니다</p>
+            </div>
+            <div class="glass-card service-card">
+                <div class="service-icon">🏠</div>
+                <h3>재산세제</h3>
+                <p>양도세, 상속증여 절세 전략을 설계합니다</p>
+            </div>
+            <div class="glass-card service-card">
+                <div class="service-icon">💼</div>
+                <h3>기타</h3>
+                <p>법인설립, 4대보험 등 사업 운영에 필요한 업무를 지원합니다</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="fade-in">
+        <p class="section-title">About</p>
+        <h2 class="section-heading">세무사 소개</h2>
+        <div class="about-content">
+            <div class="profile-image">
+                👤
+            </div>
+            <div class="profile-info">
+                <h3>김민준 세무사</h3>
+                <p class="title">대윤세무회계 대표</p>
+                <p class="credentials">세무사 자격 취득 (2016년)</p>
+                <p class="quote">"복잡한 세금 문제,<br>명쾌하게 풀어드립니다"</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="fade-in">
+        <p class="section-title">Location</p>
+        <h2 class="section-heading">오시는 길</h2>
+        <div class="glass-card location-card">
+            <div class="location-content">
+                <div class="location-icon">📍</div>
+                <div class="location-info">
+                    <h3>대윤세무회계</h3>
+                    <p>서울시 강남구 강남대로112길 33, 3층 (논현동, 삼화빌딩)</p>
+                    <a href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EA%B0%95%EB%82%A8%EB%8C%80%EB%A1%9C112%EA%B8%B8%2033" target="_blank">
+                        네이버 지도에서 보기 →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <p class="section-title">Contact</p>
+        <h2 class="section-heading">상담 문의</h2>
+        <div class="contact-grid">
+            <div class="glass-card contact-card">
+                <div class="icon">📞</div>
+                <h4>전화</h4>
+                <a href="tel:010-4946-4505">010-4946-4505</a>
+            </div>
+            <div class="glass-card contact-card">
+                <div class="icon">⏰</div>
+                <h4>운영시간</h4>
+                <p>평일 09:00 - 18:00</p>
+            </div>
+            <div class="glass-card contact-card">
+                <div class="icon">✉️</div>
+                <h4>이메일</h4>
+                <a href="mailto:cptamj@naver.com">cptamj@naver.com</a>
+            </div>
+            <div class="glass-card contact-card">
+                <div class="icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </div>
+                <h4>인스타그램</h4>
+                <a href="https://instagram.com/tax.kim1368" target="_blank">@tax.kim1368</a>
+            </div>
+            <div class="glass-card contact-card">
+                <div class="icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"/>
+                    </svg>
+                </div>
+                <h4>블로그</h4>
+                <a href="https://blog.naver.com/calculator1368" target="_blank">blog.naver.com/calculator1368</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 대윤세무회계</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Animate chart bars on scroll
+        const chartBars = document.querySelectorAll('.chart-bar');
+        const chartObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    chartBars.forEach((bar, index) => {
+                        bar.style.animationDelay = `${index * 0.1}s`;
+                        bar.style.animationPlayState = 'running';
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const chartContainer = document.querySelector('.chart-container');
+        if (chartContainer) {
+            chartObserver.observe(chartContainer);
+        }
+    </script>
+</body>
+</html>
