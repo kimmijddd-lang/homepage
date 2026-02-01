@@ -577,7 +577,7 @@
         /* Location */
         #location {
             padding-top: 4rem;
-            min-height: 70vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -642,23 +642,32 @@
         /* Contact */
         #contact {
             padding-top: 4rem;
-            padding-bottom: 8rem;
+            padding-bottom: 6rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
         .contact-card {
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
         }
 
         .contact-icon {
             color: var(--white);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon svg {
+            width: 36px;
+            height: 36px;
         }
 
         .contact-link {
@@ -676,13 +685,13 @@
 
         .contact-card h4 {
             color: var(--gray-400);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
             font-weight: 400;
         }
 
         .contact-card p, .contact-card a {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--white);
             text-decoration: none;
         }
@@ -788,6 +797,14 @@
                 border-top: 3px solid var(--neon-blue);
                 padding-top: 1.5rem;
             }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .location-extra {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -815,6 +832,15 @@
 
             .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .location-extra {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .hero-text h1 {
