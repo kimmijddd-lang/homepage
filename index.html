@@ -816,6 +816,19 @@
         }
 
         @media (max-width: 768px) {
+            html {
+                scroll-snap-type: y mandatory;
+            }
+
+            section, .hero {
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
             .logo {
                 font-size: 1.8rem;
             }
