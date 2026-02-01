@@ -913,12 +913,25 @@
 
             .swiper-slide .about-content {
                 grid-template-columns: 1fr;
-                gap: 0.8rem;
+                gap: 0.5rem;
                 text-align: center;
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
+                overflow-y: auto;
+                padding-bottom: 1rem;
+            }
+
+            .swiper-slide .profile-image {
+                max-width: 55vw;
+                width: 55vw;
+                aspect-ratio: 3/4;
+                flex-shrink: 0;
+            }
+
+            .swiper-slide .profile-info {
+                flex-shrink: 0;
             }
 
             .swiper-slide .location-card {
