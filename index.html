@@ -221,8 +221,8 @@
 
         .orbit-container {
             position: relative;
-            width: 280px;
-            height: 280px;
+            width: 350px;
+            height: 350px;
         }
 
         .orbit-ring {
@@ -234,46 +234,13 @@
             height: 100%;
             border: 1px solid var(--glass-border);
             border-radius: 50%;
-            animation: spin 20s linear infinite;
+            animation: spin 25s linear infinite;
         }
 
         .orbit-ring-2 {
-            width: 70%;
-            height: 70%;
-            animation: spin 15s linear infinite reverse;
-        }
-
-        .orbit-dot {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: var(--neon-cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 20px var(--neon-cyan);
-        }
-
-        .dot-1 {
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: orbit1 20s linear infinite;
-        }
-
-        .dot-2 {
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            animation: orbit2 20s linear infinite;
-            background: var(--neon-mint);
-            box-shadow: 0 0 20px var(--neon-mint);
-        }
-
-        .dot-3 {
-            bottom: 15%;
-            left: 15%;
-            animation: orbit3 15s linear infinite;
-            background: var(--neon-blue);
-            box-shadow: 0 0 20px var(--neon-blue);
+            width: 65%;
+            height: 65%;
+            animation: spin 18s linear infinite reverse;
         }
 
         .center-icon {
@@ -281,8 +248,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: var(--glass);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
@@ -293,24 +260,79 @@
             color: var(--neon-cyan);
         }
 
+        /* Floating Cards */
+        .floating-card {
+            position: absolute;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 0.8rem 1.2rem;
+            animation: float 5s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .floating-card .card-icon {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .floating-card .card-text {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+        }
+
+        .floating-card .card-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--neon-mint);
+        }
+
+        .card-1 {
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 0s;
+        }
+
+        .card-2 {
+            top: 50%;
+            right: -25%;
+            transform: translateY(-50%);
+            animation-delay: 1s;
+        }
+
+        .card-3 {
+            bottom: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 2s;
+        }
+
+        .card-4 {
+            top: 50%;
+            left: -25%;
+            transform: translateY(-50%);
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(-50%); }
+            50% { transform: translateY(-10px) translateX(-50%); }
+        }
+
+        .card-2, .card-4 {
+            animation-name: floatSide;
+        }
+
+        @keyframes floatSide {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-60%) translateX(0); }
+        }
+
         @keyframes spin {
             from { transform: translate(-50%, -50%) rotate(0deg); }
             to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        @keyframes orbit1 {
-            from { transform: translateX(-50%) rotate(0deg) translateY(140px) rotate(0deg); }
-            to { transform: translateX(-50%) rotate(360deg) translateY(140px) rotate(-360deg); }
-        }
-
-        @keyframes orbit2 {
-            from { transform: translateY(-50%) rotate(0deg) translateX(140px) rotate(0deg); }
-            to { transform: translateY(-50%) rotate(360deg) translateX(140px) rotate(-360deg); }
-        }
-
-        @keyframes orbit3 {
-            from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-            to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
         }
 
         /* Hero Right */
@@ -675,9 +697,16 @@
             }
 
             .orbit-container {
-                width: 220px;
-                height: 220px;
+                width: 280px;
+                height: 280px;
             }
+
+            .floating-card {
+                padding: 0.6rem 1rem;
+            }
+
+            .card-2 { right: -20%; }
+            .card-4 { left: -20%; }
 
             .savings-card {
                 max-width: 340px;
@@ -734,18 +763,30 @@
             }
 
             .orbit-container {
-                width: 180px;
-                height: 180px;
+                width: 240px;
+                height: 240px;
             }
 
+            .floating-card {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            .floating-card .card-icon { font-size: 1rem; }
+            .floating-card .card-value { font-size: 0.9rem; }
+            .floating-card .card-text { font-size: 0.7rem; }
+
+            .card-2 { right: -15%; }
+            .card-4 { left: -15%; }
+
             .center-icon {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
 
             .center-icon svg {
-                width: 28px;
-                height: 28px;
+                width: 24px;
+                height: 24px;
             }
 
             .hero-right .savings-card {
@@ -796,9 +837,31 @@
                 <div class="orbit-container">
                     <div class="orbit-ring"></div>
                     <div class="orbit-ring orbit-ring-2"></div>
-                    <div class="orbit-dot dot-1"></div>
-                    <div class="orbit-dot dot-2"></div>
-                    <div class="orbit-dot dot-3"></div>
+
+                    <div class="floating-card card-1">
+                        <div class="card-icon">📊</div>
+                        <div class="card-text">절세율</div>
+                        <div class="card-value">+23.5%</div>
+                    </div>
+
+                    <div class="floating-card card-2">
+                        <div class="card-icon">💰</div>
+                        <div class="card-text">평균 절세</div>
+                        <div class="card-value">1,245만원</div>
+                    </div>
+
+                    <div class="floating-card card-3">
+                        <div class="card-icon">✅</div>
+                        <div class="card-text">신고 정확도</div>
+                        <div class="card-value">100%</div>
+                    </div>
+
+                    <div class="floating-card card-4">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-text">빠른 처리</div>
+                        <div class="card-value">24시간</div>
+                    </div>
+
                     <div class="center-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
