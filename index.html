@@ -160,6 +160,8 @@
             display: flex;
             align-items: center;
             padding-top: 100px;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-content {
@@ -170,7 +172,7 @@
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 1.5rem;
@@ -184,26 +186,174 @@
         }
 
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--gray-400);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             line-height: 1.8;
         }
 
         .hero-btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem;
             background: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
             color: var(--white);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
+            font-size: 1.1rem;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .hero-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(0,122,255,0.3);
+            box-shadow: 0 10px 40px rgba(0,122,255,0.4);
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--neon-cyan);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+
+        /* Hero Right Side */
+        .hero-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        /* Floating Elements */
+        .floating-card {
+            position: absolute;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-card.card-1 {
+            top: 5%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-card.card-2 {
+            top: 25%;
+            left: 0;
+            animation-delay: 1s;
+        }
+
+        .floating-card.card-3 {
+            bottom: 25%;
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        .floating-card.card-4 {
+            bottom: 5%;
+            left: 10%;
+            animation-delay: 3s;
+        }
+
+        .floating-card .card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-card .card-text {
+            font-size: 0.9rem;
+            color: var(--gray-300);
+            font-weight: 500;
+        }
+
+        .floating-card .card-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--neon-mint);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Main Savings Card */
+        .main-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            z-index: 10;
+        }
+
+        /* Orbit Ring */
+        .orbit-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            height: 450px;
+            border: 1px dashed var(--glass-border);
+            border-radius: 50%;
+            animation: spin 30s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Glowing Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--neon-blue);
+            opacity: 0.3;
+            top: 10%;
+            right: 20%;
+        }
+
+        .orb-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--neon-mint);
+            opacity: 0.2;
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.5; }
         }
 
         /* Glass Card */
@@ -518,6 +668,29 @@
                 font-size: 2.5rem;
             }
 
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                height: 400px;
+                margin-top: 2rem;
+            }
+
+            .orbit-ring {
+                width: 350px;
+                height: 350px;
+            }
+
+            .main-card {
+                width: 280px;
+            }
+
+            .floating-card.card-1 { top: 0; right: 5%; }
+            .floating-card.card-2 { top: 20%; left: -5%; }
+            .floating-card.card-3 { bottom: 20%; right: 0; }
+            .floating-card.card-4 { bottom: 0; left: 5%; }
+
             .savings-card {
                 max-width: 400px;
                 margin: 0 auto;
@@ -572,6 +745,38 @@
                 font-size: 2rem;
             }
 
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                text-align: center;
+            }
+
+            .hero-visual {
+                height: 350px;
+            }
+
+            .orbit-ring {
+                width: 280px;
+                height: 280px;
+            }
+
+            .main-card {
+                width: 240px;
+                padding: 1.5rem;
+            }
+
+            .floating-card {
+                padding: 0.7rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .floating-card .card-icon {
+                font-size: 1.2rem;
+            }
+
             .section-heading {
                 font-size: 1.8rem;
             }
@@ -610,23 +815,67 @@
                 <h1>세금 관리를<br><span>스마트하게</span></h1>
                 <p>복잡한 세무를 데이터 기반으로 분석하고,<br>최적의 절세 전략을 설계합니다.</p>
                 <a href="#contact" class="hero-btn">무료 상담 신청</a>
-            </div>
-            <div class="glass-card savings-card fade-in">
-                <div class="card-header">
-                    <span class="card-title">예상 절세 효과</span>
-                    <span class="badge">+23.5%</span>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="500">500+</div>
+                        <div class="stat-label">누적 고객사</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">고객 만족도</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10년+</div>
+                        <div class="stat-label">업력</div>
+                    </div>
                 </div>
-                <div class="savings-amount"><span>₩</span> 12,450,000</div>
-                <p class="savings-desc">연간 평균 절세 금액</p>
-                <div class="chart-container">
-                    <div class="chart-bar" style="height: 40%; animation-delay: 0.1s;"></div>
-                    <div class="chart-bar" style="height: 55%; animation-delay: 0.2s;"></div>
-                    <div class="chart-bar" style="height: 45%; animation-delay: 0.3s;"></div>
-                    <div class="chart-bar" style="height: 70%; animation-delay: 0.4s;"></div>
-                    <div class="chart-bar" style="height: 60%; animation-delay: 0.5s;"></div>
-                    <div class="chart-bar" style="height: 85%; animation-delay: 0.6s;"></div>
-                    <div class="chart-bar" style="height: 75%; animation-delay: 0.7s;"></div>
-                    <div class="chart-bar" style="height: 100%; animation-delay: 0.8s;"></div>
+            </div>
+            <div class="hero-visual fade-in">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orbit-ring"></div>
+
+                <div class="floating-card card-1">
+                    <div class="card-icon">📊</div>
+                    <div class="card-text">절세율</div>
+                    <div class="card-value">+23.5%</div>
+                </div>
+
+                <div class="floating-card card-2">
+                    <div class="card-icon">💰</div>
+                    <div class="card-text">평균 절세</div>
+                    <div class="card-value">1,245만원</div>
+                </div>
+
+                <div class="floating-card card-3">
+                    <div class="card-icon">✅</div>
+                    <div class="card-text">신고 정확도</div>
+                    <div class="card-value">100%</div>
+                </div>
+
+                <div class="floating-card card-4">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-text">빠른 처리</div>
+                    <div class="card-value">24시간</div>
+                </div>
+
+                <div class="glass-card savings-card main-card">
+                    <div class="card-header">
+                        <span class="card-title">예상 절세 효과</span>
+                        <span class="badge">LIVE</span>
+                    </div>
+                    <div class="savings-amount"><span>₩</span> <span class="count-up">12,450,000</span></div>
+                    <p class="savings-desc">연간 평균 절세 금액</p>
+                    <div class="chart-container">
+                        <div class="chart-bar" style="height: 40%;"></div>
+                        <div class="chart-bar" style="height: 55%;"></div>
+                        <div class="chart-bar" style="height: 45%;"></div>
+                        <div class="chart-bar" style="height: 70%;"></div>
+                        <div class="chart-bar" style="height: 60%;"></div>
+                        <div class="chart-bar" style="height: 85%;"></div>
+                        <div class="chart-bar" style="height: 75%;"></div>
+                        <div class="chart-bar" style="height: 100%;"></div>
+                    </div>
                 </div>
             </div>
         </div>
