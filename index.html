@@ -834,8 +834,9 @@
         }
 
         @media (max-width: 768px) {
-            html {
+            html, body {
                 scroll-snap-type: y mandatory;
+                overflow-y: scroll;
             }
 
             section, .hero {
@@ -847,9 +848,10 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
-                padding: 70px 1rem 1rem 1rem;
+                padding: 60px 1rem 1rem 1rem;
                 box-sizing: border-box;
                 overflow: hidden;
+                scroll-margin-top: 0;
             }
 
             /* Hero - 텍스트 약간 아래, 카드 그리드 그 아래 */
