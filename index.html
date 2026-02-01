@@ -871,21 +871,23 @@
 
             .hero-center {
                 display: block;
-                margin-top: 1.2rem;
+                margin-top: 1rem;
+                flex: 1;
             }
 
             .hero-right {
                 display: none;
             }
 
-            /* 모바일용 카드 그리드 - 서비스 그리드와 같은 너비, 정사각형 */
+            /* 모바일용 카드 그리드 - 화면 끝까지 채우기, 정사각형 */
             .orbit-container {
                 width: 100%;
-                height: auto;
+                height: 100%;
                 margin: 0 auto;
                 position: relative;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
                 gap: 0.5rem;
                 padding: 0;
             }
@@ -911,20 +913,19 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                aspect-ratio: 1;
             }
 
             .floating-card .card-icon {
-                font-size: 7vw;
-                margin-bottom: 0.3rem;
+                font-size: 8vw;
+                margin-bottom: 0.4rem;
             }
 
             .floating-card .card-text {
-                font-size: 3.5vw;
+                font-size: 4vw;
             }
 
             .floating-card .card-value {
-                font-size: 5vw;
+                font-size: 6vw;
             }
 
             .hero-text {
