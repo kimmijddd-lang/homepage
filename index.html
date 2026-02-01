@@ -9,7 +9,7 @@
     <style>
         :root {
             /* Primary Colors */
-            --bg-dark: #0d0d0f;
+            --bg-dark: #0a0c14;
             --bg-card: rgba(255,255,255,0.03);
 
             /* Accent Colors */
@@ -46,19 +46,9 @@
             overflow-x: hidden;
         }
 
-        /* Grid Background */
+        /* Grid Background - Hidden */
         .grid-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 0;
+            display: none;
         }
 
         /* Glow Effects */
@@ -92,7 +82,7 @@
             right: 0;
             z-index: 1000;
             padding: 1rem 2rem;
-            background: rgba(13,13,15,0.8);
+            background: rgba(10,12,20,0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
         }
