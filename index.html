@@ -855,7 +855,8 @@
             /* Hero - 화면 전체 채우기 */
             .hero {
                 justify-content: flex-start;
-                padding-top: 70px;
+                padding-top: 60px;
+                padding-bottom: 1rem;
             }
 
             .hero-content {
@@ -865,35 +866,92 @@
                 height: 100%;
                 display: flex;
                 flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            .hero-center {
+                display: block;
+                order: 2;
+                flex: 1;
+                display: flex;
+                align-items: center;
                 justify-content: center;
             }
 
-            .hero-center,
             .hero-right {
                 display: none;
+            }
+
+            /* 모바일용 카드 그리드 */
+            .orbit-container {
+                width: 100%;
+                height: auto;
+                position: relative;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+                padding: 0;
+            }
+
+            .orbit-ring,
+            .orbit-ring-2,
+            .center-glow,
+            .center-icon,
+            .pulse-ring {
+                display: none;
+            }
+
+            .floating-card {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                transform: none;
+                animation: none;
+                padding: 1.2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .floating-card .card-icon {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .floating-card .card-text {
+                font-size: 1rem;
+            }
+
+            .floating-card .card-value {
+                font-size: 1.4rem;
             }
 
             .hero-text {
                 display: flex;
                 flex-direction: column;
-                gap: 4rem;
+                gap: 1.5rem;
+                padding-top: 0.5rem;
+                padding-bottom: 1.5rem;
             }
 
             .hero-text h1 {
-                font-size: 15vw;
+                font-size: 13vw;
                 margin-bottom: 0;
-                line-height: 1.05;
+                line-height: 1.1;
             }
 
             .hero-text p {
-                font-size: 5vw;
-                line-height: 1.7;
+                font-size: 4.5vw;
+                line-height: 1.6;
                 margin-bottom: 0;
             }
 
             .hero-btn {
-                padding: 2rem 6rem;
-                font-size: 5vw;
+                padding: 1.2rem 3rem;
+                font-size: 4.5vw;
                 margin: 0 auto;
             }
 
@@ -927,65 +985,67 @@
                 padding: 70px 1rem 1rem 1rem;
             }
 
-            /* 섹션 타이틀 - 고정 위치 */
+            /* 섹션 타이틀 - 최상단 고정 */
             .section-title {
-                font-size: 1rem;
-                margin-bottom: 0.3rem;
+                font-size: 4vw;
+                margin-bottom: 0.2rem;
             }
 
             .section-heading {
-                font-size: 2rem;
-                margin-bottom: 1.5rem;
+                font-size: 8vw;
+                margin-bottom: 1rem;
             }
 
-            /* 서비스 - 제목 위, 콘텐츠 아래로 채우기 */
+            /* 서비스 - 제목 최상단, 그리드 화면 채우기 */
             #services {
-                padding-top: 70px;
+                padding-top: 60px;
                 justify-content: flex-start;
             }
 
             .services-grid {
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: 1fr 1fr;
-                gap: 1rem;
+                gap: 0.8rem;
                 width: 100%;
                 flex: 1;
             }
 
             .service-card {
-                padding: 1.5rem;
+                padding: 1rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                height: 100%;
+                align-items: center;
+                text-align: center;
+                aspect-ratio: 1;
             }
 
             .service-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
+                width: 15vw;
+                height: 15vw;
+                font-size: 7vw;
+                margin-bottom: 0.8rem;
             }
 
             .service-card h3 {
-                font-size: 1.3rem;
+                font-size: 5.5vw;
                 margin-bottom: 0.5rem;
             }
 
             .service-card p {
-                font-size: 1.05rem;
-                line-height: 1.5;
+                font-size: 3.5vw;
+                line-height: 1.4;
             }
 
-            /* 세무사 소개 - 제목 위, 콘텐츠 아래로 채우기 */
+            /* 세무사 소개 - 제목 최상단, 사진 크게 */
             #about {
-                padding-top: 70px;
+                padding-top: 60px;
                 justify-content: flex-start;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1.2rem;
                 text-align: center;
                 flex: 1;
                 display: flex;
@@ -994,49 +1054,50 @@
             }
 
             .profile-image {
-                max-width: 200px;
-                width: 200px;
+                max-width: 45vw;
+                width: 45vw;
                 margin: 0 auto;
             }
 
             .profile-info {
                 display: flex;
                 flex-direction: column;
-                gap: 0.6rem;
+                gap: 0.5rem;
             }
 
             .profile-info h3 {
-                font-size: 2rem;
+                font-size: 8vw;
                 margin-bottom: 0;
             }
 
             .profile-info .title {
-                font-size: 1.2rem;
+                font-size: 5vw;
                 margin-bottom: 0;
             }
 
             .profile-info .credentials {
-                font-size: 1.1rem;
+                font-size: 4vw;
                 margin-bottom: 0;
             }
 
             .profile-info .quote {
-                font-size: 1.3rem;
+                font-size: 5vw;
                 padding-top: 1rem;
                 margin-top: 0.5rem;
                 border-top: 2px solid var(--neon-blue);
                 border-left: none;
                 padding-left: 0;
+                line-height: 1.5;
             }
 
-            /* 오시는 길 - 제목 위, 콘텐츠 아래로 채우기 */
+            /* 오시는 길 - 제목 최상단 */
             #location {
-                padding-top: 70px;
+                padding-top: 60px;
                 justify-content: flex-start;
             }
 
             .location-card {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem;
                 flex: 1;
                 display: flex;
                 flex-direction: column;
@@ -1050,40 +1111,40 @@
             }
 
             .location-icon {
-                font-size: 3.5rem;
+                font-size: 12vw;
             }
 
             .location-info h3 {
-                font-size: 1.7rem;
+                font-size: 6vw;
                 margin-bottom: 0.5rem;
             }
 
             .location-info p {
-                font-size: 1.15rem;
+                font-size: 4.2vw;
             }
 
             .location-info a {
                 justify-content: center;
-                font-size: 1.1rem;
+                font-size: 4.5vw;
             }
 
             .location-extra {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
+                gap: 0.8rem;
                 margin-top: 2rem;
             }
 
             .location-extra-item h4 {
-                font-size: 1.5rem;
+                font-size: 6vw;
             }
 
             .location-extra-item p {
-                font-size: 1.05rem;
+                font-size: 4vw;
             }
 
-            /* 상담 문의 - 제목 위, 콘텐츠 아래로 채우기 */
+            /* 상담 문의 - 제목 최상단 */
             #contact {
-                padding-top: 70px;
+                padding-top: 60px;
                 justify-content: flex-start;
             }
 
@@ -1096,7 +1157,7 @@
             }
 
             .contact-card {
-                padding: 1rem;
+                padding: 0.8rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -1105,21 +1166,21 @@
             }
 
             .contact-icon {
-                margin-bottom: 0.6rem;
+                margin-bottom: 0.5rem;
             }
 
             .contact-icon svg {
-                width: 44px;
-                height: 44px;
+                width: 10vw;
+                height: 10vw;
             }
 
             .contact-card h4 {
-                font-size: 1.1rem;
+                font-size: 4vw;
                 margin-bottom: 0.3rem;
             }
 
             .contact-card p, .contact-card a {
-                font-size: 1.15rem;
+                font-size: 4.5vw;
             }
 
             footer {
@@ -1130,139 +1191,77 @@
 
         @media (max-width: 480px) {
             section, .hero {
-                padding: 60px 0.8rem 0.8rem 0.8rem;
+                padding: 55px 0.6rem 0.6rem 0.6rem;
             }
 
             .logo {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
+            }
+
+            .hero-text {
+                gap: 1rem;
             }
 
             .hero-text h1 {
-                font-size: 14vw;
-            }
-
-            .hero-text p {
-                font-size: 4.5vw;
+                font-size: 12vw;
             }
 
             .hero-btn {
-                padding: 1.8rem 5rem;
-                font-size: 4.5vw;
+                padding: 1rem 2.5rem;
             }
 
-            .section-title {
-                font-size: 0.9rem;
+            .floating-card {
+                padding: 1rem;
             }
 
-            .section-heading {
-                font-size: 1.7rem;
-                margin-bottom: 1.2rem;
+            .floating-card .card-icon {
+                font-size: 1.6rem;
+            }
+
+            .floating-card .card-text {
+                font-size: 0.85rem;
+            }
+
+            .floating-card .card-value {
+                font-size: 1.2rem;
             }
 
             /* 서비스 */
             .services-grid {
-                gap: 0.7rem;
+                gap: 0.6rem;
             }
 
             .service-card {
-                padding: 1.2rem;
-            }
-
-            .service-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 1.4rem;
-                margin-bottom: 0.7rem;
-            }
-
-            .service-card h3 {
-                font-size: 1.1rem;
-            }
-
-            .service-card p {
-                font-size: 0.9rem;
+                padding: 0.8rem;
             }
 
             /* 세무사 소개 */
             .about-content {
-                gap: 1.5rem;
+                gap: 1rem;
             }
 
             .profile-image {
-                max-width: 170px;
-                width: 170px;
-            }
-
-            .profile-info h3 {
-                font-size: 1.7rem;
-            }
-
-            .profile-info .title {
-                font-size: 1.05rem;
-            }
-
-            .profile-info .credentials {
-                font-size: 1rem;
-            }
-
-            .profile-info .quote {
-                font-size: 1.2rem;
+                max-width: 40vw;
+                width: 40vw;
             }
 
             /* 오시는 길 */
             .location-card {
-                padding: 2rem 1rem;
-            }
-
-            .location-icon {
-                font-size: 3rem;
-            }
-
-            .location-info h3 {
-                font-size: 1.4rem;
-            }
-
-            .location-info p {
-                font-size: 1.05rem;
-            }
-
-            .location-info a {
-                font-size: 1rem;
-            }
-
-            .location-extra-item h4 {
-                font-size: 1.3rem;
-            }
-
-            .location-extra-item p {
-                font-size: 0.95rem;
+                padding: 1.5rem 0.8rem;
             }
 
             /* 상담 문의 */
             .contact-grid {
-                gap: 0.7rem;
+                gap: 0.6rem;
             }
 
             .contact-card {
-                padding: 1.2rem 0.8rem;
-            }
-
-            .contact-icon svg {
-                width: 36px;
-                height: 36px;
-            }
-
-            .contact-card h4 {
-                font-size: 0.95rem;
-            }
-
-            .contact-card p, .contact-card a {
-                font-size: 1rem;
+                padding: 0.6rem;
             }
 
             footer {
-                padding: 0.8rem;
-                font-size: 0.8rem;
+                padding: 0.6rem;
+                font-size: 0.75rem;
             }
         }
     </style>
