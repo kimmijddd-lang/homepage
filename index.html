@@ -878,15 +878,14 @@
                 display: none;
             }
 
-            /* 모바일용 카드 그리드 - 컴팩트 사이즈 */
+            /* 모바일용 카드 그리드 - 서비스 그리드와 같은 너비, 정사각형 */
             .orbit-container {
-                width: 85%;
+                width: 100%;
                 height: auto;
                 margin: 0 auto;
                 position: relative;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                grid-template-rows: auto auto;
                 gap: 0.5rem;
                 padding: 0;
             }
@@ -907,24 +906,25 @@
                 bottom: auto;
                 transform: none;
                 animation: none;
-                padding: 1rem 0.8rem;
+                padding: 0.8rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                aspect-ratio: 1;
             }
 
             .floating-card .card-icon {
-                font-size: 6vw;
+                font-size: 7vw;
                 margin-bottom: 0.3rem;
             }
 
             .floating-card .card-text {
-                font-size: 3.2vw;
+                font-size: 3.5vw;
             }
 
             .floating-card .card-value {
-                font-size: 4.5vw;
+                font-size: 5vw;
             }
 
             .hero-text {
