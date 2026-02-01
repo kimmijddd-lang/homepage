@@ -816,6 +816,10 @@
         }
 
         @media (max-width: 768px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+
             .menu-toggle {
                 display: flex;
             }
@@ -838,39 +842,40 @@
                 display: flex;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .location-extra {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .hero {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
             }
 
             .hero-text h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .hero-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
 
             .orbit-container {
-                width: 240px;
-                height: 240px;
+                width: 220px;
+                height: 220px;
             }
 
             .floating-card {
                 padding: 0.5rem 0.8rem;
-                font-size: 0.85rem;
             }
 
             .floating-card .card-icon { font-size: 1rem; }
-            .floating-card .card-value { font-size: 0.9rem; }
-            .floating-card .card-text { font-size: 0.7rem; }
+            .floating-card .card-value { font-size: 0.85rem; }
+            .floating-card .card-text { font-size: 0.65rem; }
 
-            .card-2 { right: -15%; }
-            .card-4 { left: -15%; }
+            .card-1, .card-3 { transform: translateX(-50%) scale(0.9); }
+            .card-2 { right: -10%; transform: translateY(-50%) scale(0.9); }
+            .card-4 { left: -10%; transform: translateY(-50%) scale(0.9); }
 
             .center-icon {
                 width: 50px;
@@ -878,20 +883,138 @@
             }
 
             .center-icon svg {
-                width: 24px;
-                height: 24px;
+                width: 22px;
+                height: 22px;
+            }
+
+            .center-glow {
+                width: 100px;
+                height: 100px;
             }
 
             .hero-right .savings-card {
-                max-width: 300px;
+                max-width: 280px;
+                padding: 1.2rem;
             }
 
-            .section-heading {
+            .hero-right .savings-amount {
                 font-size: 1.8rem;
             }
 
-            .savings-amount {
-                font-size: 2.2rem;
+            .hero-right .chart-container {
+                height: 60px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 0.85rem;
+            }
+
+            .section-heading {
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+            }
+
+            .about-content {
+                gap: 2rem;
+            }
+
+            .profile-image {
+                max-width: 200px;
+            }
+
+            .profile-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .profile-info .quote {
+                font-size: 1.2rem;
+            }
+
+            .location-card {
+                padding: 2rem;
+            }
+
+            .location-extra {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .location-extra-item h4 {
+                font-size: 1.2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .contact-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-icon svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .contact-card h4 {
+                font-size: 0.85rem;
+            }
+
+            .contact-card p, .contact-card a {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .orbit-container {
+                width: 180px;
+                height: 180px;
+            }
+
+            .floating-card {
+                padding: 0.4rem 0.6rem;
+            }
+
+            .floating-card .card-icon { font-size: 0.9rem; }
+            .floating-card .card-value { font-size: 0.75rem; }
+            .floating-card .card-text { font-size: 0.6rem; }
+
+            .hero-right .savings-card {
+                max-width: 240px;
+                padding: 1rem;
+            }
+
+            .hero-right .savings-amount {
+                font-size: 1.5rem;
+            }
+
+            .section-heading {
+                font-size: 1.4rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                padding: 1.2rem;
             }
         }
     </style>
