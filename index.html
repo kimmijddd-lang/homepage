@@ -751,6 +751,11 @@
             transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* Swiper - 데스크탑에서 숨김 */
+        .swiper {
+            display: none;
+        }
+
         /* Mobile Menu */
         .menu-toggle {
             display: none;
@@ -832,20 +837,16 @@
         }
 
         @media (max-width: 768px) {
-            /* Swiper 모바일 전용 */
+            /* Swiper 모바일 전용 - 활성화 */
             .swiper {
-                display: none;
-            }
-
-            .mobile-swiper-active .swiper {
                 display: block;
                 width: 100%;
                 height: 100vh;
                 height: 100dvh;
             }
 
-            .mobile-swiper-active .desktop-content,
-            .mobile-swiper-active footer {
+            .desktop-content,
+            .desktop-content + footer {
                 display: none;
             }
 
@@ -1819,29 +1820,25 @@
         let mobileSwiper = null;
 
         function initMobileSwiper() {
-            if (window.innerWidth <= 768) {
-                document.body.classList.add('mobile-swiper-active');
-                if (!mobileSwiper) {
-                    mobileSwiper = new Swiper('.mobile-swiper', {
-                        direction: 'vertical',
-                        slidesPerView: 1,
-                        spaceBetween: 0,
-                        mousewheel: true,
-                        speed: 600,
-                        pagination: {
-                            el: '.swiper-pagination',
-                            clickable: true,
-                        },
-                        touchRatio: 1.5,
-                        threshold: 10,
-                    });
-                }
-            } else {
-                document.body.classList.remove('mobile-swiper-active');
-                if (mobileSwiper) {
-                    mobileSwiper.destroy(true, true);
-                    mobileSwiper = null;
-                }
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile && !mobileSwiper) {
+                mobileSwiper = new Swiper('.mobile-swiper', {
+                    direction: 'vertical',
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    mousewheel: true,
+                    speed: 600,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    touchRatio: 1.5,
+                    threshold: 10,
+                });
+            } else if (!isMobile && mobileSwiper) {
+                mobileSwiper.destroy(true, true);
+                mobileSwiper = null;
             }
         }
 
