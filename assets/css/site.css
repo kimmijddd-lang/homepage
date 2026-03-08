@@ -724,6 +724,15 @@ body[data-page="home"] .profile-layout {
   align-items: stretch;
 }
 
+body[data-page="home"] .profile-section {
+  display: grid;
+  gap: 10px;
+}
+
+body[data-page="home"] .profile-section > h2 {
+  line-height: 1.14;
+}
+
 body[data-page="home"] .profile-frame {
   height: 100%;
 }
@@ -751,7 +760,7 @@ body[data-page="home"] .profile-copy {
 }
 
 body[data-page="home"] .profile-copy .lead {
-  margin-top: 6px;
+  margin-top: 0;
 }
 
 body[data-page="home"] .profile-copy .bullet-list {
@@ -1296,6 +1305,10 @@ textarea {
   body[data-page="home"] .profile-frame img {
     height: auto;
     object-fit: cover;
+  }
+
+  body[data-page="home"] .profile-section {
+    gap: 8px;
   }
 }
 
