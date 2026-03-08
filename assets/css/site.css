@@ -727,10 +727,12 @@ body[data-page="home"] .profile-layout {
 body[data-page="home"] .profile-section {
   display: grid;
   gap: 10px;
+  margin-top: -20px;
 }
 
 body[data-page="home"] .profile-section > h2 {
-  line-height: 1.14;
+  font-size: clamp(1.56rem, 2.18vw, 2.14rem);
+  line-height: 1.1;
 }
 
 body[data-page="home"] .profile-frame {
@@ -1309,6 +1311,7 @@ textarea {
 
   body[data-page="home"] .profile-section {
     gap: 8px;
+    margin-top: -10px;
   }
 }
 
