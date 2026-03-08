@@ -239,6 +239,7 @@ h2 {
 
 h3 {
   font-size: clamp(1.2rem, 2vw, 1.45rem);
+  line-height: 1.24;
 }
 
 p {
@@ -407,6 +408,33 @@ p {
   display: block;
   margin-bottom: 8px;
   font-size: 1rem;
+}
+
+.summary-card h3,
+.guide-card h3,
+.service-card h3,
+.check-card h3,
+.step-list h3,
+.sidebar-card h2,
+.faq-item summary {
+  word-break: keep-all;
+  overflow-wrap: normal;
+  text-wrap: pretty;
+}
+
+.summary-card h3,
+.guide-card h3,
+.service-card h3,
+.check-card h3 {
+  max-width: 12ch;
+}
+
+.step-list h3 {
+  max-width: 14ch;
+}
+
+.sidebar-card h2 {
+  max-width: 15ch;
 }
 
 .mini-card p,
