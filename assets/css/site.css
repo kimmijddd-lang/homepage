@@ -38,9 +38,14 @@ body {
   line-height: 1.7;
 }
 
+html:has(body[data-page="home"]),
 body[data-page="home"] {
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   scroll-padding-top: 88px;
+}
+
+body[data-page="home"] {
+  overscroll-behavior-y: contain;
 }
 
 body::before {
@@ -1220,6 +1225,7 @@ textarea {
     padding: 14px 0 24px;
   }
 
+  html:has(body[data-page="home"]),
   body[data-page="home"] {
     scroll-padding-top: 74px;
   }
