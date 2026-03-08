@@ -393,9 +393,11 @@ p {
 }
 
 .hero-card .mini-card {
-  padding: 18px;
+  padding: 16px 14px;
   border-radius: 22px;
   min-height: 144px;
+  display: grid;
+  align-content: center;
 }
 
 .hero-card .mini-card strong {
