@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>대윤세무회계</title>
+  <defs>
+    <linearGradient id="taxdyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f63ff" />
+      <stop offset="100%" stop-color="#167d63" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#132238" />
+  <rect x="5" y="5" width="54" height="54" rx="15" fill="url(#taxdyGradient)" opacity="0.95" />
+  <path d="M19 21h26v6H35v19h-7V27H19z" fill="#fff" />
+  <path d="M40 21h5c0 12-4 20-16 25v-6c7-3 11-8 11-19z" fill="#d9f8ef" />
+</svg>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>대윤세무회계 가이드</title>
+    <link>https://www.taxdy.co.kr/</link>
+    <description>대윤세무회계의 실무형 세무 가이드 피드</description>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 08 Mar 2026 09:00:00 +0900</lastBuildDate>
+
+    <item>
+      <title>세무사 변경 방법</title>
+      <link>https://www.taxdy.co.kr/guides/how-to-switch-tax-accountant</link>
+      <guid>https://www.taxdy.co.kr/guides/how-to-switch-tax-accountant</guid>
+      <pubDate>Sun, 08 Mar 2026 09:00:00 +0900</pubDate>
+      <description>세무사 변경 전후에 꼭 확인해야 할 자료 이관 범위와 첫 달 준비 사항을 정리한 가이드</description>
+    </item>
+
+    <item>
+      <title>기장료는 업종보다 거래 구조를 봐야 합니다</title>
+      <link>https://www.taxdy.co.kr/guides/bookkeeping-fee-explained</link>
+      <guid>https://www.taxdy.co.kr/guides/bookkeeping-fee-explained</guid>
+      <pubDate>Sun, 08 Mar 2026 09:00:00 +0900</pubDate>
+      <description>기장료 산정 시 거래 구조와 증빙 난이도를 먼저 봐야 하는 이유를 설명하는 가이드</description>
+    </item>
+
+    <item>
+      <title>부가세 신고 전에 미리 챙길 체크리스트</title>
+      <link>https://www.taxdy.co.kr/guides/vat-preparation-checklist</link>
+      <guid>https://www.taxdy.co.kr/guides/vat-preparation-checklist</guid>
+      <pubDate>Sun, 08 Mar 2026 09:00:00 +0900</pubDate>
+      <description>부가세 신고 전에 미리 확인해야 할 매출, 매입, 정산 자료를 정리한 가이드</description>
+    </item>
+
+    <item>
+      <title>크리에이터 세무 기본기</title>
+      <link>https://www.taxdy.co.kr/guides/creator-tax-basics</link>
+      <guid>https://www.taxdy.co.kr/guides/creator-tax-basics</guid>
+      <pubDate>Sun, 08 Mar 2026 09:00:00 +0900</pubDate>
+      <description>광고수익과 협찬, 플랫폼 수익을 정리하는 기본 원칙을 설명하는 가이드</description>
+    </item>
+  </channel>
+</rss>
