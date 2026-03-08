@@ -540,7 +540,7 @@ body[data-page="home"] .hero-principles-layout {
 body[data-page="home"] .hero-panel,
 body[data-page="home"] .hero-card {
   min-height: 468px;
-  padding: 38px 40px 32px;
+  padding: 42px 44px 36px;
 }
 
 body[data-page="home"] .eyebrow {
@@ -584,8 +584,8 @@ body[data-page="home"] .hero .lead,
 body[data-page="home"] .hero-card > .lead {
   max-width: min(100%, 74ch);
   margin-top: 16px;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.02rem;
+  line-height: 1.72;
   letter-spacing: 0.01em;
   white-space: normal;
   text-wrap: pretty;
@@ -593,14 +593,14 @@ body[data-page="home"] .hero-card > .lead {
 
 body[data-page="home"] .hero-copy-stack {
   max-width: min(100%, 74ch);
-  gap: 12px;
+  gap: 14px;
 }
 
 body[data-page="home"] .hero-copy-stack > p,
 body[data-page="home"] .hero-card > p:not(.lead) {
   max-width: min(100%, 74ch);
-  font-size: 0.96rem;
-  line-height: 1.58;
+  font-size: 0.98rem;
+  line-height: 1.68;
   letter-spacing: 0.01em;
   white-space: normal;
   text-wrap: pretty;
@@ -617,14 +617,14 @@ body[data-page="home"] .mini-grid {
 
 body[data-page="home"] .hero-bullets {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  padding-top: 24px;
+  gap: 18px;
+  padding-top: 28px;
 }
 
 body[data-page="home"] .hero-bullets li,
 body[data-page="home"] .hero-card .mini-card {
-  min-height: 136px;
-  padding: 18px 18px 16px;
+  min-height: 148px;
+  padding: 22px 18px;
 }
 
 body[data-page="home"] .hero-card .mini-card {
@@ -637,20 +637,20 @@ body[data-page="home"] .hero-bullets li {
   align-content: center;
   text-align: center;
   white-space: normal;
-  font-size: clamp(1rem, 1.08vw, 1.08rem);
-  line-height: 1.38;
+  font-size: clamp(1.02rem, 1.12vw, 1.1rem);
+  line-height: 1.42;
   letter-spacing: 0.01em;
 }
 
 body[data-page="home"] .hero-card .mini-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
   margin-top: 24px !important;
   padding-top: 0;
 }
 
 body[data-page="home"] .hero-principles-card .mini-grid {
-  margin-top: 74px !important;
+  margin-top: 54px !important;
 }
 
 body[data-page="home"] .hero-principles-card > p + p {
@@ -659,14 +659,14 @@ body[data-page="home"] .hero-principles-card > p + p {
 
 body[data-page="home"] .hero-card .mini-card strong {
   margin-bottom: 6px;
-  font-size: 1rem;
-  line-height: 1.28;
+  font-size: 1.02rem;
+  line-height: 1.34;
   letter-spacing: 0.01em;
 }
 
 body[data-page="home"] .hero-card .mini-card p {
-  font-size: 0.88rem;
-  line-height: 1.42;
+  font-size: 0.92rem;
+  line-height: 1.56;
   letter-spacing: 0.01em;
   white-space: normal;
   text-wrap: pretty;
@@ -676,17 +676,17 @@ body[data-page="home"] .section-head h2,
 body[data-page="home"] .contact-scene-copy h2 {
   white-space: nowrap;
   text-wrap: nowrap;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.028em;
 }
 
 body[data-page="home"] .section-head h2 {
-  font-size: clamp(1.18rem, 1.44vw, 1.44rem);
-  line-height: 1.16;
+  font-size: clamp(1.28rem, 1.58vw, 1.62rem);
+  line-height: 1.18;
 }
 
 body[data-page="home"] .contact-scene-copy h2 {
-  font-size: clamp(1.2rem, 1.42vw, 1.4rem);
-  line-height: 1.18;
+  font-size: clamp(1.28rem, 1.58vw, 1.56rem);
+  line-height: 1.2;
 }
 
 .tag,
@@ -695,12 +695,14 @@ body[data-page="home"] .contact-scene-copy h2 {
   align-items: center;
   gap: 8px;
   width: fit-content;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(22, 125, 99, 0.12);
-  color: var(--mint);
-  font-size: 0.92rem;
+  border: 1px solid rgba(15, 99, 255, 0.12);
+  background: rgba(15, 99, 255, 0.08);
+  color: var(--accent-deep);
+  font-size: 0.88rem;
   font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 .mini-grid,
@@ -918,8 +920,8 @@ body[data-page="home"] .service-grid .service-card:last-child:nth-child(odd) {
 body[data-page="home"] .section-head {
   display: grid;
   justify-content: start;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 14px;
+  margin-bottom: 24px;
 }
 
 body[data-page="home"] .section-head > div {
@@ -974,9 +976,18 @@ body[data-page="home"] .faq-item {
 
 body[data-page="home"] .service-card,
 body[data-page="home"] .guide-card,
+body[data-page="home"] .faq-summary-grid .mini-card,
+body[data-page="home"] .contact-link,
+body[data-page="home"] .contact-scene-note {
+  align-content: start;
+  gap: 12px;
+}
+
+body[data-page="home"] .service-card,
+body[data-page="home"] .guide-card,
 body[data-page="home"] .check-card,
 body[data-page="home"] .step-list li {
-  padding: 20px;
+  padding: 24px;
 }
 
 body[data-page="home"] .service-card {
@@ -992,7 +1003,7 @@ body[data-page="home"] .check-card {
 }
 
 body[data-page="home"] .profile-copy {
-  gap: 10px;
+  gap: 14px;
   width: min(100%, var(--measure-reading));
   justify-self: start;
 }
@@ -1001,7 +1012,7 @@ body[data-page="home"] .profile-copy .lead,
 body[data-page="home"] .profile-text-stack p {
   margin-top: 0;
   max-width: none;
-  line-height: 1.68;
+  line-height: 1.76;
   text-wrap: pretty;
 }
 
@@ -1042,8 +1053,19 @@ body[data-page="home"] .service-card p,
 body[data-page="home"] .guide-card p,
 body[data-page="home"] .check-card p,
 body[data-page="home"] .step-list p {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.97rem;
+  line-height: 1.62;
+}
+
+body[data-page="home"] .service-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+}
+
+body[data-page="home"] .service-card a::after {
+  content: "→";
 }
 
 body[data-page="home"] .statement-card {
@@ -1056,7 +1078,7 @@ body[data-page="home"] .service-grid .service-card p {
 
 body[data-page="home"] .faq-scene-layout {
   display: grid;
-  gap: 20px;
+  gap: 24px;
   grid-template-columns: minmax(0, 1.16fr) minmax(300px, 0.84fr);
   align-items: start;
 }
@@ -1073,12 +1095,12 @@ body[data-page="home"] .faq-scene-copy .section-head {
 
 body[data-page="home"] .faq-summary-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 body[data-page="home"] .faq-summary-grid .mini-card {
-  min-height: 128px;
-  padding: 16px;
+  min-height: 144px;
+  padding: 22px;
   align-content: start;
 }
 
@@ -1092,18 +1114,20 @@ body[data-page="home"] .faq-scene-list .faq-item {
 }
 
 body[data-page="home"] .faq-scene-list .faq-item summary {
-  padding: 22px 24px;
+  padding: 24px 26px;
   font-size: 1.04rem;
+  line-height: 1.56;
 }
 
 body[data-page="home"] .faq-scene-list .faq-item p {
-  padding: 0 24px 24px;
+  padding: 0 26px 26px;
   max-width: min(100%, var(--measure-reading));
+  line-height: 1.72;
 }
 
 body[data-page="home"] .contact-scene-layout {
   display: grid;
-  gap: 20px;
+  gap: 24px;
   grid-template-columns: minmax(280px, 0.84fr) minmax(0, 1.16fr);
   align-items: stretch;
 }
@@ -1111,9 +1135,9 @@ body[data-page="home"] .contact-scene-layout {
 body[data-page="home"] .contact-scene-copy {
   display: grid;
   align-content: start;
-  gap: 12px;
+  gap: 16px;
   min-height: auto;
-  padding: 20px;
+  padding: 24px;
 }
 
 body[data-page="home"] .contact-scene-copy > * + * {
@@ -1121,15 +1145,15 @@ body[data-page="home"] .contact-scene-copy > * + * {
 }
 
 body[data-page="home"] .contact-scene-meta {
-  gap: 10px 12px;
-  margin-top: 2px;
+  gap: 12px 14px;
+  margin-top: 6px;
 }
 
 body[data-page="home"] .contact-scene-meta span {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
-  padding: 0 14px;
+  min-height: 42px;
+  padding: 0 16px;
   border-radius: 999px;
   background: rgba(15, 99, 255, 0.08);
   border: 1px solid rgba(15, 99, 255, 0.1);
@@ -1140,7 +1164,7 @@ body[data-page="home"] .contact-scene-meta span {
 
 body[data-page="home"] .contact-scene-actions {
   display: grid;
-  gap: 14px;
+  gap: 16px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-content: start;
 }
@@ -1150,30 +1174,44 @@ body[data-page="home"] .contact-scene-actions > * {
 }
 
 body[data-page="home"] .contact-link {
-  min-height: 128px;
-  padding: 16px;
+  min-height: 152px;
+  padding: 22px;
   align-content: start;
   text-decoration: none;
 }
 
 body[data-page="home"] .contact-link h3 {
   font-size: 1.08rem;
-  line-height: 1.26;
+  line-height: 1.32;
 }
 
 body[data-page="home"] .contact-link p {
   color: var(--muted);
+  line-height: 1.62;
 }
 
 body[data-page="home"] .contact-scene-note {
-  min-height: 128px;
-  padding: 16px;
+  min-height: 152px;
+  padding: 22px;
   align-content: start;
 }
 
 body[data-page="home"] .contact-scene-note p {
   font-size: 0.92rem;
-  line-height: 1.45;
+  line-height: 1.62;
+}
+
+body[data-page="home"] .contact-inline {
+  display: block;
+  color: var(--accent-deep);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+body[data-page="home"] .step-list li > div {
+  display: grid;
+  gap: 8px;
 }
 
 .article-stack {
