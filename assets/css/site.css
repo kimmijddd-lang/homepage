@@ -282,6 +282,8 @@ h3 {
   letter-spacing: -0.03em;
   line-height: 1.18;
   text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 h1 {
@@ -301,6 +303,9 @@ h3 {
 
 p {
   margin: 0;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  text-wrap: pretty;
 }
 
 .lead {
@@ -309,6 +314,8 @@ p {
   color: var(--muted);
   font-size: clamp(0.98rem, 0.95vw, 1.04rem);
   line-height: 1.78;
+  word-break: keep-all;
+  overflow-wrap: normal;
   text-wrap: pretty;
 }
 
@@ -374,20 +381,21 @@ p {
 }
 
 .hero .lead {
-  max-width: 46ch;
+  max-width: 50ch;
 }
 
 .hero-copy-stack,
 .profile-text-stack {
   display: grid;
   gap: 12px;
-  max-width: 46ch;
+  max-width: 50ch;
 }
 
 .hero-copy-stack p,
 .profile-text-stack p,
 .contact-scene-copy p {
   margin: 0;
+  line-height: 1.72;
 }
 
 .profile-heading {
@@ -405,6 +413,8 @@ p {
   color: var(--muted);
   font-weight: 700;
   line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 .page-hero h1 {
@@ -422,6 +432,10 @@ p {
 .statement-card .lead,
 body[data-page="home"] .contact-scene-copy .lead {
   max-width: none;
+  line-height: 1.72;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  text-wrap: pretty;
 }
 
 .hero-bullets,
@@ -811,12 +825,17 @@ body[data-page="home"] .contact-scene-copy h2 {
 
 .section-note {
   color: var(--muted);
+  max-width: min(100%, 76ch);
 }
 
 .section-note-inline {
   max-width: none;
-  white-space: nowrap;
+  white-space: normal;
   letter-spacing: -0.02em;
+  line-height: 1.72;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  text-wrap: pretty;
 }
 
 .service-card,
@@ -849,11 +868,6 @@ body[data-page="home"] .contact-scene-copy h2 {
 
 .service-grid .service-card:last-child:nth-child(odd) {
   grid-column: 1 / -1;
-}
-
-.service-grid .service-card h3,
-.service-grid .service-card p {
-  white-space: nowrap;
 }
 
 .service-card h3,
@@ -905,7 +919,7 @@ body[data-page="home"] .section-head > div {
 
 body[data-page="home"] .section-note-inline {
   max-width: none;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 body[data-page="home"] .section.scene-centered {
