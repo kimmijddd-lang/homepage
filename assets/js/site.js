@@ -62,16 +62,27 @@
       "form",
       "details",
     ].join(",");
+    const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
+    const mobileViewportQuery = window.matchMedia("(max-width: 980px)");
     const wheelThreshold = 56;
-    const touchThreshold = 72;
-    const sceneLockMs = 760;
+    const touchThreshold = 48;
+    const sceneLockMs = 680;
+    const scrollSettleDelay = 140;
     let wheelDelta = 0;
     let wheelResetTimer = 0;
     let sceneLockTimer = 0;
+    let scrollSettleTimer = 0;
+    let resizeSnapTimer = 0;
     let sceneLocked = false;
     let touchStartX = 0;
     let touchStartY = 0;
+    let touchCurrentX = 0;
+    let touchCurrentY = 0;
+    let touchStartSceneIndex = 0;
     let touchBlocked = false;
+
+    const isTouchSceneMode = () =>
+      coarsePointerQuery.matches || mobileViewportQuery.matches;
 
     const getHeaderOffset = () => {
       if (!(header instanceof HTMLElement)) {
@@ -139,6 +150,26 @@
       releaseSceneLock();
     };
 
+    const settleToNearestScene = (behavior = "smooth") => {
+      if (sceneLocked || hasTextFocus()) {
+        return;
+      }
+
+      const nearestIndex = getCurrentSceneIndex();
+      const targetTop = getSceneTop(sections[nearestIndex]);
+
+      if (Math.abs(window.scrollY - targetTop) < 10) {
+        return;
+      }
+
+      sceneLocked = true;
+      window.scrollTo({
+        top: targetTop,
+        behavior,
+      });
+      releaseSceneLock();
+    };
+
     const moveScene = (direction) => {
       if (sceneLocked || direction === 0) {
         return false;
@@ -146,6 +177,21 @@
 
       const currentIndex = getCurrentSceneIndex();
       const nextIndex = currentIndex + direction;
+
+      if (nextIndex < 0 || nextIndex >= sections.length) {
+        return false;
+      }
+
+      scrollToScene(nextIndex);
+      return true;
+    };
+
+    const moveSceneFromIndex = (startIndex, direction) => {
+      if (sceneLocked || direction === 0) {
+        return false;
+      }
+
+      const nextIndex = startIndex + direction;
 
       if (nextIndex < 0 || nextIndex >= sections.length) {
         return false;
@@ -234,8 +280,38 @@
         touchBlocked = isBlockedTarget(event.target);
         touchStartX = event.touches[0].clientX;
         touchStartY = event.touches[0].clientY;
+        touchCurrentX = touchStartX;
+        touchCurrentY = touchStartY;
+        touchStartSceneIndex = getCurrentSceneIndex();
       },
       { passive: true },
+    );
+
+    window.addEventListener(
+      "touchmove",
+      (event) => {
+        if (touchBlocked || sceneLocked || event.touches.length !== 1) {
+          return;
+        }
+
+        touchCurrentX = event.touches[0].clientX;
+        touchCurrentY = event.touches[0].clientY;
+
+        if (!isTouchSceneMode()) {
+          return;
+        }
+
+        const deltaX = touchCurrentX - touchStartX;
+        const deltaY = touchCurrentY - touchStartY;
+
+        if (
+          Math.abs(deltaY) > 12 &&
+          Math.abs(deltaY) > Math.abs(deltaX) + 8
+        ) {
+          event.preventDefault();
+        }
+      },
+      { passive: false },
     );
 
     window.addEventListener(
@@ -253,13 +329,52 @@
           Math.abs(deltaY) < touchThreshold ||
           Math.abs(deltaY) <= Math.abs(deltaX)
         ) {
+          if (isTouchSceneMode()) {
+            window.clearTimeout(scrollSettleTimer);
+            scrollSettleTimer = window.setTimeout(() => {
+              settleToNearestScene();
+            }, scrollSettleDelay);
+          }
           return;
         }
 
-        moveScene(deltaY < 0 ? 1 : -1);
+        moveSceneFromIndex(touchStartSceneIndex, deltaY < 0 ? 1 : -1);
       },
       { passive: true },
     );
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!isTouchSceneMode() || sceneLocked || hasTextFocus()) {
+          return;
+        }
+
+        window.clearTimeout(scrollSettleTimer);
+        scrollSettleTimer = window.setTimeout(() => {
+          settleToNearestScene();
+        }, scrollSettleDelay);
+      },
+      { passive: true },
+    );
+
+    window.addEventListener("resize", () => {
+      window.clearTimeout(resizeSnapTimer);
+      resizeSnapTimer = window.setTimeout(() => {
+        if (sceneLocked) {
+          return;
+        }
+
+        const currentIndex = getCurrentSceneIndex();
+        const targetTop = getSceneTop(sections[currentIndex]);
+
+        if (Math.abs(window.scrollY - targetTop) < 6) {
+          return;
+        }
+
+        window.scrollTo(0, targetTop);
+      }, 120);
+    });
   };
 
   initializeHomeScenes();
