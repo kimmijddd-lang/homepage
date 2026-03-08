@@ -952,13 +952,15 @@ body[data-page="home"] .step-list li {
 }
 
 body[data-page="home"] .profile-layout {
-  gap: 10px;
-  align-items: stretch;
-  grid-template-columns: minmax(208px, 248px) minmax(0, 1fr);
+  gap: clamp(20px, 2.8vw, 28px);
+  align-items: end;
+  grid-template-columns: minmax(232px, 296px) minmax(0, 1fr);
 }
 
 body[data-page="home"] .profile-section {
   display: grid;
+  width: min(1180px, calc(100vw - 32px));
+  margin-inline: auto;
   gap: 0;
   margin-top: 0;
 }
@@ -970,18 +972,18 @@ body[data-page="home"] .profile-frame {
   box-shadow: none;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
+  background: transparent;
 }
 
 body[data-page="home"] .profile-frame img {
-  width: min(100%, 244px);
+  width: min(100%, 268px);
   height: auto;
   object-fit: contain;
-  object-position: center top;
-  transform: scale(1.02);
-  transform-origin: center bottom;
-  mix-blend-mode: multiply;
-  filter: brightness(1.02) contrast(1.04) drop-shadow(0 16px 24px rgba(19, 34, 56, 0.12));
+  object-position: center bottom;
+  transform: none;
+  mix-blend-mode: normal;
+  filter: none;
 }
 
 body[data-page="home"] .service-card,
@@ -1022,9 +1024,10 @@ body[data-page="home"] .check-card {
 }
 
 body[data-page="home"] .profile-copy {
-  gap: 12px;
-  width: min(100%, 680px);
+  gap: 14px;
+  width: min(100%, 748px);
   justify-self: start;
+  justify-items: start;
 }
 
 body[data-page="home"] .profile-copy .lead,
@@ -1037,8 +1040,8 @@ body[data-page="home"] .profile-text-stack p {
 
 body[data-page="home"] .profile-text-stack {
   width: 100%;
-  max-width: min(100%, 68ch);
-  gap: 8px;
+  max-width: min(100%, 72ch);
+  gap: 10px;
 }
 
 body[data-page="home"] .profile-text-stack > p {
@@ -1085,7 +1088,9 @@ body[data-page="home"] .profile-copy .bullet-list {
 }
 
 body[data-page="home"] .profile-copy .inline-actions {
-  width: auto;
+  width: 100%;
+  justify-content: flex-start;
+  margin-top: 4px;
 }
 
 body[data-page="home"] .profile-actions {
