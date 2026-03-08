@@ -744,7 +744,7 @@ body[data-page="home"] .profile-layout {
 body[data-page="home"] .profile-section {
   display: grid;
   gap: 10px;
-  margin-top: -36px;
+  margin-top: 0;
 }
 
 body[data-page="home"] .profile-section > h2 {
@@ -822,51 +822,46 @@ body[data-page="home"] .service-grid .service-card p {
   white-space: normal;
 }
 
-body[data-page="home"] .home-faq-layout,
-body[data-page="home"] .home-contact-layout {
+body[data-page="home"] .home-final-layout {
   display: grid;
   gap: 24px;
+  grid-template-columns: minmax(0, 1.16fr) minmax(300px, 0.84fr);
+  align-items: start;
 }
 
-body[data-page="home"] .home-faq-layout {
-  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
-}
-
-body[data-page="home"] .home-faq-overview {
+body[data-page="home"] .home-final-main {
   display: grid;
+  gap: 18px;
   align-content: start;
-  gap: 14px;
 }
 
-body[data-page="home"] .home-faq-overview .section-head {
+body[data-page="home"] .home-final-main .section-head {
   margin-bottom: 0;
 }
 
-body[data-page="home"] .home-faq-layout .summary-card {
-  padding: 20px;
-}
-
-body[data-page="home"] .home-faq-layout .faq-grid {
+body[data-page="home"] .home-final-faq {
   grid-template-columns: 1fr;
   gap: 14px;
 }
 
-body[data-page="home"] .home-faq-layout .faq-item {
+body[data-page="home"] .home-final-faq .faq-item {
   height: auto;
 }
 
-body[data-page="home"] .home-faq-layout .faq-item summary {
+body[data-page="home"] .home-final-faq .faq-item summary {
   padding: 22px 24px;
   font-size: 1.04rem;
 }
 
-body[data-page="home"] .home-faq-layout .faq-item p {
+body[data-page="home"] .home-final-faq .faq-item p {
   padding: 0 24px 24px;
   max-width: min(100%, var(--measure-reading));
 }
 
-body[data-page="home"] .home-contact-layout {
-  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+body[data-page="home"] .home-final-side {
+  display: grid;
+  gap: 16px;
+  align-content: start;
 }
 
 body[data-page="home"] .contact-cta-copy {
@@ -1436,13 +1431,11 @@ textarea {
     padding-top: 8px;
   }
 
-  body[data-page="home"] .home-faq-layout,
-  body[data-page="home"] .home-contact-layout {
+  body[data-page="home"] .home-final-layout {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  body[data-page="home"] .home-faq-layout .summary-card,
   body[data-page="home"] .contact-link {
     padding: 18px;
   }
@@ -1458,7 +1451,7 @@ textarea {
 
   body[data-page="home"] .profile-section {
     gap: 8px;
-    margin-top: -16px;
+    margin-top: 0;
   }
 }
 
