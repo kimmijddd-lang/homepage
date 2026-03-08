@@ -305,7 +305,7 @@ p {
 .hero h1 {
   max-width: none;
   font-size: clamp(1.54rem, 1.76vw, 1.98rem);
-  line-height: 1.24;
+  line-height: 1.18;
 }
 
 .hero .lead {
@@ -850,6 +850,10 @@ textarea {
 .footer-block a {
   color: var(--muted);
   text-decoration: none;
+}
+
+.footer-block .brand + p {
+  line-height: 1.9;
 }
 
 .footer-bar {
