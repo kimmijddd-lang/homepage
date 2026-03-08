@@ -606,7 +606,7 @@ body[data-page="home"] .hero-card > p:not(.lead) {
 
 body[data-page="home"] .hero-actions {
   gap: 14px;
-  margin-top: 22px;
+  margin-top: 38px;
 }
 
 body[data-page="home"] .mini-grid {
@@ -648,7 +648,11 @@ body[data-page="home"] .hero-card .mini-grid {
 }
 
 body[data-page="home"] .hero-principles-card .mini-grid {
-  margin-top: 46px !important;
+  margin-top: 74px !important;
+}
+
+body[data-page="home"] .hero-principles-card > p + p {
+  margin-top: 18px;
 }
 
 body[data-page="home"] .hero-card .mini-card strong {
@@ -1777,6 +1781,10 @@ textarea {
     font-size: 0.88rem;
   }
 
+  body[data-page="home"] .hero-actions {
+    margin-top: 28px;
+  }
+
   body[data-page="home"] .hero-bullets,
   body[data-page="home"] .mini-grid,
   body[data-page="home"] .service-grid,
@@ -1796,6 +1804,10 @@ textarea {
 
   body[data-page="home"] .hero-principles-card .mini-grid {
     margin-top: 24px !important;
+  }
+
+  body[data-page="home"] .hero-principles-card > p + p {
+    margin-top: 12px;
   }
 
   body[data-page="home"] .hero-bullets li,
