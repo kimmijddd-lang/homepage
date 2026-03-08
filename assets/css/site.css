@@ -198,7 +198,7 @@ main {
 }
 
 .hero-grid {
-  grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
   gap: 24px;
 }
@@ -294,7 +294,7 @@ p {
   display: flex;
   flex-direction: column;
   min-height: 640px;
-  padding: 38px 40px;
+  padding: 36px 36px 34px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.58));
   border: 1px solid rgba(255, 255, 255, 0.82);
@@ -335,11 +335,11 @@ p {
 
 .hero-bullets {
   margin-top: auto;
-  padding-top: 26px;
+  padding-top: 24px;
+  gap: 20px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.hero-bullets li,
 .bullet-list li,
 .contact-list li {
   padding: 14px 16px;
@@ -349,11 +349,26 @@ p {
   font-weight: 650;
 }
 
+.hero-bullets li {
+  min-height: 144px;
+  padding: 18px;
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 1rem;
+  line-height: 1.56;
+  font-weight: 800;
+}
+
 .hero-card {
   display: flex;
   flex-direction: column;
   min-height: 640px;
-  padding: 34px 34px 32px;
+  padding: 36px 36px 34px;
   overflow: hidden;
 }
 
@@ -378,6 +393,7 @@ p {
 .hero-card .mini-card {
   padding: 18px;
   border-radius: 22px;
+  min-height: 144px;
 }
 
 .hero-card .mini-card strong {
