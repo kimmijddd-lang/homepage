@@ -631,12 +631,13 @@ body[data-page="home"] .hero-card .mini-card {
 }
 
 body[data-page="home"] .hero-bullets li {
-  place-items: start;
-  align-content: start;
-  text-align: left;
+  place-items: center;
+  align-content: center;
+  text-align: center;
   white-space: normal;
-  font-size: 0.99rem;
-  line-height: 1.34;
+  font-size: clamp(1rem, 1.08vw, 1.08rem);
+  line-height: 1.38;
+  letter-spacing: -0.02em;
 }
 
 body[data-page="home"] .hero-card .mini-grid {
@@ -1804,12 +1805,12 @@ textarea {
   }
 
   body[data-page="home"] .hero-bullets li {
-    place-items: start;
-    align-content: start;
-    text-align: left;
+    place-items: center;
+    align-content: center;
+    text-align: center;
     white-space: normal;
-    font-size: 0.88rem;
-    line-height: 1.28;
+    font-size: 0.92rem;
+    line-height: 1.34;
   }
 
   body[data-page="home"] .hero-card .mini-card p {
