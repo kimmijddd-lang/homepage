@@ -17,6 +17,8 @@
   --radius-sm: 16px;
   --shadow: 0 24px 60px rgba(19, 34, 56, 0.10);
   --container: min(1120px, calc(100vw - 32px));
+  --measure-reading: 620px;
+  --measure-medium: 760px;
 }
 
 * {
@@ -351,7 +353,7 @@ p {
 }
 
 .page-hero .lead {
-  max-width: 70ch;
+  max-width: min(100%, var(--measure-reading));
 }
 
 .hero-bullets,
@@ -633,7 +635,7 @@ body[data-page="home"] .hero-card .mini-card p {
 }
 
 .section-head > div {
-  max-width: 760px;
+  max-width: min(100%, var(--measure-medium));
 }
 
 .section-head h2 {
@@ -647,7 +649,7 @@ body[data-page="home"] .hero-card .mini-card p {
 }
 
 .section-note {
-  max-width: 48ch;
+  max-width: min(100%, var(--measure-reading));
   color: var(--muted);
 }
 
@@ -759,7 +761,7 @@ body[data-page="home"] .step-list li {
 
 body[data-page="home"] .profile-copy {
   gap: 12px;
-  width: min(100%, 548px);
+  width: min(100%, var(--measure-reading));
   justify-self: start;
 }
 
@@ -826,6 +828,15 @@ body[data-page="home"] .service-grid .service-card p {
 
 .article-intro {
   font-size: 1.08rem;
+  max-width: min(100%, var(--measure-reading));
+}
+
+.cta-panel h2 {
+  max-width: min(100%, var(--measure-medium));
+}
+
+.cta-panel .lead {
+  max-width: min(100%, var(--measure-reading));
 }
 
 .bullet-list li {
