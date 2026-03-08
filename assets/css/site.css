@@ -398,6 +398,15 @@ p {
   max-width: min(100%, var(--measure-reading));
 }
 
+.page-hero .lead,
+.section-note,
+.article-intro,
+.cta-panel .lead,
+.statement-card .lead,
+body[data-page="home"] .contact-cta-copy .lead {
+  max-width: none;
+}
+
 .hero-bullets,
 .chip-list,
 .bullet-list,
@@ -702,7 +711,6 @@ body[data-page="home"] .hero-card .mini-card p {
 }
 
 .section-note {
-  max-width: min(100%, var(--measure-reading));
   color: var(--muted);
 }
 
@@ -767,10 +775,6 @@ body[data-page="home"] .hero-card .mini-card p {
   margin-top: 10px;
 }
 
-.statement-card .lead {
-  max-width: min(100%, var(--measure-medium));
-}
-
 .article-layout {
   grid-template-columns: minmax(0, 1fr) 300px;
   align-items: start;
@@ -794,10 +798,6 @@ body[data-page="home"] .section-head {
   justify-content: start;
   gap: 12px;
   margin-bottom: 20px;
-}
-
-body[data-page="home"] .section-note {
-  max-width: min(100%, var(--measure-medium));
 }
 
 body[data-page="home"] .section-note-inline {
@@ -1036,15 +1036,10 @@ body[data-page="home"] .contact-link p {
 
 .article-intro {
   font-size: 1.08rem;
-  max-width: min(100%, var(--measure-reading));
 }
 
 .cta-panel h2 {
   max-width: min(100%, var(--measure-medium));
-}
-
-.cta-panel .lead {
-  max-width: min(100%, var(--measure-reading));
 }
 
 .bullet-list li {
