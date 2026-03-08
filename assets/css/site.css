@@ -526,7 +526,17 @@ body[data-page="home"] .hero-principles-layout {
 body[data-page="home"] .hero-panel,
 body[data-page="home"] .hero-card {
   min-height: auto;
-  padding: 28px 28px 24px;
+  padding: 40px 42px 34px;
+}
+
+body[data-page="home"] .eyebrow {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+body[data-page="home"] .eyebrow::before {
+  width: 42px;
 }
 
 body[data-page="home"] .hero-principles-section {
@@ -538,63 +548,88 @@ body[data-page="home"] .hero-principles-card {
 }
 
 body[data-page="home"] .hero h1 {
-  font-size: clamp(1.34rem, 1.72vw, 1.72rem);
-  line-height: 1.14;
+  max-width: min(100%, 18ch);
+  font-size: clamp(2rem, 2.55vw, 2.52rem);
+  line-height: 1.1;
 }
 
 body[data-page="home"] .hero-card h2 {
-  font-size: clamp(1.14rem, 1.42vw, 1.46rem);
-  line-height: 1.24;
+  max-width: min(100%, 18ch);
+  margin-top: 10px;
+  font-size: clamp(1.74rem, 2.22vw, 2.12rem);
+  line-height: 1.2;
 }
 
 body[data-page="home"] .hero .lead,
 body[data-page="home"] .hero-card .lead {
-  margin-top: 12px;
-  font-size: 0.94rem;
-  line-height: 1.58;
+  max-width: min(100%, 62ch);
+  margin-top: 14px;
+  font-size: 1.02rem;
+  line-height: 1.68;
 }
 
 body[data-page="home"] .hero-copy-stack {
-  max-width: 43ch;
-  gap: 10px;
+  max-width: min(100%, 62ch);
+  gap: 14px;
 }
 
 body[data-page="home"] .hero-copy-stack p,
 body[data-page="home"] .hero-card p {
-  font-size: 0.94rem;
-  line-height: 1.58;
+  font-size: 0.99rem;
+  line-height: 1.64;
 }
 
 body[data-page="home"] .hero-actions {
-  gap: 12px;
-  margin-top: 18px;
+  gap: 14px;
+  margin-top: 24px;
 }
 
-body[data-page="home"] .hero-bullets,
 body[data-page="home"] .mini-grid {
   gap: 12px;
-  padding-top: 14px;
+}
+
+body[data-page="home"] .hero-bullets {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 28px;
 }
 
 body[data-page="home"] .hero-bullets li,
 body[data-page="home"] .hero-card .mini-card {
-  min-height: 96px;
-  padding: 12px;
+  min-height: 118px;
+  padding: 18px 18px 16px;
+}
+
+body[data-page="home"] .hero-card .mini-card {
+  align-content: start;
+  text-align: left;
 }
 
 body[data-page="home"] .hero-bullets li {
-  font-size: 0.92rem;
-  line-height: 1.16;
+  place-items: start;
+  align-content: start;
+  text-align: left;
+  white-space: normal;
+  font-size: 0.99rem;
+  line-height: 1.34;
+}
+
+body[data-page="home"] .hero-card .mini-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px !important;
+  padding-top: 0;
 }
 
 body[data-page="home"] .hero-card .mini-card strong {
-  margin-bottom: 2px;
-  font-size: 0.9rem;
+  margin-bottom: 6px;
+  font-size: 1rem;
+  line-height: 1.28;
 }
 
 body[data-page="home"] .hero-card .mini-card p {
-  font-size: 0.84rem;
-  line-height: 1.42;
+  font-size: 0.9rem;
+  line-height: 1.48;
 }
 
 .tag,
@@ -1652,7 +1687,23 @@ textarea {
 
   body[data-page="home"] .hero-panel,
   body[data-page="home"] .hero-card {
-    padding: 20px;
+    padding: 24px 20px 20px;
+  }
+
+  body[data-page="home"] .hero h1 {
+    max-width: none;
+    font-size: clamp(1.58rem, 5vw, 1.96rem);
+    line-height: 1.12;
+  }
+
+  body[data-page="home"] .hero-card h2 {
+    max-width: none;
+    font-size: clamp(1.34rem, 4.2vw, 1.64rem);
+    line-height: 1.22;
+  }
+
+  body[data-page="home"] .hero-copy-stack {
+    max-width: none;
   }
 
   body[data-page="home"] .hero-actions .button,
@@ -1674,14 +1725,24 @@ textarea {
     gap: 10px;
   }
 
+  body[data-page="home"] .hero-bullets,
+  body[data-page="home"] .hero-card .mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   body[data-page="home"] .hero-bullets li,
   body[data-page="home"] .hero-card .mini-card {
-    min-height: 84px;
-    padding: 10px;
+    min-height: 96px;
+    padding: 12px;
   }
 
   body[data-page="home"] .hero-bullets li {
+    place-items: start;
+    align-content: start;
+    text-align: left;
+    white-space: normal;
     font-size: 0.88rem;
+    line-height: 1.28;
   }
 
   body[data-page="home"] .hero-card .mini-card p {
