@@ -727,6 +727,13 @@ body[data-page="home"] .section-note {
   max-width: min(100%, var(--measure-medium));
 }
 
+body[data-page="home"] main > section:nth-of-type(2),
+body[data-page="home"] main > section:nth-of-type(3),
+body[data-page="home"] main > section:nth-of-type(4),
+body[data-page="home"] main > section:nth-of-type(5) {
+  align-items: center;
+}
+
 body[data-page="home"] .guide-grid,
 body[data-page="home"] .step-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1402,6 +1409,13 @@ textarea {
     min-height: calc(100svh - 74px);
     align-items: flex-start;
     padding-top: 0;
+  }
+
+  body[data-page="home"] main > section:nth-of-type(2),
+  body[data-page="home"] main > section:nth-of-type(3),
+  body[data-page="home"] main > section:nth-of-type(4),
+  body[data-page="home"] main > section:nth-of-type(5) {
+    align-items: flex-start;
   }
 
   body[data-page="home"] .service-grid,
