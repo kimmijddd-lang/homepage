@@ -199,6 +199,13 @@ body[data-page="home"] main > .section {
   scroll-snap-stop: always;
 }
 
+body[data-page="home"] .hero {
+  min-height: calc(100svh - 88px);
+  padding: 24px 0 14px;
+  display: flex;
+  align-items: center;
+}
+
 body[data-page="home"] main > .section {
   min-height: calc(100svh - 88px);
   display: flex;
@@ -430,6 +437,65 @@ p {
 .hero-card .mini-card p {
   font-size: 0.96rem;
   line-height: 1.62;
+}
+
+body[data-page="home"] .hero-grid {
+  gap: 20px;
+}
+
+body[data-page="home"] .hero-panel,
+body[data-page="home"] .hero-card {
+  min-height: auto;
+  padding: 28px 28px 24px;
+}
+
+body[data-page="home"] .hero h1 {
+  font-size: clamp(1.34rem, 1.72vw, 1.72rem);
+  line-height: 1.14;
+}
+
+body[data-page="home"] .hero-card h2 {
+  font-size: clamp(1.14rem, 1.42vw, 1.46rem);
+  line-height: 1.24;
+}
+
+body[data-page="home"] .hero .lead,
+body[data-page="home"] .hero-card .lead {
+  margin-top: 12px;
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+body[data-page="home"] .hero-actions {
+  gap: 12px;
+  margin-top: 18px;
+}
+
+body[data-page="home"] .hero-bullets,
+body[data-page="home"] .mini-grid {
+  gap: 12px;
+  padding-top: 14px;
+}
+
+body[data-page="home"] .hero-bullets li,
+body[data-page="home"] .hero-card .mini-card {
+  min-height: 96px;
+  padding: 12px;
+}
+
+body[data-page="home"] .hero-bullets li {
+  font-size: 0.92rem;
+  line-height: 1.16;
+}
+
+body[data-page="home"] .hero-card .mini-card strong {
+  margin-bottom: 2px;
+  font-size: 0.9rem;
+}
+
+body[data-page="home"] .hero-card .mini-card p {
+  font-size: 0.84rem;
+  line-height: 1.42;
 }
 
 .tag,
