@@ -296,8 +296,8 @@ p {
 }
 
 .hero h1 {
-  max-width: 13ch;
-  font-size: clamp(2.45rem, 4.25vw, 4rem);
+  max-width: 15.5ch;
+  font-size: clamp(2.25rem, 3.95vw, 3.65rem);
 }
 
 .hero .lead {
@@ -435,6 +435,10 @@ p {
 
 .sidebar-card h2 {
   max-width: 15ch;
+}
+
+.nowrap-desktop {
+  white-space: nowrap;
 }
 
 .mini-card p,
@@ -875,6 +879,10 @@ textarea {
 
   .section-head h2 {
     max-width: none;
+  }
+
+  .nowrap-desktop {
+    white-space: normal;
   }
 }
 
