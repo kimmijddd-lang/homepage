@@ -1133,7 +1133,9 @@ body[data-page="home"] .service-grid .service-card p {
 
 body[data-page="home"] .faq-scene-layout {
   display: grid;
-  gap: 18px;
+  width: min(100%, 980px);
+  margin-inline: auto;
+  gap: 30px;
   grid-template-columns: 1fr;
   align-items: start;
 }
@@ -1163,14 +1165,15 @@ body[data-page="home"] .faq-summary-grid {
 }
 
 body[data-page="home"] .faq-summary-grid .mini-card {
-  min-height: 144px;
-  padding: 22px;
+  min-height: 118px;
+  padding: 18px 18px 16px;
+  gap: 8px;
   align-content: start;
 }
 
 body[data-page="home"] .faq-scene-list {
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 12px;
 }
 
 body[data-page="home"] .faq-scene-list .faq-item {
@@ -1182,7 +1185,7 @@ body[data-page="home"] .faq-scene-list .faq-item summary {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 24px 26px;
+  padding: 18px 22px;
   font-size: 1.04rem;
   line-height: 1.56;
 }
@@ -1200,7 +1203,7 @@ body[data-page="home"] .faq-scene-list .faq-item[open] summary::after {
 }
 
 body[data-page="home"] .faq-scene-list .faq-item p {
-  padding: 0 26px 26px;
+  padding: 0 22px 20px;
   max-width: none;
   line-height: 1.72;
 }
