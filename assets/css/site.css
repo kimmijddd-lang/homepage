@@ -525,8 +525,8 @@ body[data-page="home"] .hero-principles-layout {
 
 body[data-page="home"] .hero-panel,
 body[data-page="home"] .hero-card {
-  min-height: auto;
-  padding: 40px 42px 34px;
+  min-height: 442px;
+  padding: 32px 34px 26px;
 }
 
 body[data-page="home"] .eyebrow {
@@ -544,7 +544,7 @@ body[data-page="home"] .hero-principles-section {
 }
 
 body[data-page="home"] .hero-principles-card {
-  min-height: auto;
+  min-height: 442px;
 }
 
 body[data-page="home"] .hero h1 {
@@ -567,27 +567,31 @@ body[data-page="home"] .hero-card h2 {
 }
 
 body[data-page="home"] .hero .lead,
-body[data-page="home"] .hero-card .lead {
+body[data-page="home"] .hero-card > .lead {
   max-width: min(100%, 62ch);
-  margin-top: 14px;
-  font-size: 1.02rem;
-  line-height: 1.68;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  line-height: 1.38;
+  white-space: nowrap;
+  text-wrap: nowrap;
 }
 
 body[data-page="home"] .hero-copy-stack {
   max-width: min(100%, 62ch);
-  gap: 14px;
+  gap: 10px;
 }
 
-body[data-page="home"] .hero-copy-stack p,
-body[data-page="home"] .hero-card p {
-  font-size: 0.99rem;
-  line-height: 1.64;
+body[data-page="home"] .hero-copy-stack > p,
+body[data-page="home"] .hero-card > p:not(.lead) {
+  font-size: 0.88rem;
+  line-height: 1.36;
+  white-space: nowrap;
+  text-wrap: nowrap;
 }
 
 body[data-page="home"] .hero-actions {
-  gap: 14px;
-  margin-top: 24px;
+  gap: 12px;
+  margin-top: 18px;
 }
 
 body[data-page="home"] .mini-grid {
@@ -596,14 +600,14 @@ body[data-page="home"] .mini-grid {
 
 body[data-page="home"] .hero-bullets {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  padding-top: 28px;
+  gap: 14px;
+  padding-top: 20px;
 }
 
 body[data-page="home"] .hero-bullets li,
 body[data-page="home"] .hero-card .mini-card {
-  min-height: 118px;
-  padding: 18px 18px 16px;
+  min-height: 128px;
+  padding: 16px 16px 14px;
 }
 
 body[data-page="home"] .hero-card .mini-card {
@@ -622,20 +626,22 @@ body[data-page="home"] .hero-bullets li {
 
 body[data-page="home"] .hero-card .mini-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 28px !important;
+  gap: 14px;
+  margin-top: 20px !important;
   padding-top: 0;
 }
 
 body[data-page="home"] .hero-card .mini-card strong {
-  margin-bottom: 6px;
-  font-size: 1rem;
+  margin-bottom: 4px;
+  font-size: 0.96rem;
   line-height: 1.28;
 }
 
 body[data-page="home"] .hero-card .mini-card p {
-  font-size: 0.9rem;
-  line-height: 1.48;
+  font-size: 0.82rem;
+  line-height: 1.32;
+  white-space: normal;
+  text-wrap: pretty;
 }
 
 body[data-page="home"] .section-head h2,
@@ -911,7 +917,7 @@ body[data-page="home"] .step-list li {
 }
 
 body[data-page="home"] .profile-layout {
-  gap: 24px;
+  gap: 20px;
   align-items: stretch;
 }
 
@@ -946,15 +952,15 @@ body[data-page="home"] .step-list li {
 }
 
 body[data-page="home"] .service-card {
-  min-height: 194px;
+  min-height: 192px;
 }
 
 body[data-page="home"] .guide-card {
-  min-height: 208px;
+  min-height: 192px;
 }
 
 body[data-page="home"] .check-card {
-  min-height: 202px;
+  min-height: 192px;
 }
 
 body[data-page="home"] .profile-copy {
@@ -1022,7 +1028,7 @@ body[data-page="home"] .service-grid .service-card p {
 
 body[data-page="home"] .faq-scene-layout {
   display: grid;
-  gap: 24px;
+  gap: 20px;
   grid-template-columns: minmax(0, 1.16fr) minmax(300px, 0.84fr);
   align-items: start;
 }
@@ -1043,7 +1049,8 @@ body[data-page="home"] .faq-summary-grid {
 }
 
 body[data-page="home"] .faq-summary-grid .mini-card {
-  min-height: 154px;
+  min-height: 128px;
+  padding: 16px;
   align-content: start;
 }
 
@@ -1078,7 +1085,7 @@ body[data-page="home"] .contact-scene-copy {
   align-content: start;
   gap: 12px;
   min-height: auto;
-  padding: 24px;
+  padding: 20px;
 }
 
 body[data-page="home"] .contact-scene-copy > * + * {
@@ -1115,8 +1122,8 @@ body[data-page="home"] .contact-scene-actions > * {
 }
 
 body[data-page="home"] .contact-link {
-  min-height: 136px;
-  padding: 18px;
+  min-height: 128px;
+  padding: 16px;
   align-content: start;
   text-decoration: none;
 }
@@ -1131,8 +1138,8 @@ body[data-page="home"] .contact-link p {
 }
 
 body[data-page="home"] .contact-scene-note {
-  min-height: 136px;
-  padding: 18px;
+  min-height: 128px;
+  padding: 16px;
   align-content: start;
 }
 
@@ -1150,7 +1157,7 @@ body[data-page="home"] .contact-scene-note p {
 .sidebar-card,
 .cta-panel,
 .contact-form {
-  padding: 30px;
+  padding: 28px;
 }
 
 .content-card h2,
