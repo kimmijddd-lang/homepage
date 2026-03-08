@@ -297,7 +297,7 @@ p {
 
 .hero h1 {
   max-width: 15.5ch;
-  font-size: clamp(2.25rem, 3.95vw, 3.65rem);
+  font-size: clamp(1.95rem, 3.25vw, 3rem);
 }
 
 .hero .lead {
@@ -832,7 +832,7 @@ textarea {
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1360px) {
   .hero-grid {
     grid-template-columns: 1fr;
   }
