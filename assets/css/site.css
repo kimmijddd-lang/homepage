@@ -303,6 +303,17 @@ p {
   margin-top: 28px;
 }
 
+.profile-actions {
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.profile-action-link {
+  font-weight: 800;
+  text-decoration: none;
+}
+
 .card,
 .summary-card,
 .stat-card,
@@ -360,6 +371,23 @@ p {
 .profile-text-stack p,
 .contact-cta-copy p {
   margin: 0;
+}
+
+.profile-heading {
+  display: grid;
+  gap: 8px;
+}
+
+.profile-heading h2 {
+  margin: 0;
+}
+
+.profile-facts {
+  display: grid;
+  gap: 2px;
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .page-hero h1 {
@@ -678,6 +706,12 @@ body[data-page="home"] .hero-card .mini-card p {
   color: var(--muted);
 }
 
+.section-note-inline {
+  max-width: none;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+
 .service-card,
 .guide-card,
 .contact-card,
@@ -766,6 +800,11 @@ body[data-page="home"] .section-note {
   max-width: min(100%, var(--measure-medium));
 }
 
+body[data-page="home"] .section-note-inline {
+  max-width: none;
+  white-space: nowrap;
+}
+
 body[data-page="home"] .section.scene-centered {
   align-items: center;
 }
@@ -786,13 +825,8 @@ body[data-page="home"] .profile-layout {
 
 body[data-page="home"] .profile-section {
   display: grid;
-  gap: 10px;
+  gap: 0;
   margin-top: 0;
-}
-
-body[data-page="home"] .profile-section > h2 {
-  font-size: clamp(1.56rem, 2.18vw, 2.14rem);
-  line-height: 1.1;
 }
 
 body[data-page="home"] .profile-frame {
@@ -832,7 +866,7 @@ body[data-page="home"] .check-card {
 }
 
 body[data-page="home"] .profile-copy {
-  gap: 12px;
+  gap: 10px;
   width: min(100%, var(--measure-reading));
   justify-self: start;
 }
@@ -850,13 +884,25 @@ body[data-page="home"] .profile-text-stack {
   max-width: min(100%, var(--measure-reading));
 }
 
+body[data-page="home"] .profile-heading {
+  gap: 6px;
+}
+
+body[data-page="home"] .profile-heading h2 {
+  font-size: clamp(1.56rem, 2.18vw, 2.14rem);
+  line-height: 1.1;
+}
+
+body[data-page="home"] .profile-facts {
+  font-size: 0.96rem;
+}
+
 body[data-page="home"] .profile-copy .bullet-list {
   gap: 10px;
   width: 100%;
 }
 
 body[data-page="home"] .profile-copy .inline-actions {
-  margin-top: 6px;
   width: 100%;
 }
 
@@ -1132,6 +1178,32 @@ body[data-page="home"] .contact-link p {
 
 .profile-copy .quote-card {
   margin-top: 6px;
+}
+
+.author-stack {
+  gap: 24px;
+}
+
+.author-profile-layout {
+  align-items: start;
+}
+
+.author-profile-card {
+  height: 100%;
+}
+
+.author-bullet-list li {
+  padding: 12px 14px;
+}
+
+.author-detail-grid {
+  align-items: start;
+}
+
+.author-related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
 }
 
 .contact-layout {
@@ -1506,6 +1578,11 @@ textarea {
     line-height: 1.45;
   }
 
+  body[data-page="home"] .section-note-inline {
+    white-space: normal;
+    letter-spacing: normal;
+  }
+
   body[data-page="home"] .hero-panel,
   body[data-page="home"] .hero-card {
     padding: 20px;
@@ -1688,8 +1765,26 @@ textarea {
     line-height: 1.52;
   }
 
+  body[data-page="home"] .profile-facts {
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
   body[data-page="home"] .profile-copy .bullet-list {
     gap: 8px;
+  }
+
+  body[data-page="home"] .profile-actions {
+    gap: 10px;
+    margin-top: 2px;
+  }
+
+  body[data-page="home"] .profile-action-link {
+    font-size: 0.88rem;
+  }
+
+  body[data-page="author-kim-minjun"] .author-detail-grid {
+    grid-template-columns: 1fr;
   }
 
   body[data-page="home"] .step-list li {
