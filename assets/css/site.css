@@ -38,6 +38,11 @@ body {
   line-height: 1.7;
 }
 
+body[data-page="home"] {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 88px;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -186,6 +191,23 @@ main {
 .hero,
 .page-hero {
   padding: 64px 0 40px;
+}
+
+body[data-page="home"] .hero,
+body[data-page="home"] main > .section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+body[data-page="home"] main > .section {
+  min-height: calc(100svh - 88px);
+  display: flex;
+  align-items: center;
+}
+
+body[data-page="home"] main > .section > .container,
+body[data-page="home"] .hero > .container {
+  width: var(--container);
 }
 
 .hero-grid,
@@ -605,6 +627,48 @@ p {
 .article-layout {
   grid-template-columns: minmax(0, 1fr) 300px;
   align-items: start;
+}
+
+body[data-page="home"] .service-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body[data-page="home"] .service-grid .service-card:last-child:nth-child(odd) {
+  grid-column: auto;
+}
+
+body[data-page="home"] .guide-grid,
+body[data-page="home"] .faq-grid,
+body[data-page="home"] .step-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body[data-page="home"] .step-list li {
+  min-height: 136px;
+}
+
+body[data-page="home"] .service-card,
+body[data-page="home"] .guide-card,
+body[data-page="home"] .faq-item {
+  height: 100%;
+}
+
+body[data-page="home"] .service-card,
+body[data-page="home"] .guide-card,
+body[data-page="home"] .step-list li {
+  padding: 18px;
+}
+
+body[data-page="home"] .service-card p,
+body[data-page="home"] .guide-card p,
+body[data-page="home"] .step-list p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+body[data-page="home"] .service-grid .service-card p {
+  white-space: normal;
 }
 
 .article-stack {
@@ -1088,6 +1152,33 @@ textarea {
 
   .footer-bar {
     padding: 14px 0 24px;
+  }
+
+  body[data-page="home"] {
+    scroll-padding-top: 74px;
+  }
+
+  body[data-page="home"] main > .section {
+    min-height: calc(100svh - 74px);
+    align-items: center;
+  }
+
+  body[data-page="home"] .service-grid,
+  body[data-page="home"] .guide-grid,
+  body[data-page="home"] .step-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-page="home"] .service-grid .service-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  body[data-page="home"] .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="home"] .step-list li {
+    min-height: 120px;
   }
 }
 
