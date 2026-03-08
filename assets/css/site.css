@@ -952,9 +952,9 @@ body[data-page="home"] .step-list li {
 }
 
 body[data-page="home"] .profile-layout {
-  gap: 16px;
+  gap: 10px;
   align-items: stretch;
-  grid-template-columns: minmax(220px, 272px) minmax(0, 1fr);
+  grid-template-columns: minmax(208px, 248px) minmax(0, 1fr);
 }
 
 body[data-page="home"] .profile-section {
@@ -968,15 +968,20 @@ body[data-page="home"] .profile-frame {
   overflow: visible;
   border-radius: 0;
   box-shadow: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 body[data-page="home"] .profile-frame img {
-  height: 100%;
-  object-fit: cover;
+  width: min(100%, 244px);
+  height: auto;
+  object-fit: contain;
   object-position: center top;
-  transform: scale(1.04);
-  transform-origin: center top;
-  filter: drop-shadow(0 20px 28px rgba(19, 34, 56, 0.12));
+  transform: scale(1.02);
+  transform-origin: center bottom;
+  mix-blend-mode: multiply;
+  filter: brightness(1.02) contrast(1.04) drop-shadow(0 16px 24px rgba(19, 34, 56, 0.12));
 }
 
 body[data-page="home"] .service-card,
@@ -1086,6 +1091,7 @@ body[data-page="home"] .profile-copy .inline-actions {
 body[data-page="home"] .profile-actions {
   margin-top: 0;
   justify-content: flex-start;
+  align-self: start;
 }
 
 body[data-page="home"] .profile-copy .quote-card {
