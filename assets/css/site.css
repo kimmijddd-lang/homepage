@@ -719,6 +719,11 @@ body[data-page="home"] .step-list li {
   min-height: 136px;
 }
 
+body[data-page="home"] .profile-layout {
+  gap: 24px;
+  align-items: start;
+}
+
 body[data-page="home"] .service-card,
 body[data-page="home"] .guide-card,
 body[data-page="home"] .faq-item {
@@ -728,6 +733,27 @@ body[data-page="home"] .faq-item {
 body[data-page="home"] .service-card,
 body[data-page="home"] .guide-card,
 body[data-page="home"] .step-list li {
+  padding: 18px;
+}
+
+body[data-page="home"] .profile-copy {
+  gap: 12px;
+}
+
+body[data-page="home"] .profile-copy .lead {
+  margin-top: 6px;
+}
+
+body[data-page="home"] .profile-copy .bullet-list {
+  gap: 10px;
+}
+
+body[data-page="home"] .profile-copy .inline-actions {
+  margin-top: 6px;
+}
+
+body[data-page="home"] .profile-copy .quote-card {
+  margin-top: 0;
   padding: 18px;
 }
 
