@@ -698,6 +698,21 @@ body[data-page="home"] .hero-card .mini-card p {
   line-height: 1.28;
 }
 
+.statement-card {
+  width: min(100%, 860px);
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.statement-card h2 {
+  max-width: min(100%, 20ch);
+  margin-top: 10px;
+}
+
+.statement-card .lead {
+  max-width: min(100%, var(--measure-medium));
+}
+
 .article-layout {
   grid-template-columns: minmax(0, 1fr) 300px;
   align-items: start;
@@ -727,10 +742,7 @@ body[data-page="home"] .section-note {
   max-width: min(100%, var(--measure-medium));
 }
 
-body[data-page="home"] main > section:nth-of-type(2),
-body[data-page="home"] main > section:nth-of-type(3),
-body[data-page="home"] main > section:nth-of-type(4),
-body[data-page="home"] main > section:nth-of-type(5) {
+body[data-page="home"] .section.scene-centered {
   align-items: center;
 }
 
@@ -771,12 +783,14 @@ body[data-page="home"] .profile-frame img {
 
 body[data-page="home"] .service-card,
 body[data-page="home"] .guide-card,
+body[data-page="home"] .check-card,
 body[data-page="home"] .faq-item {
   height: 100%;
 }
 
 body[data-page="home"] .service-card,
 body[data-page="home"] .guide-card,
+body[data-page="home"] .check-card,
 body[data-page="home"] .step-list li {
   padding: 20px;
 }
@@ -787,6 +801,10 @@ body[data-page="home"] .service-card {
 
 body[data-page="home"] .guide-card {
   min-height: 208px;
+}
+
+body[data-page="home"] .check-card {
+  min-height: 202px;
 }
 
 body[data-page="home"] .profile-copy {
@@ -820,9 +838,14 @@ body[data-page="home"] .profile-copy .quote-card {
 
 body[data-page="home"] .service-card p,
 body[data-page="home"] .guide-card p,
+body[data-page="home"] .check-card p,
 body[data-page="home"] .step-list p {
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+body[data-page="home"] .statement-card {
+  padding: 30px;
 }
 
 body[data-page="home"] .service-grid .service-card p {
@@ -1411,10 +1434,7 @@ textarea {
     padding-top: 0;
   }
 
-  body[data-page="home"] main > section:nth-of-type(2),
-  body[data-page="home"] main > section:nth-of-type(3),
-  body[data-page="home"] main > section:nth-of-type(4),
-  body[data-page="home"] main > section:nth-of-type(5) {
+  body[data-page="home"] .section.scene-centered {
     align-items: flex-start;
   }
 
@@ -1437,7 +1457,8 @@ textarea {
   }
 
   body[data-page="home"] .service-card,
-  body[data-page="home"] .guide-card {
+  body[data-page="home"] .guide-card,
+  body[data-page="home"] .check-card {
     min-height: auto;
   }
 
@@ -1471,6 +1492,7 @@ textarea {
   body[data-page="home"] .mini-grid,
   body[data-page="home"] .service-grid,
   body[data-page="home"] .guide-grid,
+  body[data-page="home"] .check-grid,
   body[data-page="home"] .step-list,
   body[data-page="home"] .contact-action-grid {
     gap: 10px;
@@ -1493,6 +1515,7 @@ textarea {
 
   body[data-page="home"] .service-card,
   body[data-page="home"] .guide-card,
+  body[data-page="home"] .check-card,
   body[data-page="home"] .step-list li,
   body[data-page="home"] .contact-cta-copy,
   body[data-page="home"] .contact-link,
@@ -1503,6 +1526,7 @@ textarea {
 
   body[data-page="home"] .service-card h3,
   body[data-page="home"] .guide-card h3,
+  body[data-page="home"] .check-card h3,
   body[data-page="home"] .step-list h3,
   body[data-page="home"] .contact-link h3,
   body[data-page="home"] .contact-cta-copy h3 {
@@ -1512,6 +1536,7 @@ textarea {
 
   body[data-page="home"] .service-card p,
   body[data-page="home"] .guide-card p,
+  body[data-page="home"] .check-card p,
   body[data-page="home"] .step-list p,
   body[data-page="home"] .contact-link p {
     font-size: 0.84rem;
@@ -1525,6 +1550,19 @@ textarea {
   body[data-page="home"] .service-card a,
   body[data-page="home"] .guide-card a {
     font-size: 0.84rem;
+  }
+
+  body[data-page="home"] .statement-card {
+    padding: 20px;
+  }
+
+  body[data-page="home"] .statement-card h2 {
+    max-width: none;
+  }
+
+  body[data-page="home"] .statement-card .lead {
+    font-size: 0.9rem;
+    line-height: 1.52;
   }
 
   body[data-page="home"] .home-final-layout {
