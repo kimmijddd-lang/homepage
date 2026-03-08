@@ -293,7 +293,7 @@ p {
 .hero-panel {
   display: flex;
   flex-direction: column;
-  min-height: 596px;
+  min-height: 556px;
   padding: 34px 34px 30px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.58));
@@ -305,7 +305,7 @@ p {
 .hero h1 {
   max-width: none;
   font-size: clamp(1.54rem, 1.76vw, 1.98rem);
-  line-height: 1.18;
+  line-height: 1.24;
 }
 
 .hero .lead {
@@ -369,7 +369,7 @@ p {
 .hero-card {
   display: flex;
   flex-direction: column;
-  min-height: 596px;
+  min-height: 556px;
   padding: 34px 34px 30px;
   overflow: hidden;
 }
