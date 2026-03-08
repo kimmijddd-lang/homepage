@@ -548,16 +548,22 @@ body[data-page="home"] .hero-principles-card {
 }
 
 body[data-page="home"] .hero h1 {
-  max-width: min(100%, 18ch);
-  font-size: clamp(2rem, 2.55vw, 2.52rem);
-  line-height: 1.1;
+  max-width: none;
+  font-size: clamp(1.78rem, 2.16vw, 2.14rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+  text-wrap: nowrap;
 }
 
 body[data-page="home"] .hero-card h2 {
-  max-width: min(100%, 18ch);
+  max-width: none;
   margin-top: 10px;
-  font-size: clamp(1.74rem, 2.22vw, 2.12rem);
-  line-height: 1.2;
+  font-size: clamp(1.48rem, 1.82vw, 1.74rem);
+  line-height: 1.14;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  text-wrap: nowrap;
 }
 
 body[data-page="home"] .hero .lead,
@@ -630,6 +636,23 @@ body[data-page="home"] .hero-card .mini-card strong {
 body[data-page="home"] .hero-card .mini-card p {
   font-size: 0.9rem;
   line-height: 1.48;
+}
+
+body[data-page="home"] .section-head h2,
+body[data-page="home"] .contact-scene-copy h2 {
+  white-space: nowrap;
+  text-wrap: nowrap;
+  letter-spacing: -0.04em;
+}
+
+body[data-page="home"] .section-head h2 {
+  font-size: clamp(1.18rem, 1.44vw, 1.44rem);
+  line-height: 1.16;
+}
+
+body[data-page="home"] .contact-scene-copy h2 {
+  font-size: clamp(1.2rem, 1.42vw, 1.4rem);
+  line-height: 1.18;
 }
 
 .tag,
@@ -863,6 +886,10 @@ body[data-page="home"] .section-head {
   justify-content: start;
   gap: 12px;
   margin-bottom: 20px;
+}
+
+body[data-page="home"] .section-head > div {
+  max-width: none;
 }
 
 body[data-page="home"] .section-note-inline {
@@ -1694,16 +1721,26 @@ textarea {
     max-width: none;
     font-size: clamp(1.58rem, 5vw, 1.96rem);
     line-height: 1.12;
+    white-space: normal;
+    text-wrap: balance;
   }
 
   body[data-page="home"] .hero-card h2 {
     max-width: none;
     font-size: clamp(1.34rem, 4.2vw, 1.64rem);
     line-height: 1.22;
+    white-space: normal;
+    text-wrap: balance;
   }
 
   body[data-page="home"] .hero-copy-stack {
     max-width: none;
+  }
+
+  body[data-page="home"] .section-head h2,
+  body[data-page="home"] .contact-scene-copy h2 {
+    white-space: normal;
+    text-wrap: balance;
   }
 
   body[data-page="home"] .hero-actions .button,
