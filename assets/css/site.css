@@ -106,7 +106,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
   padding: 18px 0;
 }
 
@@ -135,7 +135,7 @@ img {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
 }
 
 .main-nav a {
@@ -593,7 +593,7 @@ body[data-page="home"] .hero-card > .lead {
 
 body[data-page="home"] .hero-copy-stack {
   max-width: min(100%, 74ch);
-  gap: 14px;
+  gap: 20px;
 }
 
 body[data-page="home"] .hero-copy-stack > p,
@@ -947,7 +947,7 @@ body[data-page="home"] .step-list li {
 }
 
 body[data-page="home"] .profile-layout {
-  gap: 20px;
+  gap: 16px;
   align-items: stretch;
 }
 
@@ -991,7 +991,8 @@ body[data-page="home"] .step-list li {
 }
 
 body[data-page="home"] .service-card {
-  min-height: 192px;
+  min-height: 176px;
+  padding: 20px;
 }
 
 body[data-page="home"] .guide-card {
@@ -1004,7 +1005,7 @@ body[data-page="home"] .check-card {
 
 body[data-page="home"] .profile-copy {
   gap: 14px;
-  width: min(100%, var(--measure-reading));
+  width: min(100%, 680px);
   justify-self: start;
 }
 
@@ -1016,13 +1017,18 @@ body[data-page="home"] .profile-text-stack p {
   text-wrap: pretty;
 }
 
+body[data-page="home"] .profile-copy > p:not(.lead) {
+  max-width: min(100%, 68ch);
+  line-height: 1.72;
+}
+
 body[data-page="home"] .profile-text-stack {
   width: 100%;
   max-width: min(100%, var(--measure-reading));
 }
 
 body[data-page="home"] .profile-heading {
-  gap: 6px;
+  gap: 10px;
 }
 
 body[data-page="home"] .profile-heading h2 {
@@ -1031,7 +1037,28 @@ body[data-page="home"] .profile-heading h2 {
 }
 
 body[data-page="home"] .profile-facts {
+  display: grid;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
   font-size: 0.96rem;
+}
+
+body[data-page="home"] .profile-facts li {
+  position: relative;
+  padding-left: 14px;
+}
+
+body[data-page="home"] .profile-facts li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-deep);
 }
 
 body[data-page="home"] .profile-copy .bullet-list {
@@ -1040,7 +1067,7 @@ body[data-page="home"] .profile-copy .bullet-list {
 }
 
 body[data-page="home"] .profile-copy .inline-actions {
-  width: 100%;
+  width: auto;
 }
 
 body[data-page="home"] .profile-copy .quote-card {
@@ -1055,6 +1082,10 @@ body[data-page="home"] .check-card p,
 body[data-page="home"] .step-list p {
   font-size: 0.97rem;
   line-height: 1.62;
+}
+
+body[data-page="home"] .service-card p {
+  line-height: 1.56;
 }
 
 body[data-page="home"] .service-card a {
