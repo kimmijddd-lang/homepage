@@ -293,7 +293,7 @@ p {
 .hero-panel {
   display: flex;
   flex-direction: column;
-  min-height: 556px;
+  min-height: 526px;
   padding: 34px 34px 30px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.58));
@@ -369,7 +369,7 @@ p {
 .hero-card {
   display: flex;
   flex-direction: column;
-  min-height: 556px;
+  min-height: 526px;
   padding: 34px 34px 30px;
   overflow: hidden;
 }
