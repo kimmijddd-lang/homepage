@@ -541,6 +541,11 @@ body[data-page="home"] .hero-panel,
 body[data-page="home"] .hero-card {
   min-height: 468px;
   padding: 42px 44px 36px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 body[data-page="home"] .eyebrow {
@@ -1135,6 +1140,15 @@ body[data-page="home"] .faq-scene-copy {
 
 body[data-page="home"] .faq-scene-copy .section-head {
   margin-bottom: 0;
+}
+
+body[data-page="home"] .faq-scene-copy .section-head h2,
+body[data-page="home"] .faq-scene-copy .section-note,
+body[data-page="home"] .faq-summary-grid .mini-card strong,
+body[data-page="home"] .faq-summary-grid .mini-card p,
+body[data-page="home"] .faq-scene-list .faq-item summary,
+body[data-page="home"] .faq-scene-list .faq-item p {
+  letter-spacing: -0.01em;
 }
 
 body[data-page="home"] .faq-summary-grid {
