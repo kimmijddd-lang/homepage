@@ -349,6 +349,19 @@ p {
   max-width: 46ch;
 }
 
+.hero-copy-stack,
+.profile-text-stack {
+  display: grid;
+  gap: 12px;
+  max-width: 46ch;
+}
+
+.hero-copy-stack p,
+.profile-text-stack p,
+.contact-cta-copy p {
+  margin: 0;
+}
+
 .page-hero h1 {
   max-width: none;
 }
@@ -470,6 +483,17 @@ body[data-page="home"] .hero-card h2 {
 body[data-page="home"] .hero .lead,
 body[data-page="home"] .hero-card .lead {
   margin-top: 12px;
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+body[data-page="home"] .hero-copy-stack {
+  max-width: 43ch;
+  gap: 10px;
+}
+
+body[data-page="home"] .hero-copy-stack p,
+body[data-page="home"] .hero-card p {
   font-size: 0.94rem;
   line-height: 1.58;
 }
@@ -813,11 +837,17 @@ body[data-page="home"] .profile-copy {
   justify-self: start;
 }
 
-body[data-page="home"] .profile-copy .lead {
+body[data-page="home"] .profile-copy .lead,
+body[data-page="home"] .profile-text-stack p {
   margin-top: 0;
   max-width: none;
   line-height: 1.68;
   text-wrap: pretty;
+}
+
+body[data-page="home"] .profile-text-stack {
+  width: 100%;
+  max-width: min(100%, var(--measure-reading));
 }
 
 body[data-page="home"] .profile-copy .bullet-list {
@@ -1513,6 +1543,12 @@ textarea {
     line-height: 1.4;
   }
 
+  body[data-page="home"] .hero-copy-stack p,
+  body[data-page="home"] .hero-card p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
   body[data-page="home"] .service-card,
   body[data-page="home"] .guide-card,
   body[data-page="home"] .check-card,
@@ -1646,13 +1682,10 @@ textarea {
     width: 100%;
   }
 
-  body[data-page="home"] .profile-copy .lead {
+  body[data-page="home"] .profile-copy .lead,
+  body[data-page="home"] .profile-text-stack p {
     font-size: 0.89rem;
     line-height: 1.52;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
   }
 
   body[data-page="home"] .profile-copy .bullet-list {
