@@ -226,6 +226,8 @@ body[data-page="home"] .hero > .container {
 }
 
 .hero-grid,
+.hero-scene-layout,
+.hero-principles-layout,
 .article-layout,
 .profile-layout,
 .contact-layout,
@@ -236,6 +238,13 @@ body[data-page="home"] .hero > .container {
 
 .hero-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.hero-scene-layout,
+.hero-principles-layout {
+  grid-template-columns: minmax(0, 1fr);
   align-items: stretch;
   gap: 24px;
 }
@@ -501,10 +510,23 @@ body[data-page="home"] .hero-grid {
   gap: 20px;
 }
 
+body[data-page="home"] .hero-scene-layout,
+body[data-page="home"] .hero-principles-layout {
+  gap: 20px;
+}
+
 body[data-page="home"] .hero-panel,
 body[data-page="home"] .hero-card {
   min-height: auto;
   padding: 28px 28px 24px;
+}
+
+body[data-page="home"] .hero-principles-section {
+  align-items: center;
+}
+
+body[data-page="home"] .hero-principles-card {
+  min-height: auto;
 }
 
 body[data-page="home"] .hero h1 {
