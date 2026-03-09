@@ -34,6 +34,31 @@
     node.textContent = String(new Date().getFullYear());
   });
 
+  const syncViewportMetrics = () => {
+    const header = document.querySelector(".site-header");
+    const viewportHeight = Math.round(
+      window.visualViewport?.height || window.innerHeight,
+    );
+
+    document.documentElement.style.setProperty(
+      "--app-viewport-height",
+      `${viewportHeight}px`,
+    );
+
+    if (header instanceof HTMLElement) {
+      document.documentElement.style.setProperty(
+        "--site-header-height",
+        `${header.offsetHeight}px`,
+      );
+    }
+  };
+
+  syncViewportMetrics();
+  window.addEventListener("resize", syncViewportMetrics, { passive: true });
+  window.addEventListener("orientationchange", syncViewportMetrics);
+  window.visualViewport?.addEventListener("resize", syncViewportMetrics);
+  window.visualViewport?.addEventListener("scroll", syncViewportMetrics);
+
   const initializeHomeScenes = () => {
     if (body.dataset.page !== "home") {
       return;
