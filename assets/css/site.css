@@ -912,6 +912,172 @@ body[data-page="home"] .contact-scene-copy h2 {
   align-items: start;
 }
 
+body:not([data-page="home"]) .page-hero {
+  padding: 56px 0 28px;
+}
+
+body:not([data-page="home"]) .page-hero .container {
+  display: grid;
+  gap: 14px;
+}
+
+body:not([data-page="home"]) .page-hero .breadcrumb {
+  margin-bottom: 0;
+}
+
+body:not([data-page="home"]) .page-hero h1 {
+  max-width: min(100%, 16.5ch);
+  font-size: clamp(1.86rem, 2.55vw, 2.42rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+body:not([data-page="home"]) .page-hero .lead {
+  margin-top: 0;
+  max-width: min(100%, 74ch);
+  font-size: 1rem;
+  line-height: 1.76;
+}
+
+body:not([data-page="home"]) .page-hero .grid-three {
+  margin-top: 8px !important;
+  gap: 16px;
+}
+
+body:not([data-page="home"]) .page-hero .summary-card {
+  min-height: 142px;
+  padding: 20px;
+  gap: 8px;
+  align-content: start;
+}
+
+body:not([data-page="home"]) .page-hero .meta-strip {
+  margin-top: 6px;
+}
+
+body:not([data-page="home"]) .section {
+  padding: 20px 0 0;
+}
+
+body:not([data-page="home"]) .section + .section {
+  margin-top: 18px;
+}
+
+body:not([data-page="home"]) .article-layout,
+body:not([data-page="home"]) .contact-layout {
+  gap: 28px;
+}
+
+body:not([data-page="home"]) .article-layout {
+  grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+body:not([data-page="home"]) .article-stack {
+  gap: 18px;
+}
+
+body:not([data-page="home"]) .content-card,
+body:not([data-page="home"]) .sidebar-card,
+body:not([data-page="home"]) .cta-panel,
+body:not([data-page="home"]) .contact-form {
+  padding: 26px;
+  border-radius: 26px;
+}
+
+body:not([data-page="home"]) .content-card > * + *,
+body:not([data-page="home"]) .sidebar-card > * + *,
+body:not([data-page="home"]) .cta-panel > * + * {
+  margin-top: 16px;
+}
+
+body:not([data-page="home"]) .content-card h2,
+body:not([data-page="home"]) .cta-panel h2,
+body:not([data-page="home"]) .sidebar-card h2 {
+  margin-bottom: 12px;
+}
+
+body:not([data-page="home"]) .content-card p,
+body:not([data-page="home"]) .sidebar-card p,
+body:not([data-page="home"]) .contact-form p,
+body:not([data-page="home"]) .notice,
+body:not([data-page="home"]) .article-intro {
+  line-height: 1.72;
+}
+
+body:not([data-page="home"]) .bullet-list {
+  gap: 10px;
+}
+
+body:not([data-page="home"]) .bullet-list li {
+  padding: 13px 15px;
+}
+
+body:not([data-page="home"]) .step-list {
+  gap: 12px;
+}
+
+body:not([data-page="home"]) .step-list li {
+  padding: 16px;
+}
+
+body:not([data-page="home"]) .faq-grid {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+body:not([data-page="home"]) .faq-item summary {
+  padding: 18px 20px;
+  font-size: 0.98rem;
+  line-height: 1.48;
+}
+
+body:not([data-page="home"]) .faq-item p {
+  padding: 0 20px 18px;
+  line-height: 1.68;
+}
+
+body:not([data-page="home"]) .check-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body:not([data-page="home"]) .check-card,
+body:not([data-page="home"]) .contact-card,
+body:not([data-page="home"]) .summary-card {
+  align-content: start;
+}
+
+body[data-page="author-kim-minjun"] .page-hero h1 {
+  max-width: none;
+}
+
+body[data-page="author-kim-minjun"] .profile-layout {
+  grid-template-columns: minmax(232px, 292px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+body[data-page="author-kim-minjun"] .author-stack {
+  gap: 20px;
+}
+
+body[data-page="author-kim-minjun"] .profile-frame {
+  border-radius: 26px;
+}
+
+body[data-page="contact"] .contact-layout {
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+}
+
+body[data-page="contact"] .contact-grid {
+  gap: 16px;
+}
+
+body[data-page="contact"] .contact-card {
+  min-height: 148px;
+  padding: 20px;
+}
+
 body[data-page="home"] .service-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
@@ -1655,6 +1821,74 @@ textarea {
   .cta-panel,
   .contact-form {
     padding: 22px;
+  }
+
+  body:not([data-page="home"]) .page-hero {
+    padding: 32px 0 16px;
+  }
+
+  body:not([data-page="home"]) .page-hero .container {
+    gap: 12px;
+  }
+
+  body:not([data-page="home"]) .page-hero h1 {
+    max-width: none;
+    font-size: clamp(1.44rem, 4.9vw, 1.76rem);
+    line-height: 1.14;
+  }
+
+  body:not([data-page="home"]) .page-hero .lead {
+    font-size: 0.94rem;
+    line-height: 1.64;
+  }
+
+  body:not([data-page="home"]) .grid-three,
+  body:not([data-page="home"]) .contact-grid,
+  body:not([data-page="home"]) .check-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  body:not([data-page="home"]) .article-layout,
+  body:not([data-page="home"]) .contact-layout,
+  body[data-page="author-kim-minjun"] .profile-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  body:not([data-page="home"]) .article-stack {
+    gap: 14px;
+  }
+
+  body:not([data-page="home"]) .content-card,
+  body:not([data-page="home"]) .sidebar-card,
+  body:not([data-page="home"]) .cta-panel,
+  body:not([data-page="home"]) .contact-form {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  body:not([data-page="home"]) .step-list li {
+    grid-template-columns: 36px 1fr;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  body:not([data-page="home"]) .faq-item summary {
+    padding: 16px 18px;
+  }
+
+  body:not([data-page="home"]) .faq-item p {
+    padding: 0 18px 18px;
+  }
+
+  body[data-page="contact"] .contact-card {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  body[data-page="author-kim-minjun"] .profile-frame {
+    max-width: 220px;
   }
 
   .hero-panel,
