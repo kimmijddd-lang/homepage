@@ -980,11 +980,11 @@ body:not([data-page="home"]) .section + .section {
 
 body:not([data-page="home"]) .article-layout,
 body:not([data-page="home"]) .contact-layout {
-  gap: 28px;
+  gap: 32px;
 }
 
 body:not([data-page="home"]) .article-layout {
-  grid-template-columns: minmax(0, 1fr) 320px;
+  grid-template-columns: minmax(0, 1fr) 348px;
 }
 
 body:not([data-page="home"]) .article-stack {
@@ -997,6 +997,13 @@ body:not([data-page="home"]) .cta-panel,
 body:not([data-page="home"]) .contact-form {
   padding: 26px;
   border-radius: 26px;
+}
+
+body:not([data-page="home"]) .sidebar-card {
+  min-height: 332px;
+  display: grid;
+  align-content: start;
+  gap: 18px;
 }
 
 body:not([data-page="home"]) .content-card > * + *,
@@ -1031,6 +1038,22 @@ body:not([data-page="home"]) .contact-form p,
 body:not([data-page="home"]) .notice,
 body:not([data-page="home"]) .article-intro {
   line-height: 1.72;
+}
+
+body:not([data-page="home"]) .sidebar-card .button {
+  min-height: 44px;
+}
+
+body:not([data-page="home"]) .sidebar-card .link-list {
+  gap: 10px;
+  margin-top: auto;
+}
+
+body:not([data-page="home"]) .sidebar-card .link-list li {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.54);
+  border: 1px solid rgba(19, 34, 56, 0.08);
 }
 
 body:not([data-page="home"]) .bullet-list {
@@ -1926,6 +1949,11 @@ textarea {
   body:not([data-page="home"]) .contact-form {
     padding: 20px;
     border-radius: 22px;
+  }
+
+  body:not([data-page="home"]) .sidebar-card {
+    min-height: auto;
+    gap: 14px;
   }
 
   body:not([data-page="home"]) .step-list li {
