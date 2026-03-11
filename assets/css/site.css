@@ -49,6 +49,11 @@ body[data-page="home"] {
   scroll-padding-top: var(--site-header-height);
 }
 
+html:has(body[data-page="home"].home-scene-free-scroll),
+body[data-page="home"].home-scene-free-scroll {
+  scroll-snap-type: none;
+}
+
 body[data-page="home"] {
   overscroll-behavior-y: contain;
 }
@@ -215,6 +220,12 @@ body[data-page="home"] .hero,
 body[data-page="home"] main > .section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+
+body[data-page="home"].home-scene-free-scroll .hero,
+body[data-page="home"].home-scene-free-scroll main > .section {
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
 }
 
 body[data-page="home"] .hero {

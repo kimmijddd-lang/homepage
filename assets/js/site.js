@@ -77,6 +77,9 @@
     }
 
     const header = document.querySelector(".site-header");
+    const faqItems = Array.from(
+      document.querySelectorAll(".faq-scene-list .faq-item"),
+    );
     const blockedSelector = [
       "input",
       "textarea",
@@ -108,6 +111,14 @@
 
     const isTouchSceneMode = () =>
       coarsePointerQuery.matches || mobileViewportQuery.matches;
+
+    const updateFaqSceneMode = () => {
+      const hasOpenFaq = faqItems.some((item) => item.open);
+      body.classList.toggle("home-scene-free-scroll", hasOpenFaq);
+    };
+
+    const isFreeScrollMode = () =>
+      body.classList.contains("home-scene-free-scroll");
 
     const getHeaderOffset = () => {
       if (!(header instanceof HTMLElement)) {
@@ -176,7 +187,7 @@
     };
 
     const settleToNearestScene = (behavior = "smooth") => {
-      if (sceneLocked || hasTextFocus()) {
+      if (sceneLocked || hasTextFocus() || isFreeScrollMode()) {
         return;
       }
 
@@ -196,7 +207,7 @@
     };
 
     const moveScene = (direction) => {
-      if (sceneLocked || direction === 0) {
+      if (sceneLocked || direction === 0 || isFreeScrollMode()) {
         return false;
       }
 
@@ -212,7 +223,7 @@
     };
 
     const moveSceneFromIndex = (startIndex, direction) => {
-      if (sceneLocked || direction === 0) {
+      if (sceneLocked || direction === 0 || isFreeScrollMode()) {
         return false;
       }
 
@@ -232,6 +243,7 @@
         if (
           event.ctrlKey ||
           hasTextFocus() ||
+          isFreeScrollMode() ||
           isBlockedTarget(event.target) ||
           Math.abs(event.deltaY) <= Math.abs(event.deltaX)
         ) {
@@ -264,6 +276,7 @@
         event.ctrlKey ||
         event.metaKey ||
         hasTextFocus() ||
+        isFreeScrollMode() ||
         isBlockedTarget(event.target)
       ) {
         return;
@@ -326,6 +339,10 @@
           return;
         }
 
+        if (isFreeScrollMode()) {
+          return;
+        }
+
         const deltaX = touchCurrentX - touchStartX;
         const deltaY = touchCurrentY - touchStartY;
 
@@ -343,6 +360,10 @@
       "touchend",
       (event) => {
         if (sceneLocked || touchBlocked || event.changedTouches.length !== 1) {
+          return;
+        }
+
+        if (isFreeScrollMode()) {
           return;
         }
 
@@ -371,7 +392,12 @@
     window.addEventListener(
       "scroll",
       () => {
-        if (!isTouchSceneMode() || sceneLocked || hasTextFocus()) {
+        if (
+          !isTouchSceneMode() ||
+          sceneLocked ||
+          hasTextFocus() ||
+          isFreeScrollMode()
+        ) {
           return;
         }
 
@@ -386,7 +412,7 @@
     window.addEventListener("resize", () => {
       window.clearTimeout(resizeSnapTimer);
       resizeSnapTimer = window.setTimeout(() => {
-        if (sceneLocked) {
+        if (sceneLocked || isFreeScrollMode()) {
           return;
         }
 
@@ -400,6 +426,14 @@
         window.scrollTo(0, targetTop);
       }, 120);
     });
+
+    faqItems.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        updateFaqSceneMode();
+      });
+    });
+
+    updateFaqSceneMode();
   };
 
   initializeHomeScenes();
