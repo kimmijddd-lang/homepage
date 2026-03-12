@@ -1735,6 +1735,25 @@ body[data-page="home"] .step-list li > div {
   font-weight: 800;
 }
 
+.faq-open-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 40px;
+}
+
+.faq-open-item h3 {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--accent-deep);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.faq-open-item p {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
 .faq-grid {
   align-items: start;
 }
@@ -1969,6 +1988,7 @@ textarea {
   .article-layout,
   .contact-layout,
   .faq-grid,
+  .faq-open-grid,
   .form-grid.two {
     grid-template-columns: 1fr;
   }
@@ -2373,6 +2393,10 @@ textarea {
   body[data-page="home"] .faq-summary-grid,
   body[data-page="home"] .contact-scene-actions {
     gap: 10px;
+  }
+
+  body[data-page="home"] .faq-open-grid {
+    gap: 20px;
   }
 
   body[data-page="home"] .hero-bullets,
