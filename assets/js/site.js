@@ -468,6 +468,25 @@
     });
   });
 
+  // FAQ accordion — one open at a time + scroll into view
+  document.querySelectorAll(".faq-grid, .faq-scene-list").forEach((group) => {
+    const items = Array.from(group.querySelectorAll(".faq-item"));
+    items.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (!item.open) return;
+        items.forEach((other) => {
+          if (other !== item && other.open) other.open = false;
+        });
+        requestAnimationFrame(() => {
+          const summary = item.querySelector("summary");
+          if (summary) {
+            summary.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    });
+  });
+
   const storageKey = "taxdy_utm";
   const params = new URLSearchParams(window.location.search);
   const baseUtm = { utm_source: "", utm_medium: "", utm_campaign: "" };

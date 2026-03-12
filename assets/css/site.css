@@ -1743,6 +1743,7 @@ body[data-page="home"] .step-list li > div {
 .faq-item {
   padding: 0;
   overflow: hidden;
+  scroll-margin-top: calc(var(--site-header-height) + 16px);
 }
 
 .faq-item summary {
