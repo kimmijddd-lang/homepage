@@ -232,7 +232,7 @@ body[data-page="home"].home-scene-free-scroll main > .section {
 
 body[data-page="home"] .hero {
   min-height: calc(var(--app-viewport-height) - var(--site-header-height));
-  padding: var(--home-scene-padding-top) 0 var(--home-scene-padding-bottom);
+  padding: clamp(10px, 1.9vh, 20px) 0 clamp(24px, 4.8vh, 46px);
   display: flex;
   align-items: center;
 }
@@ -491,13 +491,29 @@ body[data-page="home"] .contact-scene-copy .lead {
   border: 1px solid rgba(255, 255, 255, 0.76);
   box-shadow: var(--shadow);
   display: grid;
-  place-items: center;
-  text-align: center;
-  white-space: nowrap;
+  align-content: start;
+  gap: 8px;
+  text-align: left;
+  white-space: normal;
   font-size: clamp(1.02rem, 1.08vw, 1.14rem);
   letter-spacing: -0.02em;
   line-height: 1.24;
   font-weight: 800;
+}
+
+.hero-bullets li strong {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.34;
+  letter-spacing: 0.005em;
+}
+
+.hero-bullets li span {
+  color: var(--muted);
+  font-size: 0.91rem;
+  line-height: 1.5;
+  font-weight: 650;
+  letter-spacing: 0;
 }
 
 .hero-card {
@@ -654,13 +670,22 @@ body[data-page="home"] .hero-card .mini-card {
 }
 
 body[data-page="home"] .hero-bullets li {
-  place-items: center;
-  align-content: center;
-  text-align: center;
+  place-items: start;
+  align-content: start;
+  text-align: left;
   white-space: normal;
-  font-size: clamp(1.02rem, 1.12vw, 1.1rem);
+  font-size: clamp(0.98rem, 1.06vw, 1.06rem);
   line-height: 1.42;
   letter-spacing: 0.01em;
+}
+
+body[data-page="home"] .hero-bullets li strong {
+  font-size: 1rem;
+}
+
+body[data-page="home"] .hero-bullets li span {
+  font-size: 0.88rem;
+  line-height: 1.48;
 }
 
 body[data-page="home"] .hero-card .mini-grid {
@@ -2284,12 +2309,21 @@ textarea {
   }
 
   body[data-page="home"] .hero-bullets li {
-    place-items: center;
-    align-content: center;
-    text-align: center;
+    place-items: start;
+    align-content: start;
+    text-align: left;
     white-space: normal;
     font-size: 0.92rem;
     line-height: 1.34;
+  }
+
+  body[data-page="home"] .hero-bullets li strong {
+    font-size: 0.92rem;
+  }
+
+  body[data-page="home"] .hero-bullets li span {
+    font-size: 0.8rem;
+    line-height: 1.42;
   }
 
   body[data-page="home"] .hero-card .mini-card p {
