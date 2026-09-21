@@ -7,6 +7,19 @@
   });
   const form = document.querySelector('form[name="contact_form"]');
   if (!form) return;
+  const consent = form.querySelector('input[name="개인정보수집동의"]');
+  if (consent) {
+    // Require fresh consent when the page loads or returns from history.
+    const clearConsent = () => { consent.checked = false; };
+    clearConsent();
+    let consentChanged = false;
+    consent.addEventListener('change', () => { consentChanged = true; });
+    window.addEventListener('pageshow', event => {
+      // Preserve a manual choice made before the initial load finishes.
+      if (event.persisted || !consentChanged) clearConsent();
+      consentChanged = false;
+    });
+  }
   const phone = form.querySelector('input[name="연락처"]');
   if (phone) {
     phone.addEventListener('input', () => phone.setCustomValidity(''));
