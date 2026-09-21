@@ -60,7 +60,7 @@
   window.visualViewport?.addEventListener("scroll", syncViewportMetrics);
 
   const initializeHomeScenes = () => {
-    if (body.dataset.page !== "home") {
+    if (body.dataset.page !== "home" || body.dataset.scroll === "natural") {
       return;
     }
 
@@ -487,42 +487,34 @@
     });
   });
 
-  const storageKey = "taxdy_utm";
+  // Carry only campaign labels across this visit; never store form contents.
+  const storageKey = "taxdy_visit_source_v2";
   const params = new URLSearchParams(window.location.search);
-  const baseUtm = { utm_source: "", utm_medium: "", utm_campaign: "" };
-  let stored = baseUtm;
-
+  const baseUtm = { utm_source: "", utm_medium: "", utm_campaign: "", utm_content: "" };
+  const now = Date.now();
+  const lifetime = 30 * 60 * 1000;
+  const cleanLabel = (value) => typeof value === "string" && /^[a-zA-Z0-9_.-]{1,80}$/.test(value) ? value : "";
+  let stored = { ...baseUtm };
+  let timestamp = now;
   try {
-    stored = {
-      ...baseUtm,
-      ...JSON.parse(window.localStorage.getItem(storageKey) || "{}"),
-    };
-  } catch (_error) {
-    stored = baseUtm;
-  }
-
-  Object.keys(baseUtm).forEach((key) => {
-    const value = params.get(key);
-    if (value) {
-      stored[key] = value;
+    const previous = JSON.parse(window.sessionStorage.getItem(storageKey) || "null");
+    if (previous && typeof previous.timestamp === "number" && now >= previous.timestamp && now - previous.timestamp < lifetime) {
+      Object.keys(baseUtm).forEach((key) => { stored[key] = cleanLabel(previous.labels?.[key]); });
+      timestamp = previous.timestamp;
     }
-  });
-
-  try {
-    window.localStorage.setItem(storageKey, JSON.stringify(stored));
-  } catch (_error) {
-    // Ignore storage failures.
+    window.localStorage.removeItem("taxdy_utm");
+  } catch (_error) { /* Storage restrictions do not prevent consultation. */ }
+  if (Object.keys(baseUtm).some((key) => params.has(key))) {
+    // A new campaign starts fresh rather than mixing with the previous one.
+    stored = { ...baseUtm };
+    timestamp = now;
+    Object.keys(baseUtm).forEach((key) => { stored[key] = cleanLabel(params.get(key)); });
   }
-
+  try { window.sessionStorage.setItem(storageKey, JSON.stringify({ timestamp, labels: stored })); } catch (_error) {}
   Object.entries(stored).forEach(([key, value]) => {
-    document.querySelectorAll(`input[name="${key}"]`).forEach((input) => {
-      input.value = value;
-    });
+    document.querySelectorAll(`input[name="${key}"]`).forEach((input) => { input.value = value; });
   });
-
-  document.querySelectorAll('input[name="source_page"]').forEach((input) => {
-    input.value = currentPath;
-  });
+  document.querySelectorAll('input[name="source_page"]').forEach((input) => { input.value = currentPath; });
 
   const trackEvent = (eventName, payload = {}) => {
     if (!eventName) {
