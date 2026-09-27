@@ -10,3 +10,15 @@
 @media(max-width:760px){.b-hero{grid-template-columns:1fr;gap:35px;padding-block:37px 41px}.b-hero h1{font-size:3.25rem;margin-top:20px}.b-hero-copy{font-size:1rem;margin-top:23px}.b-hero .actions{margin-top:25px;gap:18px}.b-hero .button{padding:15px 20px}.b-hero-art{height:414px;max-width:430px;width:100%;margin:auto;border-radius:18px}.b-art-label{font-size:1.3rem}.b-paper-one{left:21px;top:109px;width:49%}.b-paper-two{right:14px;top:85px;width:49%}.b-art-bottom{padding:14px 20px}.b-marquee .wrap{justify-content:flex-start;gap:25px;flex-wrap:wrap;padding-block:16px;font-size:.85rem}.b-marquee span::before{margin-right:9px}.b-article-grid{grid-template-columns:1fr;gap:35px}.b-article .cover{height:300px}.b-article .tag{margin-top:19px}.b-article h3{font-size:1.22rem}.b-bridge-grid{grid-template-columns:1fr;gap:33px}.b-bridge h2{font-size:2.15rem}.b-person{grid-template-columns:1fr;gap:29px}.b-person-image{max-width:250px}.b-person-image img{height:295px}.b-person h2{font-size:2rem}.b-contact .contact-copy h2{font-size:2.25rem}.b-contact .contact-copy h2 br{display:block}}
 
 .form-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}.privacy-summary{margin-top:12px;font-size:.875rem;color:#566071}.privacy-summary summary{cursor:pointer;font-weight:600}.privacy-summary p{margin-top:10px;line-height:1.85}.privacy-summary .text-link{font-size:.875rem}.form-help,.optional,.form-top small{font-size:.875rem}.footer-links{max-width:510px;align-content:start}.contact-title{font-size:2.8rem;line-height:1.4;letter-spacing:-.065em;margin:17px 0 25px;font-weight:720}.completion{max-width:900px;min-height:58vh}.completion h1{font-size:clamp(2rem,4vw,3.3rem);line-height:1.4;margin:18px 0 22px;letter-spacing:-.05em}.completion p{color:var(--muted);margin-bottom:24px}.completion .actions{margin-bottom:26px}@media(max-width:760px){.contact-title{font-size:2.25rem}.footer-links{max-width:100%}}
+
+/* Compact message routes shared by the consultation and completion pages. */
+.application-intro,.contact-copy{min-width:0}
+.contact-channels{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;min-width:0;max-width:100%}
+.contact-channel{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;min-width:0;max-width:100%;padding:10px 14px;border:1px solid #b9c5e4;border-radius:8px;background:#fff;color:#2544bd;font-size:.9rem;font-weight:650;line-height:1.5;text-align:center;overflow-wrap:anywhere}
+.contact-channel>span{flex-shrink:0}
+.contact-channel:hover{background:#eef2ff;border-color:#3155ed}
+.application-intro .contact-channels{margin-top:18px}
+.contact-copy .contact-channels{margin-top:14px}
+.completion .contact-channels{margin:0}
+@media(max-width:760px){body:not(.mobile-home){padding-bottom:calc(65px + env(safe-area-inset-bottom))}}
+@media(max-width:380px){.b-contact .type-select label{flex-direction:column;gap:6px;min-height:48px;text-align:center;overflow-wrap:anywhere}}
