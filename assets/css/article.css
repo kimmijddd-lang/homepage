@@ -391,19 +391,29 @@ main {
 }
 
 .profile-facts {
-  display: grid;
-  gap: 4px;
-  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 24px;
+  border-top: 1px solid var(--color-line);
 }
 
-.profile-facts p {
-  color: var(--color-ink);
-  font-size: calc(16 * var(--px));
-  font-weight: 600;
+.profile-facts div {
+  display: flex;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-line);
 }
 
-.author-profile-card .bullet-list {
-  margin-bottom: 18px;
+.profile-facts dt {
+  flex: 0 0 72px;
+  color: var(--color-muted);
+  font-size: calc(14 * var(--px));
+  font-weight: 700;
+}
+
+.profile-facts dd {
+  margin: 0;
+  font-size: calc(15 * var(--px));
 }
 
 .author-related-links {

@@ -771,6 +771,10 @@ body[data-page="home"] h3 {
     border-radius: 50%;
   }
 
+  .home-photo img {
+    object-position: 50% 50%;
+  }
+
   .home-hero-card figcaption {
     flex: 1;
     padding: 0;
