@@ -1,0 +1,65 @@
+  <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "{{siteUrl}}/#website",
+        "name": "{{name}}",
+        "alternateName": "{{name}} 세무사",
+        "url": "{{siteUrl}}/",
+        "description": "반복 업무는 체계적으로 운영하고, 중요한 세무 판단은 10년차 세무사가 직접 검토하는 {{name}}입니다.",
+        "inLanguage": "ko-KR"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "{{siteUrl}}/#organization",
+        "name": "{{name}}",
+        "alternateName": "{{name}} 세무사",
+        "url": "{{siteUrl}}/",
+        "description": "법인 기장, 세무사 변경, 급여·4대보험을 중심으로 운영하는 {{name}}입니다.",
+        "logo": "{{siteUrl}}/assets/images/apple-touch-icon.png",
+        "email": "{{email}}",
+        "telephone": "{{phone_e164}}",
+        "sameAs": [
+          "{{instagram}}",
+          "{{blog}}"
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "{{phone_e164}}",
+            "contactType": "customer service",
+            "areaServed": "KR",
+            "availableLanguage": ["ko"]
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "AccountingService",
+        "@id": "{{siteUrl}}/#accountingservice",
+        "name": "{{name}}",
+        "alternateName": "{{name}} 세무사",
+        "url": "{{siteUrl}}/",
+        "description": "반복 업무는 체계적으로 운영하고, 중요한 세무 판단은 10년차 세무사가 직접 검토하는 세무 파트너입니다.",
+        "telephone": "{{phone_e164}}",
+        "email": "{{email}}",
+        "areaServed": "KR",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{address_street}}",
+          "addressLocality": "{{address_locality}}",
+          "addressCountry": "KR"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "{{representative}}"
+        },
+        "sameAs": [
+          "{{instagram}}",
+          "{{blog}}"
+        ]
+      }
+    ]
+  </script>

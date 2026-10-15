@@ -21,11 +21,17 @@
   const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
   document.querySelectorAll("[data-nav] a[href]").forEach((link) => {
     const href = link.getAttribute("href");
-    if (!href || href.startsWith("http")) {
+    if (
+      !href ||
+      href.startsWith("http") ||
+      href.includes("#") ||
+      link.classList.contains("button")
+    ) {
       return;
     }
     const normalized = href.replace(/\/$/, "") || "/";
-    if (normalized === currentPath) {
+    const inSection = normalized !== "/" && currentPath.startsWith(`${normalized}/`);
+    if (normalized === currentPath || inSection) {
       link.setAttribute("aria-current", "page");
     }
   });
@@ -437,36 +443,6 @@
   };
 
   initializeHomeScenes();
-
-  // Nav dropdown
-  document.querySelectorAll(".nav-dropdown-trigger").forEach((trigger) => {
-    const menu = trigger.nextElementSibling;
-    if (!menu) return;
-
-    trigger.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = trigger.getAttribute("aria-expanded") === "true";
-      trigger.setAttribute("aria-expanded", String(!isOpen));
-      menu.classList.toggle("is-open", !isOpen);
-    });
-
-    // Close dropdown when clicking a link inside it
-    menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        trigger.setAttribute("aria-expanded", "false");
-        menu.classList.remove("is-open");
-      });
-    });
-  });
-
-  // Close dropdown on outside click
-  document.addEventListener("click", () => {
-    document.querySelectorAll(".nav-dropdown-trigger").forEach((trigger) => {
-      trigger.setAttribute("aria-expanded", "false");
-      const menu = trigger.nextElementSibling;
-      if (menu) menu.classList.remove("is-open");
-    });
-  });
 
   // FAQ accordion — one open at a time + scroll into view
   document.querySelectorAll(".faq-grid, .faq-scene-list").forEach((group) => {
