@@ -11,13 +11,15 @@
   "kakao": {
     "url": "https://open.kakao.com/o/sWdJyOKh"
   },
-  "hours": "평일 09:00 - 18:00",
+  "hours": "평일 09:00–18:00",
   "address": {
     "street": "강남대로112길 33, 3층",
     "locality": "서울 강남구",
+    "neighborhood": "논현동",
     "line": "서울 강남구 강남대로112길 33, 3층",
     "full": "서울 강남구 강남대로112길 33, 3층 (논현동, 삼화빌딩)"
   },
+  "station": "신논현역",
   "transit": "신논현역 인근",
   "maps": {
     "naver": "https://map.naver.com/p/entry/place/38274591",
@@ -27,6 +29,7 @@
   "social": {
     "instagram": "https://instagram.com/tax.kim1368",
     "instagramDm": "https://ig.me/m/tax.kim1368",
+    "instagramHandle": "@tax.kim1368",
     "blog": "https://blog.naver.com/calculator1368"
   },
   "form": {
@@ -35,11 +38,11 @@
   },
   "relocation": {
     "date": "2026-10-27",
-    "note": "선릉역 인근으로 이전. 이전일에 address / transit / maps 값만 바꾸고 `node _src/build.mjs`를 실행하면 모든 페이지에 반영된다."
+    "note": "선릉역 인근으로 이전. 이전일에 address / station / transit / maps 값만 바꾸고 `node _src/build.mjs`를 실행하면 모든 페이지(제목·소개 문구·푸터·JSON-LD 포함)에 반영된다."
   },
   "todo": [
-    "휴무 요일 표기(주말·공휴일 휴무 여부): 평일 09:00~18:00만 표기 중 — 대표에게 물어볼 것",
-    "선릉역 출구·도보 시간, 이전 후 주소·지도 링크: 미정",
+    "신논현역 출구 번호·도보 시간(오시는 길): 미정이라 '신논현역 인근'만 표기 중",
+    "선릉역 이전 후 주소·지도 링크·출구·도보 시간: 미정",
     "'선릉역 이전 예정' 안내 문구 게시 여부: 미정"
   ]
 }

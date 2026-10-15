@@ -44,7 +44,14 @@ const values = {
   form_subject: cfg.form.subject,
   thanks_url: `${cfg.siteUrl}/contact/thanks`,
   opening_hours: cfg.openingHours,
+  instagram_handle: cfg.social.instagramHandle,
 };
+
+// 위치가 바뀌면 달라지는 문구는 config 값에서 조합한다 (사무실 이전 때 한 번에 바뀌도록).
+values.office_area = `${cfg.address.locality} ${cfg.address.neighborhood}, ${cfg.transit}`;
+values.office_area_short = `${cfg.address.locality} ${cfg.station}`;
+values.home_title = `${cfg.station} 세무사 | ${cfg.name} ${cfg.representative} 세무사`;
+values.home_description = `${values.office_area} ${cfg.representative} 세무사 사무실. 개인·법인사업자 기장과 세금 신고, 급여·4대보험, 세무사 변경 상담.`;
 
 const escHtml = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -76,6 +83,10 @@ function applyAttributes(html) {
     /(<([a-zA-Z0-9]+)\b[^>]*\sdata-cfg-text="(\w+)"[^>]*>)[^<]*(<\/\2>)/g,
     (_, open, _tag, key, close) => `${open}${escHtml(valueOf(key))}${close}`,
   );
+  html = html.replace(/<meta\b[^>]*\sdata-cfg-content="(\w+)"[^>]*>/g, (tag, key) => {
+    if (!/\scontent="[^"]*"/.test(tag)) throw new Error(`data-cfg-content 요소에 content 가 없음: ${tag}`);
+    return tag.replace(/(\scontent=")[^"]*(")/, (_, a, b) => `${a}${escHtml(valueOf(key))}${b}`);
+  });
   html = html.replace(/<form\b[^>]*\sdata-cfg-action="(\w+)"[^>]*>/g, (tag, key) => {
     if (!/\saction="[^"]*"/.test(tag)) throw new Error(`data-cfg-action 요소에 action 이 없음: ${tag}`);
     return tag.replace(/(\saction=")[^"]*(")/, (_, a, b) => `${a}${escHtml(valueOf(key))}${b}`);
@@ -111,10 +122,11 @@ const HARD_CODED = [
   cfg.hours,
   cfg.form.endpoint,
   cfg.social.instagramDm,
+  cfg.station,
 ];
 
-// 아직 새 레이아웃으로 바뀌지 않은 페이지. 새 홈(4단계)으로 교체되면 이 목록에서 뺀다.
-const LEGACY_PAGES = new Set(['index.html']);
+// 아직 새 레이아웃으로 바뀌지 않은 페이지 (현재 없음).
+const LEGACY_PAGES = new Set([]);
 
 const changed = [];
 const problems = [];
