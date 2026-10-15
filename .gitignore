@@ -1,0 +1,21 @@
+# 사이트 루트는 그대로 배포된다. 사이트에서 쓰지 않는 작업 자료는 저장소에 올리지 않는다.
+_docs/
+node_modules/
+.DS_Store
+Thumbs.db
+
+# 루트에 둔 참고용·작업용 파일 (HTML/CSS/JS 어디에서도 참조하지 않음, 로컬 파일은 그대로 유지)
+/KakaoTalk_*.jpg
+/1.png
+/2.jpg
+/15.png
+/16.png
+/250903_*.jpg
+/Untitled
+/진행상황.md
+/direct.md
+/revise.md
+/text-review.md
+
+# 로컬 도구 설정
+/.claude/launch.json
