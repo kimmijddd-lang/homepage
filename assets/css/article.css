@@ -10,19 +10,6 @@ main {
   background: var(--color-surface);
 }
 
-.text-link {
-  color: var(--color-primary);
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: rgba(15, 118, 110, 0.35);
-  text-underline-offset: 3px;
-}
-
-.text-link:hover {
-  color: var(--color-primary-deep);
-  text-decoration-color: currentColor;
-}
-
 .page-hero {
   padding: 40px 0 44px;
 }

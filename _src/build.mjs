@@ -207,7 +207,8 @@ function seoLint() {
     else if ([...title].length > 60) problems.push(`SEO ${rel}: title 이 60자를 넘음 (${[...title].length}자)`);
     if (!desc) problems.push(`SEO ${rel}: description 없음`);
     else if ([...desc].length < 30 || [...desc].length > 130) problems.push(`SEO ${rel}: description 길이 ${[...desc].length}자 (30~130자 권장)`);
-    if (canonical !== url) problems.push(`SEO ${rel}: canonical 이 ${url} 과 다름 (${canonical})`);
+    // 색인 대상은 canonical 이 자기 주소여야 하고, noindex 페이지(404 등)는 없어도 된다.
+    if ((!noindex || canonical) && canonical !== url) problems.push(`SEO ${rel}: canonical 이 ${url} 과 다름 (${canonical})`);
     if ((html.match(/<h1\b/g) || []).length !== 1) problems.push(`SEO ${rel}: h1 이 하나가 아님`);
     if (/<img\b(?![^>]*\balt=)[^>]*>/.test(html)) problems.push(`SEO ${rel}: alt 없는 이미지`);
 

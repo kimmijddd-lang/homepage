@@ -38,7 +38,14 @@ createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': types[extname(file)] ?? 'application/octet-stream' });
     res.end(body);
   } catch {
-    res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-    res.end('404');
+    // Vercel 처럼 없는 주소에는 루트의 404.html 을 404 상태로 보여 준다.
+    try {
+      const notFound = await readFile(join(root, '404.html'));
+      res.writeHead(404, { 'Content-Type': types['.html'] });
+      res.end(notFound);
+    } catch {
+      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('404');
+    }
   }
 }).listen(port, '127.0.0.1', () => console.log(`http://localhost:${port}`));
