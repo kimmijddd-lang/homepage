@@ -22,3 +22,47 @@
 .completion .contact-channels{margin:0}
 @media(max-width:760px){body:not(.mobile-home){padding-bottom:calc(65px + env(safe-area-inset-bottom))}}
 @media(max-width:380px){.b-contact .type-select label{flex-direction:column;gap:6px;min-height:48px;text-align:center;overflow-wrap:anywhere}}
+
+/* Consultation page palette aligned with Instagram, 2026-10-15. */
+body.theme-b:has(.contact-title) {
+  --paper: #F6F7F4;
+  --ink: #0F1B2D;
+  --muted: #52615F;
+  --line: #D7E0DC;
+  --accent: #0F766E;
+  --form-bg: #FFFFFF;
+  --form-ink: #0F1B2D;
+  --form-muted: #52615F;
+  --form-line: #7F928E;
+  --input-bg: #FFFFFF;
+  --type-active: #E5F1ED;
+  --type-border: #0F766E;
+  --button-ink: #FFFFFF;
+}
+body.theme-b:has(.contact-title) .b-contact {
+  background: #F6F7F4;
+  color: #0F1B2D;
+  --muted: #52615F;
+  --line: #D7E0DC;
+}
+body.theme-b:has(.contact-title) .brand-monogram,
+body.theme-b:has(.contact-title) .eyebrow { color: #0F766E; }
+body.theme-b:has(.contact-title) .nav { border-color: #D7E0DC; }
+body.theme-b:has(.contact-title) .nav-cta { background: #0F766E; }
+body.theme-b:has(.contact-title) .contact-form {
+  box-shadow: 0 16px 45px #0F1B2D0A, 0 0 0 1px #D7E0DC;
+}
+body.theme-b:has(.contact-title) .contact-channel {
+  color: #0F766E;
+  border-color: #7F928E;
+}
+body.theme-b:has(.contact-title) .contact-channel:hover {
+  background: #E5F1ED;
+  border-color: #0F766E;
+}
+body.theme-b:has(.contact-title) .button:hover,
+body.theme-b:has(.contact-title) .nav-cta:hover,
+body.theme-b:has(.contact-title) .mobile-cta > a:last-child:hover { background: #115E59; }
+body.theme-b:has(.contact-title) .privacy-summary { color: #52615F; }
+body.theme-b:has(.contact-title) .site-footer { background: #EFF3EF; }
+body.theme-b:has(.contact-title) ::selection { background: #0F766E; color: #FFFFFF; }
