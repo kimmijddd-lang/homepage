@@ -76,7 +76,8 @@ img {
 .skip-link {
   position: absolute;
   left: 16px;
-  top: -48px;
+  top: 0;
+  transform: translateY(-120%);
   padding: 10px 14px;
   border-radius: 12px;
   background: var(--surface-dark);
@@ -87,6 +88,7 @@ img {
 
 .skip-link:focus {
   top: 16px;
+  transform: none;
 }
 
 .container {

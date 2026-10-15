@@ -4,17 +4,25 @@
   const nav = document.querySelector("[data-nav]");
 
   if (navToggle && nav) {
+    const setNavOpen = (open) => {
+      navToggle.setAttribute("aria-expanded", String(open));
+      navToggle.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+      nav.classList.toggle("is-open", open);
+    };
+
     navToggle.addEventListener("click", () => {
-      const expanded = navToggle.getAttribute("aria-expanded") === "true";
-      navToggle.setAttribute("aria-expanded", String(!expanded));
-      nav.classList.toggle("is-open", !expanded);
+      setNavOpen(navToggle.getAttribute("aria-expanded") !== "true");
     });
 
     nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
+      link.addEventListener("click", () => setNavOpen(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
+        setNavOpen(false);
+        navToggle.focus();
+      }
     });
   }
 
