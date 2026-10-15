@@ -2,6 +2,8 @@
 //
 //   node _src/build.mjs          반영 (바뀐 파일만 씀)
 //   node _src/build.mjs --check  변경 없이 점검. 반영이 안 된 파일이나 config 밖에 박힌 값이 있으면 종료코드 1
+//   node _src/build.mjs --move   사무실 이전일에 한 번. _src/relocation-next.json 의 새 주소를 config 로 옮긴 뒤 반영
+//                                ([확인필요] 가 남아 있으면 아무것도 바꾸지 않고 종료코드 1)
 //
 // 반영 방식 (결과는 그대로 커밋하며, Vercel 빌드 설정은 필요 없다)
 //   1. 영역:  <!-- gen:이름 --> ... <!-- /gen:이름 -->  사이를 _src/partials/이름.html 로 통째로 교체
@@ -20,7 +22,27 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const checkOnly = process.argv.includes('--check');
 const read = (path) => readFileSync(path, 'utf8').replace(/\r\n/g, '\n');
 
-const cfg = JSON.parse(read(join(root, '_src', 'site-config.json')));
+const configPath = join(root, '_src', 'site-config.json');
+const cfg = JSON.parse(read(configPath));
+
+// 이전일: 작업 PC에만 둔 새 주소(_src/relocation-next.json, .gitignore 대상)를 config 로 옮긴다.
+if (process.argv.includes('--move')) {
+  const nextPath = join(root, '_src', 'relocation-next.json');
+  const fail = (message) => {
+    console.error(message);
+    process.exit(1);
+  };
+  if (checkOnly) fail('--move 와 --check 는 같이 쓸 수 없음');
+  if (!existsSync(nextPath)) fail('_src/relocation-next.json 이 없음');
+  const next = JSON.parse(read(nextPath));
+  const pending = JSON.stringify(next).match(/\[확인필요\][^"]*/g);
+  if (pending) fail(`새 주소에 아직 정해지지 않은 값이 있어 옮기지 않음:\n  ${pending.join('\n  ')}`);
+  if (next.address.street === cfg.address.street) fail(`이미 옮겼음: ${cfg.address.line}`);
+  for (const key of ['address', 'station', 'transit', 'transitDetail', 'maps']) cfg[key] = next[key];
+  cfg.todo = (cfg.todo ?? []).filter((item) => !item.includes('relocation-next'));
+  writeFileSync(configPath, `${JSON.stringify(cfg, null, 2)}\n`);
+  console.log(`site-config.json: 주소를 ${cfg.address.line} (${cfg.station}) 로 옮김`);
+}
 
 const values = {
   siteUrl: cfg.siteUrl,

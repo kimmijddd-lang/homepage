@@ -20,3 +20,6 @@ Thumbs.db
 
 # 로컬 도구 설정
 /.claude/launch.json
+
+# 이전 전 새 주소 (공개 저장소에 올리지 않음, 이전일에 build.mjs --move 로 반영)
+/_src/relocation-next.json
