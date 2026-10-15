@@ -9,6 +9,7 @@
   <link rel="canonical" href="https://www.taxdy.co.kr/services/tax-accountant-switch">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="대윤세무회계">
   <meta property="og:title" content="세무사 변경 | 자료 이관부터 체크리스트까지 | 대윤세무회계">
   <meta property="og:description" content="기존 세무사에서 자료를 안전하게 넘겨받고, 첫 신고와 첫 마감을 안정화할 수 있도록 지원하는 서비스입니다.">
   <meta property="og:url" content="https://www.taxdy.co.kr/services/tax-accountant-switch">
@@ -24,6 +25,7 @@
   <link rel="preload" href="/assets/fonts/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/site.css">
   <!-- /gen:head-assets -->
+  <link rel="stylesheet" href="/assets/css/service.css">
   <script type="application/ld+json">
     [
       {
@@ -44,9 +46,24 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "홈", "item": "https://www.taxdy.co.kr/"},
-          {"@type": "ListItem", "position": 2, "name": "서비스", "item": "https://www.taxdy.co.kr/services/tax-accountant-switch"},
-          {"@type": "ListItem", "position": 3, "name": "세무사 변경", "item": "https://www.taxdy.co.kr/services/tax-accountant-switch"}
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "홈",
+            "item": "https://www.taxdy.co.kr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "업무 안내",
+            "item": "https://www.taxdy.co.kr/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "세무사 변경",
+            "item": "https://www.taxdy.co.kr/services/tax-accountant-switch"
+          }
         ]
       }
     ]
@@ -70,100 +87,159 @@
   </header>
   <!-- /gen:header -->
   <main id="content">
-    <section class="page-hero">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="breadcrumb">
-          <ol>
-            <li><a href="/">홈</a></li>
-            <li><a href="/services/tax-accountant-switch">서비스</a></li>
-            <li>세무사 변경</li>
-          </ol>
-        </nav>
-        <p class="eyebrow">Service</p>
+    <nav class="container svc-breadcrumb" aria-label="현재 위치">
+      <a href="/">홈</a><span aria-hidden="true">/</span><a href="/services">업무 안내</a><span aria-hidden="true">/</span><span aria-current="page">세무사 변경</span>
+    </nav>
+
+    <div class="container svc-hero">
+      <div class="svc-hero-copy">
+        <p class="svc-eyebrow">개인·법인 · 세무사 변경</p>
         <h1>세무사 변경, 자료 이관부터 안정화까지</h1>
-        <p class="lead">세무사 변경은 계약만 바꾸는 일이 아니라 기존 자료를 어떤 순서로 넘겨받고, 첫 신고와 첫 달 마감을 어떻게 안전하게 이어갈지 설계하는 작업입니다. 대윤세무회계는 변경 직후의 혼선을 줄이는 데 초점을 둡니다.</p>
-        <div class="grid-three" style="margin-top:24px;">
-          <article class="summary-card card"><h3>이관 범위 확인</h3><p>기장 파일, 신고 자료, 계정과목 메모, 미결 이슈를 먼저 정리합니다.</p></article>
-          <article class="summary-card card"><h3>첫 달 점검</h3><p>변경 직후 누락되기 쉬운 증빙과 일정 항목을 체크리스트로 관리합니다.</p></article>
-          <article class="summary-card card"><h3>커뮤니케이션 재정비</h3><p>대표와 실무 담당자가 새 구조에 적응할 수 있게 자료 요청 흐름을 다시 잡습니다.</p></article>
-        </div>
-        <div class="meta-strip">
-          <span>작성자: 김민준 세무사</span>
-          <span>검토자: 김민준 세무사</span>
-          <span>수정일: 2026년 3월 8일</span>
+        <p class="svc-lead">세무사 변경은 계약만 바꾸는 일이 아니라 기존 자료를 어떤 순서로 넘겨받고, 첫 신고와 첫 달 마감을 어떻게 안전하게 이어갈지 설계하는 작업입니다. 대윤세무회계는 변경 직후의 혼선을 줄이는 데 초점을 둡니다.</p>
+        <p class="svc-meta">작성·검토 김민준 세무사 · 수정일 2026년 10월 15일</p>
+      </div>
+      <aside class="svc-glance" aria-label="한눈에 보기">
+        <p class="svc-glance-title">한눈에 보기</p>
+        <dl class="svc-glance-list">
+          <div><dt>대상</dt><dd>개인·법인사업자</dd></div>
+          <div><dt>진행</dt><dd>변경 배경 확인 → 이관 체크리스트 → 첫 달 점검 → 안정화</dd></div>
+          <div><dt>함께 맡기기</dt><dd>법인 기장대리</dd></div>
+        </dl>
+        <a class="svc-btn svc-btn-primary" href="/contact" data-event="consult_click">세무사 변경 상담 신청</a>
+        <a class="svc-btn svc-btn-outline" href="tel:01049464505" data-cfg-href="phone_href" data-event="phone_click">전화 <span data-cfg-text="phone_display">010-4946-4505</span></a>
+      </aside>
+    </div>
+
+    <section class="svc-band">
+      <div class="container svc-split">
+        <div class="svc-split-head"><span class="svc-num">01</span><h2>이런 분께 맞습니다</h2></div>
+        <ul class="svc-checklist">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>기존 세무사와의 커뮤니케이션 속도나 설명 방식이 맞지 않는 경우</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>자료를 넘겨받을 때 무엇을 꼭 챙겨야 하는지 불명확한 경우</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>세무사 변경 후 첫 신고가 가장 걱정되는 대표 또는 담당자</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>현재 자료 흐름을 새롭게 정리하고 싶은 법인 또는 개인사업자</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="svc-section">
+      <div class="container">
+        <div class="svc-head"><span class="svc-num">02</span><h2>도와드리는 내용</h2></div>
+        <div class="svc-help">
+          <div class="svc-help-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path></svg>
+            <h3>이관 범위 확인</h3>
+            <p>기장 파일, 신고 자료, 계정과목 메모, 미결 이슈를 먼저 정리합니다.</p>
+          </div>
+          <div class="svc-help-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg>
+            <h3>첫 달 점검</h3>
+            <p>변경 직후 누락되기 쉬운 증빙과 일정 항목을 체크리스트로 관리합니다.</p>
+          </div>
+          <div class="svc-help-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 20l1.1-4.2A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+            <h3>커뮤니케이션 재정비</h3>
+            <p>대표와 실무 담당자가 새 구조에 적응할 수 있게 자료 요청 흐름을 다시 잡습니다.</p>
+          </div>
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="container article-layout">
-        <div class="article-stack">
-          <article class="content-card card">
-            <h2>이런 분께 적합합니다</h2>
-            <ul class="bullet-list">
-              <li>기존 세무사와의 커뮤니케이션 속도나 설명 방식이 맞지 않는 경우</li>
-              <li>자료를 넘겨받을 때 무엇을 꼭 챙겨야 하는지 불명확한 경우</li>
-              <li>세무사 변경 후 첫 신고가 가장 걱정되는 대표 또는 담당자</li>
-              <li>현재 자료 흐름을 새롭게 정리하고 싶은 법인 또는 개인사업자</li>
-            </ul>
-          </article>
-          <article class="content-card card">
-            <h2>무엇이 더 편해지는지</h2>
-            <ul class="bullet-list">
-              <li>자료 이관 범위가 명확해져 빠진 자료를 뒤늦게 찾는 시간을 줄일 수 있습니다.</li>
-              <li>첫 마감에 필요한 요청 항목이 정리되어 변경 직후 혼선을 줄입니다.</li>
-              <li>기존 이슈를 인수인계 메모 형태로 정리해 같은 설명을 반복하지 않아도 됩니다.</li>
-              <li>세무사 변경 시점 이후의 커뮤니케이션 방식도 함께 재설계할 수 있습니다.</li>
-            </ul>
-          </article>
-          <article class="content-card card">
-            <h2>업무 진행 방식</h2>
-            <ol class="step-list">
-              <li><div><h3>변경 배경 확인</h3><p>무엇이 불편했고, 새 체계에서 꼭 개선하고 싶은 포인트를 먼저 확인합니다.</p></div></li>
-              <li><div><h3>자료 이관 체크리스트 전달</h3><p>신고서, 세무조정 자료, 기장 데이터, 고정자산, 이슈 메모 항목을 정리합니다.</p></div></li>
-              <li><div><h3>첫 달 운영 점검</h3><p>변경 직후 마감에 필요한 자료와 내부 담당자 역할을 구체적으로 나눕니다.</p></div></li>
-              <li><div><h3>첫 신고 후 안정화</h3><p>첫 신고 결과와 남은 개선 과제를 정리해 이후 운영 리듬을 맞춥니다.</p></div></li>
-            </ol>
-          </article>
-          <article class="content-card card">
-            <h2>준비 자료</h2>
-            <ul class="bullet-list">
-              <li>최근 신고서, 부속명세서, 원천세·부가세 신고 자료</li>
-              <li>전기 시산표 또는 기장 데이터, 계정과목 사용 기준</li>
-              <li>고정자산, 차입금, 가지급금·가수금 관련 메모</li>
-              <li>기존 세무사와 주고받은 주요 요청사항 또는 미결 이슈</li>
-              <li>현재 월별 자료 전달 방식과 담당자 역할 분담 현황</li>
-            </ul>
-          </article>
-          <article class="content-card card">
-            <h2>FAQ</h2>
-            <div class="faq-grid">
-              <details class="faq-item">
-                <summary>세무사 변경 시점은 언제가 좋나요?</summary>
-                <p>가장 중요한 것은 신고 직전인지, 신고 직후인지보다 자료 이관 준비가 되어 있는지입니다. 준비 없이 급하게 바꾸면 오히려 첫 마감 부담이 커질 수 있습니다.</p>
-              </details>
-              <details class="faq-item">
-                <summary>기존 세무사에게 꼭 요청해야 할 자료는 무엇인가요?</summary>
-                <p>최근 신고서, 기장 데이터, 전기 시산표, 고정자산 명세, 미결 이슈 메모는 우선순위가 높습니다. 상황에 따라 추가 자료가 필요할 수 있습니다.</p>
-              </details>
-              <details class="faq-item">
-                <summary>변경 후 바로 기장 체계도 바꿀 수 있나요?</summary>
-                <p>가능합니다. 오히려 변경 시점은 자료 요청 방식과 내부 담당자 역할을 같이 재정비하기 좋은 시기입니다.</p>
-              </details>
-            </div>
-          </article>
+
+    <section class="svc-section">
+      <div class="container svc-split">
+        <div class="svc-split-head"><span class="svc-num">03</span><h2>이렇게 편해집니다</h2></div>
+        <ul class="svc-checklist">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>자료 이관 범위가 명확해져 빠진 자료를 뒤늦게 찾는 시간을 줄일 수 있습니다.</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>첫 마감에 필요한 요청 항목이 정리되어 변경 직후 혼선을 줄입니다.</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>기존 이슈를 인수인계 메모 형태로 정리해 같은 설명을 반복하지 않아도 됩니다.</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>세무사 변경 시점 이후의 커뮤니케이션 방식도 함께 재설계할 수 있습니다.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="svc-section">
+      <div class="container">
+        <div class="svc-head"><span class="svc-num">04</span><h2>진행 과정</h2></div>
+        <ol class="svc-steps">
+          <li>
+            <span class="svc-step-num">01</span>
+            <h3>변경 배경 확인</h3>
+            <p>무엇이 불편했고, 새 체계에서 꼭 개선하고 싶은 포인트를 먼저 확인합니다.</p>
+          </li>
+          <li>
+            <span class="svc-step-num">02</span>
+            <h3>자료 이관 체크리스트 전달</h3>
+            <p>신고서, 세무조정 자료, 기장 데이터, 고정자산, 이슈 메모 항목을 정리합니다.</p>
+          </li>
+          <li>
+            <span class="svc-step-num">03</span>
+            <h3>첫 달 운영 점검</h3>
+            <p>변경 직후 마감에 필요한 자료와 내부 담당자 역할을 구체적으로 나눕니다.</p>
+          </li>
+          <li>
+            <span class="svc-step-num">04</span>
+            <h3>첫 신고 후 안정화</h3>
+            <p>첫 신고 결과와 남은 개선 과제를 정리해 이후 운영 리듬을 맞춥니다.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="svc-section">
+      <div class="container svc-two">
+        <div class="svc-two-main">
+          <div class="svc-head"><span class="svc-num">05</span><h2>준비 자료</h2></div>
+          <ul class="svc-checklist svc-checklist-compact">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>최근 신고서, 부속명세서, 원천세·부가세 신고 자료</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>전기 시산표 또는 기장 데이터, 계정과목 사용 기준</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>고정자산, 차입금, 가지급금·가수금 관련 메모</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>기존 세무사와 주고받은 주요 요청사항 또는 미결 이슈</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>현재 월별 자료 전달 방식과 담당자 역할 분담 현황</span></li>
+          </ul>
         </div>
-        <aside class="sidebar-card card">
-          <span class="badge">상담 CTA</span>
+      </div>
+    </section>
+
+    <section class="svc-section svc-section-last">
+      <div class="container">
+        <div class="svc-head"><span class="svc-num">06</span><h2>자주 묻는 질문</h2></div>
+        <div class="svc-faq">
+          <div>
+            <h3>세무사 변경 시점은 언제가 좋나요?</h3>
+            <p>가장 중요한 것은 신고 직전인지, 신고 직후인지보다 자료 이관 준비가 되어 있는지입니다. 준비 없이 급하게 바꾸면 오히려 첫 마감 부담이 커질 수 있습니다.</p>
+          </div>
+          <div>
+            <h3>기존 세무사에게 꼭 요청해야 할 자료는 무엇인가요?</h3>
+            <p>최근 신고서, 기장 데이터, 전기 시산표, 고정자산 명세, 미결 이슈 메모는 우선순위가 높습니다. 상황에 따라 추가 자료가 필요할 수 있습니다.</p>
+          </div>
+          <div>
+            <h3>변경 후 바로 기장 체계도 바꿀 수 있나요?</h3>
+            <p>가능합니다. 오히려 변경 시점은 자료 요청 방식과 내부 담당자 역할을 같이 재정비하기 좋은 시기입니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="svc-cta">
+      <div class="container">
+        <div class="svc-cta-copy">
           <h2>변경 전 체크리스트를 먼저 확인하세요</h2>
           <p>현재 불편한 점과 변경 예정 시점을 남겨주시면 필요한 이관 범위를 먼저 정리해 드립니다.</p>
-          <a class="button" href="/contact">문의 남기기</a>
-          <a class="button button-secondary" href="/guides/how-to-switch-tax-accountant">가이드 먼저 읽기</a>
-          <ul class="link-list">
-            <li><a class="text-link" href="/guides/how-to-switch-tax-accountant">세무사 변경 방법 가이드</a></li>
-            <li><a class="text-link" href="/services/corporate-bookkeeping">법인 기장대리 서비스</a></li>
-            <li><a  class="text-link" href="tel:01049464505" data-event="phone_click" data-cfg-href="phone_href">전화 상담 연결</a></li>
-          </ul>
-        </aside>
+        </div>
+        <div class="svc-cta-actions">
+          <a class="svc-cta-main" href="/contact" data-event="consult_click">상담 신청하기</a>
+          <a class="svc-cta-tel" href="tel:01049464505" data-cfg-href="phone_href" data-event="phone_click"><span data-cfg-text="phone_display">010-4946-4505</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="svc-related">
+      <div class="container">
+        <p class="svc-related-title">함께 보면 좋은 글</p>
+        <div class="svc-related-list">
+          <a href="/guides/how-to-switch-tax-accountant">세무사 변경 방법 가이드<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+          <a href="/services/corporate-bookkeeping">법인 기장대리 서비스<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        </div>
       </div>
     </section>
   </main>

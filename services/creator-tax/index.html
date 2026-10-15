@@ -9,6 +9,7 @@
   <link rel="canonical" href="https://www.taxdy.co.kr/services/creator-tax">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="대윤세무회계">
   <meta property="og:title" content="크리에이터·인플루언서 세무 | 광고수익·원천세·부가세 | 대윤세무회계">
   <meta property="og:description" content="광고수익, 협찬, 플랫폼 정산, 해외 수익 구조까지 크리에이터와 인플루언서의 세무 운영을 정리하는 서비스입니다.">
   <meta property="og:url" content="https://www.taxdy.co.kr/services/creator-tax">
@@ -24,6 +25,7 @@
   <link rel="preload" href="/assets/fonts/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/site.css">
   <!-- /gen:head-assets -->
+  <link rel="stylesheet" href="/assets/css/service.css">
   <script type="application/ld+json">
     [
       {
@@ -32,7 +34,11 @@
         "name": "크리에이터·인플루언서 세무",
         "serviceType": "크리에이터 세무 자문",
         "description": "광고수익, 협찬, 원천세, 부가세 이슈를 정리하는 크리에이터 세무 서비스",
-        "provider": {"@type": "AccountingService", "name": "대윤세무회계", "url": "https://www.taxdy.co.kr/"},
+        "provider": {
+          "@type": "AccountingService",
+          "name": "대윤세무회계",
+          "url": "https://www.taxdy.co.kr/"
+        },
         "areaServed": "KR",
         "url": "https://www.taxdy.co.kr/services/creator-tax"
       },
@@ -40,9 +46,24 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "홈", "item": "https://www.taxdy.co.kr/"},
-          {"@type": "ListItem", "position": 2, "name": "서비스", "item": "https://www.taxdy.co.kr/services/creator-tax"},
-          {"@type": "ListItem", "position": 3, "name": "크리에이터·인플루언서 세무", "item": "https://www.taxdy.co.kr/services/creator-tax"}
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "홈",
+            "item": "https://www.taxdy.co.kr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "업무 안내",
+            "item": "https://www.taxdy.co.kr/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "크리에이터 세무",
+            "item": "https://www.taxdy.co.kr/services/creator-tax"
+          }
         ]
       }
     ]
@@ -66,80 +87,158 @@
   </header>
   <!-- /gen:header -->
   <main id="content">
-    <section class="page-hero">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="breadcrumb"><ol><li><a href="/">홈</a></li><li><a href="/services/creator-tax">서비스</a></li><li>크리에이터·인플루언서 세무</li></ol></nav>
-        <p class="eyebrow">Service</p>
+    <nav class="container svc-breadcrumb" aria-label="현재 위치">
+      <a href="/">홈</a><span aria-hidden="true">/</span><a href="/services">업무 안내</a><span aria-hidden="true">/</span><span aria-current="page">크리에이터 세무</span>
+    </nav>
+
+    <div class="container svc-hero">
+      <div class="svc-hero-copy">
+        <p class="svc-eyebrow">업종별 · 유튜버·크리에이터</p>
         <h1>크리에이터 세무, 광고수익과 정산 흐름 정리</h1>
-        <p class="lead">크리에이터 세무는 수익 채널이 다양하고, 세금계산서 발행 여부와 원천세·부가세 처리 기준이 혼재하는 경우가 많습니다. 대윤세무회계는 수익 구조를 먼저 구분하고 실제 정산 흐름에 맞춰 세무 운영을 정리합니다.</p>
-        <div class="grid-three" style="margin-top:24px;">
-          <article class="summary-card card"><h3>수익 채널 분류</h3><p>광고수익, 협찬, 판매, 외주 수익을 구분해 과세 포인트를 정리합니다.</p></article>
-          <article class="summary-card card"><h3>플랫폼 정산 해석</h3><p>국내외 플랫폼 정산서와 원천징수 구조를 실무 기준으로 확인합니다.</p></article>
-          <article class="summary-card card"><h3>증빙 흐름 정리</h3><p>사업용 비용, 장비 구입, 외주비 증빙을 기초부터 구조화합니다.</p></article>
-        </div>
-        <div class="meta-strip"><span>작성자: 김민준 세무사</span><span>검토자: 김민준 세무사</span><span>수정일: 2026년 3월 8일</span></div>
+        <p class="svc-lead">크리에이터 세무는 수익 채널이 다양하고, 세금계산서 발행 여부와 원천세·부가세 처리 기준이 혼재하는 경우가 많습니다. 대윤세무회계는 수익 구조를 먼저 구분하고 실제 정산 흐름에 맞춰 세무 운영을 정리합니다.</p>
+        <p class="svc-meta">작성·검토 김민준 세무사 · 수정일 2026년 10월 15일</p>
+      </div>
+      <aside class="svc-glance" aria-label="한눈에 보기">
+        <p class="svc-glance-title">한눈에 보기</p>
+        <dl class="svc-glance-list">
+          <div><dt>대상</dt><dd>유튜브·인스타그램 등 수익 채널 운영자</dd></div>
+          <div><dt>진행</dt><dd>수익 구조 → 과세 포인트 → 증빙 세팅 → 신고 안내</dd></div>
+          <div><dt>사업자 등록 전</dt><dd>상담 가능</dd></div>
+        </dl>
+        <a class="svc-btn svc-btn-primary" href="/contact" data-event="consult_click">크리에이터 세무 상담 신청</a>
+        <a class="svc-btn svc-btn-outline" href="tel:01049464505" data-cfg-href="phone_href" data-event="phone_click">전화 <span data-cfg-text="phone_display">010-4946-4505</span></a>
+      </aside>
+    </div>
+
+    <section class="svc-band">
+      <div class="container svc-split">
+        <div class="svc-split-head"><span class="svc-num">01</span><h2>이런 분께 맞습니다</h2></div>
+        <ul class="svc-checklist">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>유튜브, 인스타그램, 숏폼, 협찬 등 여러 수익원이 섞여 있는 경우</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>플랫폼 정산서와 실제 입금액 차이를 설명받기 어려운 경우</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>개인사업자 전환, 부가세 여부, 원천세 처리 기준이 헷갈리는 경우</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>장비 구입, 외주비, 촬영비 등 비용 증빙 흐름을 정리하고 싶은 경우</span></li>
+        </ul>
       </div>
     </section>
-    <section class="section">
-      <div class="container article-layout">
-        <div class="article-stack">
-          <article class="content-card card">
-            <h2>이런 분께 적합합니다</h2>
-            <ul class="bullet-list">
-              <li>유튜브, 인스타그램, 숏폼, 협찬 등 여러 수익원이 섞여 있는 경우</li>
-              <li>플랫폼 정산서와 실제 입금액 차이를 설명받기 어려운 경우</li>
-              <li>개인사업자 전환, 부가세 여부, 원천세 처리 기준이 헷갈리는 경우</li>
-              <li>장비 구입, 외주비, 촬영비 등 비용 증빙 흐름을 정리하고 싶은 경우</li>
-            </ul>
-          </article>
-          <article class="content-card card">
-            <h2>무엇이 더 편해지는지</h2>
-            <ul class="bullet-list">
-              <li>수익 채널별로 어떤 세금 이슈가 있는지 한 번에 정리할 수 있습니다.</li>
-              <li>정산서와 실제 입금액을 해석하는 기준이 생겨 문의가 줄어듭니다.</li>
-              <li>협찬, 샘플, 외주 지급 등 애매한 거래를 미리 정리할 수 있습니다.</li>
-              <li>사업 초기라도 비용 증빙과 계좌 흐름을 깔끔하게 만들 수 있습니다.</li>
-            </ul>
-          </article>
-          <article class="content-card card">
-            <h2>업무 진행 방식</h2>
-            <ol class="step-list">
-              <li><div><h3>수익 구조 인터뷰</h3><p>채널별 수익원과 정산 방식, 입금 주기를 먼저 구분합니다.</p></div></li>
-              <li><div><h3>과세 포인트 정리</h3><p>부가세, 원천세, 사업소득 또는 기타소득 여부를 실무 기준으로 설명합니다.</p></div></li>
-              <li><div><h3>비용 증빙 세팅</h3><p>장비, 외주비, 촬영비, 이동비 등 실제 자주 쓰는 비용 항목을 정리합니다.</p></div></li>
-              <li><div><h3>신고 및 운영 안내</h3><p>월별 또는 반기별로 무엇을 미리 챙겨야 하는지 체크리스트를 제공합니다.</p></div></li>
-            </ol>
-          </article>
-          <article class="content-card card">
-            <h2>준비 자료</h2>
-            <ul class="bullet-list">
-              <li>플랫폼 정산서, 수익 내역 캡처, 입금 내역</li>
-              <li>협찬 또는 광고 계약서, 세금계산서 발행 내역</li>
-              <li>장비·촬영비·외주비 등 주요 비용 증빙</li>
-              <li>해외 플랫폼 수익이 있다면 원천징수 내역 또는 정산 자료</li>
-              <li>현재 사업자 보유 여부와 채널 운영 방식</li>
-            </ul>
-          </article>
-          <article class="content-card card">
-            <h2>FAQ</h2>
-            <div class="faq-grid">
-              <details class="faq-item"><summary>협찬 제품도 세무상 확인이 필요한가요?</summary><p>상황에 따라 확인이 필요합니다. 협찬이 단순 홍보 제공인지, 대가성이 있는 거래인지에 따라 증빙과 해석 기준이 달라질 수 있습니다.</p></details>
-              <details class="faq-item"><summary>해외 플랫폼 수익도 상담 가능한가요?</summary><p>가능합니다. 다만 실제 지급 구조와 정산서 형태에 따라 확인해야 할 포인트가 달라, 정산 자료를 먼저 보는 것이 중요합니다.</p></details>
-              <details class="faq-item"><summary>사업자 등록 전 단계에서도 문의할 수 있나요?</summary><p>가능합니다. 초기 단계에서 수익 구조를 정리해 두면 사업자 등록 시점과 부가세 이슈를 판단하기 쉬워집니다.</p></details>
-            </div>
-          </article>
+
+    <section class="svc-section">
+      <div class="container">
+        <div class="svc-head"><span class="svc-num">02</span><h2>도와드리는 내용</h2></div>
+        <div class="svc-help">
+          <div class="svc-help-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M3 20h18"></path></svg>
+            <h3>수익 채널 분류</h3>
+            <p>광고수익, 협찬, 판매, 외주 수익을 구분해 과세 포인트를 정리합니다.</p>
+          </div>
+          <div class="svc-help-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+            <h3>플랫폼 정산 해석</h3>
+            <p>국내외 플랫폼 정산서와 원천징수 구조를 실무 기준으로 확인합니다.</p>
+          </div>
+          <div class="svc-help-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"></path><path d="M9 8h6M9 12h6"></path></svg>
+            <h3>증빙 흐름 정리</h3>
+            <p>사업용 비용, 장비 구입, 외주비 증빙을 기초부터 구조화합니다.</p>
+          </div>
         </div>
-        <aside class="sidebar-card card">
-          <span class="badge">상담 CTA</span>
+      </div>
+    </section>
+
+    <section class="svc-section">
+      <div class="container svc-split">
+        <div class="svc-split-head"><span class="svc-num">03</span><h2>이렇게 편해집니다</h2></div>
+        <ul class="svc-checklist">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>수익 채널별로 어떤 세금 이슈가 있는지 한 번에 정리할 수 있습니다.</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>정산서와 실제 입금액을 해석하는 기준이 생겨 문의가 줄어듭니다.</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>협찬, 샘플, 외주 지급 등 애매한 거래를 미리 정리할 수 있습니다.</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>사업 초기라도 비용 증빙과 계좌 흐름을 깔끔하게 만들 수 있습니다.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="svc-section">
+      <div class="container">
+        <div class="svc-head"><span class="svc-num">04</span><h2>진행 과정</h2></div>
+        <ol class="svc-steps">
+          <li>
+            <span class="svc-step-num">01</span>
+            <h3>수익 구조 인터뷰</h3>
+            <p>채널별 수익원과 정산 방식, 입금 주기를 먼저 구분합니다.</p>
+          </li>
+          <li>
+            <span class="svc-step-num">02</span>
+            <h3>과세 포인트 정리</h3>
+            <p>부가세, 원천세, 사업소득 또는 기타소득 여부를 실무 기준으로 설명합니다.</p>
+          </li>
+          <li>
+            <span class="svc-step-num">03</span>
+            <h3>비용 증빙 세팅</h3>
+            <p>장비, 외주비, 촬영비, 이동비 등 실제 자주 쓰는 비용 항목을 정리합니다.</p>
+          </li>
+          <li>
+            <span class="svc-step-num">04</span>
+            <h3>신고 및 운영 안내</h3>
+            <p>월별 또는 반기별로 무엇을 미리 챙겨야 하는지 체크리스트를 제공합니다.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="svc-section">
+      <div class="container svc-two">
+        <div class="svc-two-main">
+          <div class="svc-head"><span class="svc-num">05</span><h2>준비 자료</h2></div>
+          <ul class="svc-checklist svc-checklist-compact">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>플랫폼 정산서, 수익 내역 캡처, 입금 내역</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>협찬 또는 광고 계약서, 세금계산서 발행 내역</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>장비·촬영비·외주비 등 주요 비용 증빙</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>해외 플랫폼 수익이 있다면 원천징수 내역 또는 정산 자료</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>현재 사업자 보유 여부와 채널 운영 방식</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="svc-section svc-section-last">
+      <div class="container">
+        <div class="svc-head"><span class="svc-num">06</span><h2>자주 묻는 질문</h2></div>
+        <div class="svc-faq">
+          <div>
+            <h3>협찬 제품도 세무상 확인이 필요한가요?</h3>
+            <p>상황에 따라 확인이 필요합니다. 협찬이 단순 홍보 제공인지, 대가성이 있는 거래인지에 따라 증빙과 해석 기준이 달라질 수 있습니다.</p>
+          </div>
+          <div>
+            <h3>해외 플랫폼 수익도 상담 가능한가요?</h3>
+            <p>가능합니다. 다만 실제 지급 구조와 정산서 형태에 따라 확인해야 할 포인트가 달라, 정산 자료를 먼저 보는 것이 중요합니다.</p>
+          </div>
+          <div>
+            <h3>사업자 등록 전 단계에서도 문의할 수 있나요?</h3>
+            <p>가능합니다. 초기 단계에서 수익 구조를 정리해 두면 사업자 등록 시점과 부가세 이슈를 판단하기 쉬워집니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="svc-cta">
+      <div class="container">
+        <div class="svc-cta-copy">
           <h2>크리에이터 수익 구조를 먼저 정리하세요</h2>
           <p>수익 채널과 가장 헷갈리는 항목을 문의폼에 남겨주시면 검토 후 연락드립니다.</p>
-          <a class="button" href="/contact">문의 남기기</a>
-          <a class="button button-secondary" href="/guides/creator-tax-basics">기본 가이드 보기</a>
-          <ul class="link-list">
-            <li><a class="text-link" href="/guides/creator-tax-basics">크리에이터 세무 기본기</a></li>
-            <li><a class="text-link" href="mailto:cptamj@naver.com" data-event="email_click" data-cfg-href="email_href">이메일 문의</a></li>
-          </ul>
-        </aside>
+        </div>
+        <div class="svc-cta-actions">
+          <a class="svc-cta-main" href="/contact" data-event="consult_click">상담 신청하기</a>
+          <a class="svc-cta-tel" href="tel:01049464505" data-cfg-href="phone_href" data-event="phone_click"><span data-cfg-text="phone_display">010-4946-4505</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="svc-related">
+      <div class="container">
+        <p class="svc-related-title">함께 보면 좋은 글</p>
+        <div class="svc-related-list">
+          <a href="/guides/creator-tax-basics">크리에이터 세무 기본기<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        </div>
       </div>
     </section>
   </main>

@@ -21,6 +21,7 @@
   },
   "station": "신논현역",
   "transit": "신논현역 인근",
+  "transitDetail": "신논현역 3번 출구 도보 5분",
   "maps": {
     "naver": "https://map.naver.com/p/entry/place/38274591",
     "kakao": "https://place.map.kakao.com/1856074339"
@@ -38,11 +39,10 @@
   },
   "relocation": {
     "date": "2026-10-27",
-    "note": "선릉역 인근으로 이전. 이전일에 address / station / transit / maps 값만 바꾸고 `node _src/build.mjs`를 실행하면 모든 페이지(제목·소개 문구·푸터·JSON-LD 포함)에 반영된다."
+    "announceBeforeMove": false,
+    "note": "선릉역 인근으로 이전. 이전 전에는 '이전 예정' 안내 문구를 게시하지 않는다(대표 결정 2026-10-15). 이전일에 address / station / transit / transitDetail / maps 값만 바꾸고 `node _src/build.mjs`를 실행하면 모든 페이지(제목·소개 문구·푸터·오시는 길·JSON-LD 포함)에 반영된다."
   },
   "todo": [
-    "신논현역 출구 번호·도보 시간(오시는 길): 미정이라 '신논현역 인근'만 표기 중",
-    "선릉역 이전 후 주소·지도 링크·출구·도보 시간: 미정",
-    "'선릉역 이전 예정' 안내 문구 게시 여부: 미정"
+    "선릉역 이전 후 새 주소·지도 링크·출구·도보 시간: 미정(이전일 전에 받아서 address / station / transit / transitDetail / maps 교체)"
   ]
 }

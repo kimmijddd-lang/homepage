@@ -79,7 +79,7 @@
   window.visualViewport?.addEventListener("scroll", syncViewportMetrics);
 
   // FAQ accordion — one open at a time + scroll into view
-  document.querySelectorAll(".faq-grid, .faq-scene-list").forEach((group) => {
+  document.querySelectorAll(".faq-grid").forEach((group) => {
     const items = Array.from(group.querySelectorAll(".faq-item"));
     items.forEach((item) => {
       item.addEventListener("toggle", () => {

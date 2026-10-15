@@ -8,10 +8,13 @@
 //   2. 속성:  data-cfg-href="키"  → 해당 <a>의 href 를 config 값으로 교체
 //   3. 텍스트: data-cfg-text="키"  → 해당 요소(자식 태그 없는 요소)의 글자를 config 값으로 교체
 // 영역과 data-cfg-* 안의 내용은 직접 고치지 말고 config/partials 를 고친 뒤 다시 실행한다.
+//   4. 통째 생성: services/**/index.html 은 _src/content/services/*.json + _src/templates/pages.mjs 로 만든다.
+//      업무 문구는 JSON 을 고치고 다시 실행한다 (생성된 HTML 을 직접 고치면 다음 실행에서 덮어쓴다).
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
-import { join, relative, dirname } from 'node:path';
+import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'node:fs';
+import { join, relative, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { renderService, renderServicesIndex } from './templates/pages.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const checkOnly = process.argv.includes('--check');
@@ -35,6 +38,7 @@ const values = {
   address_line: cfg.address.line,
   address_full: cfg.address.full,
   transit: cfg.transit,
+  transit_detail: cfg.transitDetail,
   map_naver: cfg.maps.naver,
   map_kakao: cfg.maps.kakao,
   instagram: cfg.social.instagram,
@@ -128,14 +132,32 @@ const HARD_CODED = [
 // 아직 새 레이아웃으로 바뀌지 않은 페이지 (현재 없음).
 const LEGACY_PAGES = new Set([]);
 
+// 데이터(_src/content)와 템플릿(_src/templates)으로 통째로 만드는 페이지. 이 파일들은 직접 고치지 않는다.
+function generatedPages() {
+  const dir = join(root, '_src', 'content', 'services');
+  const services = readdirSync(dir)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(read(join(dir, f))))
+    .sort((a, b) => a.order - b.order);
+  const pages = new Map();
+  for (const s of services) pages.set(join('services', s.slug, 'index.html'), renderService(s, { cfg }));
+  pages.set(join('services', 'index.html'), renderServicesIndex(services, { cfg }));
+  return pages;
+}
+
+const generated = generatedPages();
+const targets = new Set([...htmlFiles(root)].map((f) => relative(root, f)));
+generated.forEach((_, rel) => targets.add(rel));
+
 const changed = [];
 const problems = [];
 
-for (const file of htmlFiles(root)) {
-  const rel = relative(root, file);
+for (const rel of [...targets].sort()) {
+  const file = join(root, rel);
   if (LEGACY_PAGES.has(rel)) continue;
-  const before = read(file);
-  const after = applyAttributes(applyRegions(before));
+  const before = existsSync(file) ? read(file) : '';
+  const source = generated.get(rel) ?? before;
+  const after = applyAttributes(applyRegions(source));
 
   for (const name of REQUIRED_REGIONS) {
     // mobile-bar 는 상담 폼 전용 변형(mobile-bar-form)도 허용한다.
@@ -151,7 +173,10 @@ for (const file of htmlFiles(root)) {
 
   if (after !== before) {
     changed.push(rel);
-    if (!checkOnly) writeFileSync(file, after);
+    if (!checkOnly) {
+      mkdirSync(dirname(file), { recursive: true });
+      writeFileSync(file, after);
+    }
   }
 }
 
