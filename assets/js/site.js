@@ -19,13 +19,32 @@
   }
 
   const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+
+  // 예전에 공유한 /#consult, /#inquiry 링크는 상담 신청 페이지로 안내한다.
+  // 해시는 서버가 읽을 수 없어 브라우저에서 처리하고, UTM 등 쿼리는 그대로 넘긴다.
+  const legacyAnchor = window.location.hash.replace("#", "");
+  if (
+    currentPath === "/" &&
+    (legacyAnchor === "consult" || legacyAnchor === "inquiry") &&
+    !document.getElementById(legacyAnchor)
+  ) {
+    window.location.replace(`/contact${window.location.search}`);
+    return;
+  }
+
   document.querySelectorAll("[data-nav] a[href]").forEach((link) => {
     const href = link.getAttribute("href");
-    if (!href || href.startsWith("http")) {
+    if (
+      !href ||
+      href.startsWith("http") ||
+      href.includes("#") ||
+      link.classList.contains("button")
+    ) {
       return;
     }
     const normalized = href.replace(/\/$/, "") || "/";
-    if (normalized === currentPath) {
+    const inSection = normalized !== "/" && currentPath.startsWith(`${normalized}/`);
+    if (normalized === currentPath || inSection) {
       link.setAttribute("aria-current", "page");
     }
   });
@@ -437,36 +456,6 @@
   };
 
   initializeHomeScenes();
-
-  // Nav dropdown
-  document.querySelectorAll(".nav-dropdown-trigger").forEach((trigger) => {
-    const menu = trigger.nextElementSibling;
-    if (!menu) return;
-
-    trigger.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = trigger.getAttribute("aria-expanded") === "true";
-      trigger.setAttribute("aria-expanded", String(!isOpen));
-      menu.classList.toggle("is-open", !isOpen);
-    });
-
-    // Close dropdown when clicking a link inside it
-    menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        trigger.setAttribute("aria-expanded", "false");
-        menu.classList.remove("is-open");
-      });
-    });
-  });
-
-  // Close dropdown on outside click
-  document.addEventListener("click", () => {
-    document.querySelectorAll(".nav-dropdown-trigger").forEach((trigger) => {
-      trigger.setAttribute("aria-expanded", "false");
-      const menu = trigger.nextElementSibling;
-      if (menu) menu.classList.remove("is-open");
-    });
-  });
 
   // FAQ accordion — one open at a time + scroll into view
   document.querySelectorAll(".faq-grid, .faq-scene-list").forEach((group) => {

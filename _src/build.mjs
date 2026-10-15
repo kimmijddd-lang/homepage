@@ -38,7 +38,12 @@ const values = {
   map_naver: cfg.maps.naver,
   map_kakao: cfg.maps.kakao,
   instagram: cfg.social.instagram,
+  instagram_dm: cfg.social.instagramDm,
   blog: cfg.social.blog,
+  form_endpoint: cfg.form.endpoint,
+  form_subject: cfg.form.subject,
+  thanks_url: `${cfg.siteUrl}/contact/thanks`,
+  opening_hours: cfg.openingHours,
 };
 
 const escHtml = (s) =>
@@ -71,6 +76,14 @@ function applyAttributes(html) {
     /(<([a-zA-Z0-9]+)\b[^>]*\sdata-cfg-text="(\w+)"[^>]*>)[^<]*(<\/\2>)/g,
     (_, open, _tag, key, close) => `${open}${escHtml(valueOf(key))}${close}`,
   );
+  html = html.replace(/<form\b[^>]*\sdata-cfg-action="(\w+)"[^>]*>/g, (tag, key) => {
+    if (!/\saction="[^"]*"/.test(tag)) throw new Error(`data-cfg-action 요소에 action 이 없음: ${tag}`);
+    return tag.replace(/(\saction=")[^"]*(")/, (_, a, b) => `${a}${escHtml(valueOf(key))}${b}`);
+  });
+  html = html.replace(/<input\b[^>]*\sdata-cfg-value="(\w+)"[^>]*>/g, (tag, key) => {
+    if (!/\svalue="[^"]*"/.test(tag)) throw new Error(`data-cfg-value 요소에 value 가 없음: ${tag}`);
+    return tag.replace(/(\svalue=")[^"]*(")/, (_, a, b) => `${a}${escHtml(valueOf(key))}${b}`);
+  });
   return html;
 }
 
@@ -96,18 +109,25 @@ const HARD_CODED = [
   cfg.maps.naver,
   cfg.maps.kakao,
   cfg.hours,
+  cfg.form.endpoint,
+  cfg.social.instagramDm,
 ];
+
+// 아직 새 레이아웃으로 바뀌지 않은 페이지. 새 홈(4단계)으로 교체되면 이 목록에서 뺀다.
+const LEGACY_PAGES = new Set(['index.html']);
 
 const changed = [];
 const problems = [];
 
 for (const file of htmlFiles(root)) {
   const rel = relative(root, file);
+  if (LEGACY_PAGES.has(rel)) continue;
   const before = read(file);
   const after = applyAttributes(applyRegions(before));
 
   for (const name of REQUIRED_REGIONS) {
-    if (!after.includes(`<!-- gen:${name} -->`)) problems.push(`${rel}: gen:${name} 영역 없음`);
+    // mobile-bar 는 상담 폼 전용 변형(mobile-bar-form)도 허용한다.
+    if (!after.includes(`<!-- gen:${name}`)) problems.push(`${rel}: gen:${name} 영역 없음`);
   }
 
   const outside = after.replace(REGION, '').split('\n');
