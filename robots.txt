@@ -1,3 +1,35 @@
+# Search and AI-search crawlers are explicitly allowed (same access as before).
+# All other crawlers, including training-only bots such as GPTBot, ClaudeBot and
+# Google-Extended, stay under the default group below. That group is left as it was
+# until the owner decides how to treat them.
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: Daumoa
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 User-agent: *
 Allow: /
 

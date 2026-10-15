@@ -151,6 +151,7 @@ generated.forEach((_, rel) => targets.add(rel));
 
 const changed = [];
 const problems = [];
+const outputs = new Map(); // 반영 후의 각 페이지 내용 (검색용 점검에 쓴다)
 
 for (const rel of [...targets].sort()) {
   const file = join(root, rel);
@@ -158,6 +159,7 @@ for (const rel of [...targets].sort()) {
   const before = existsSync(file) ? read(file) : '';
   const source = generated.get(rel) ?? before;
   const after = applyAttributes(applyRegions(source));
+  outputs.set(rel, after);
 
   for (const name of REQUIRED_REGIONS) {
     // mobile-bar 는 상담 폼 전용 변형(mobile-bar-form)도 허용한다.
@@ -179,6 +181,56 @@ for (const rel of [...targets].sort()) {
     }
   }
 }
+
+// 검색용 점검: 제목·설명·canonical·h1·이미지 alt, 사이트맵과 페이지 목록의 일치, 어디서도 연결되지 않는 페이지
+function seoLint() {
+  const urlOf = (rel) => {
+    const p = `/${rel.split(sep).join('/').replace(/index\.html$/, '').replace(/\/$/, '')}`;
+    return cfg.siteUrl + (p === '/' ? '/' : p);
+  };
+  const pick = (html, re) => (html.match(re) || [])[1];
+  const titles = new Map();
+  const descs = new Map();
+  const indexable = new Map();
+  const linked = new Set();
+
+  for (const [rel, html] of outputs) {
+    const url = urlOf(rel);
+    const title = pick(html, /<title[^>]*>([^<]*)<\/title>/);
+    const desc = pick(html, /<meta name="description" content="([^"]*)"/);
+    const canonical = pick(html, /<link rel="canonical" href="([^"]*)"/);
+    const noindex = /<meta name="robots" content="[^"]*noindex/.test(html);
+
+    if (!title) problems.push(`SEO ${rel}: title 없음`);
+    else if ([...title].length > 60) problems.push(`SEO ${rel}: title 이 60자를 넘음 (${[...title].length}자)`);
+    if (!desc) problems.push(`SEO ${rel}: description 없음`);
+    else if ([...desc].length < 30 || [...desc].length > 130) problems.push(`SEO ${rel}: description 길이 ${[...desc].length}자 (30~130자 권장)`);
+    if (canonical !== url) problems.push(`SEO ${rel}: canonical 이 ${url} 과 다름 (${canonical})`);
+    if ((html.match(/<h1\b/g) || []).length !== 1) problems.push(`SEO ${rel}: h1 이 하나가 아님`);
+    if (/<img\b(?![^>]*\balt=)[^>]*>/.test(html)) problems.push(`SEO ${rel}: alt 없는 이미지`);
+    if (title) titles.set(title, [...(titles.get(title) ?? []), rel]);
+    if (desc) descs.set(desc, [...(descs.get(desc) ?? []), rel]);
+    if (!noindex) indexable.set(url, rel);
+
+    for (const m of html.matchAll(/\bhref="(\/[^"#?]*)/g)) {
+      const target = cfg.siteUrl + (m[1] === '/' ? '/' : m[1].replace(/\/$/, ''));
+      if (target !== url) linked.add(target);
+    }
+  }
+  titles.forEach((rels, t) => rels.length > 1 && problems.push(`SEO title 중복: ${t} → ${rels.join(', ')}`));
+  descs.forEach((rels, d) => rels.length > 1 && problems.push(`SEO description 중복: ${d.slice(0, 40)}… → ${rels.join(', ')}`));
+
+  const sitemapFile = join(root, 'sitemap.xml');
+  if (!existsSync(sitemapFile)) {
+    problems.push('SEO sitemap.xml 없음');
+  } else {
+    const inMap = new Set([...read(sitemapFile).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
+    indexable.forEach((rel, url) => !inMap.has(url) && problems.push(`SEO sitemap.xml 에 없음: ${url}`));
+    inMap.forEach((url) => !indexable.has(url) && problems.push(`SEO sitemap.xml 에 있지만 색인 대상 페이지가 아님: ${url}`));
+  }
+  indexable.forEach((rel, url) => url !== `${cfg.siteUrl}/` && !linked.has(url) && problems.push(`SEO 다른 페이지에서 링크되지 않음: ${url}`));
+}
+seoLint();
 
 if (checkOnly) {
   changed.forEach((rel) => console.log(`반영 필요: ${rel}`));
