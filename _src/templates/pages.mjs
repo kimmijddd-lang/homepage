@@ -103,7 +103,7 @@ export function renderService(s, { cfg }) {
       name: s.ld.name,
       serviceType: s.ld.serviceType,
       description: s.ld.description,
-      provider: { '@type': 'AccountingService', name: cfg.name, url: `${cfg.siteUrl}/` },
+      provider: { '@type': 'AccountingService', '@id': `${cfg.siteUrl}/#accountingservice`, name: cfg.name, url: `${cfg.siteUrl}/` },
       areaServed: 'KR',
       url: `${cfg.siteUrl}${path}`,
     },

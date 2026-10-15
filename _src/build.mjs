@@ -35,6 +35,8 @@ const values = {
   hours: cfg.hours,
   address_street: cfg.address.street,
   address_locality: cfg.address.locality,
+  address_region: cfg.address.region,
+  address_city: cfg.address.city,
   address_line: cfg.address.line,
   address_full: cfg.address.full,
   transit: cfg.transit,
@@ -208,6 +210,25 @@ function seoLint() {
     if (canonical !== url) problems.push(`SEO ${rel}: canonical 이 ${url} 과 다름 (${canonical})`);
     if ((html.match(/<h1\b/g) || []).length !== 1) problems.push(`SEO ${rel}: h1 이 하나가 아님`);
     if (/<img\b(?![^>]*\balt=)[^>]*>/.test(html)) problems.push(`SEO ${rel}: alt 없는 이미지`);
+
+    // 구조화 데이터: 읽을 수 있는 JSON 이어야 하고, 전화·메일·주소는 config 와 같아야 한다
+    for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      let data;
+      try {
+        data = JSON.parse(m[1]);
+      } catch (e) {
+        problems.push(`SEO ${rel}: JSON-LD 를 읽을 수 없음 (${e.message})`);
+        continue;
+      }
+      for (const node of Array.isArray(data) ? data : [data]) {
+        if (node.telephone && node.telephone !== cfg.phone.e164) problems.push(`SEO ${rel}: JSON-LD 전화번호가 config 와 다름`);
+        if (node.email && node.email !== cfg.email) problems.push(`SEO ${rel}: JSON-LD 이메일이 config 와 다름`);
+        const a = node.address;
+        if (a && typeof a === 'object' && a.streetAddress && a.streetAddress !== cfg.address.street) {
+          problems.push(`SEO ${rel}: JSON-LD 주소가 config 와 다름`);
+        }
+      }
+    }
     if (title) titles.set(title, [...(titles.get(title) ?? []), rel]);
     if (desc) descs.set(desc, [...(descs.get(desc) ?? []), rel]);
     if (!noindex) indexable.set(url, rel);

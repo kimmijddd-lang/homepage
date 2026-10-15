@@ -49,10 +49,6 @@
     }
   });
 
-  document.querySelectorAll("[data-current-year]").forEach((node) => {
-    node.textContent = String(new Date().getFullYear());
-  });
-
   const syncViewportMetrics = () => {
     const header = document.querySelector(".site-header");
     const viewportHeight = Math.round(
