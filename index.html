@@ -99,11 +99,11 @@
 <style id="mobile-home-styles">
 /* Three-page consultation preview. Header and dock reserve their actual space. */
 html{scroll-behavior:auto;scroll-padding:0}
-body.mobile-home{height:100vh;height:100svh;padding:0;display:flex;flex-direction:column;background:#fff;line-height:1.6}
-.mobile-home{--entry-width:1080px;--entry-gutter:clamp(18px,4vw,44px);--muted:#596476}
-.entry-header{display:flex;flex:none;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;padding:10px var(--entry-gutter);padding-top:max(10px,env(safe-area-inset-top));border-bottom:1px solid #e6e8ee;background:#fff;z-index:5}
+body.mobile-home{height:100vh;height:100svh;padding:0;display:flex;flex-direction:column;background:#F6F7F4;line-height:1.6}
+.mobile-home{--entry-width:1080px;--entry-gutter:clamp(18px,4vw,44px);--muted:#52615F;--paper:#F6F7F4;--ink:#0F1B2D;--line:#D7E0DC;--accent:#0F766E;--form-bg:#FFFFFF;--form-ink:#0F1B2D;--form-muted:#52615F;--form-line:#7F928E;--input-bg:#FFFFFF;--type-active:#E5F1ED;--type-border:#0F766E;--button-ink:#FFFFFF}
+.entry-header{display:flex;flex:none;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;padding:10px var(--entry-gutter);padding-top:max(10px,env(safe-area-inset-top));border-bottom:1px solid #D7E0DC;background:#F6F7F4;z-index:5}
 .entry-brand{display:flex;align-items:center;gap:10px;min-width:0;max-width:100%;line-height:1.25}
-.entry-brand>span{color:#3155ed;font-family:Arial,sans-serif;font-size:2rem;letter-spacing:-.14em;font-weight:800;flex:none;padding-right:4px}
+.entry-brand>span{color:#0F766E;font-family:Arial,sans-serif;font-size:2rem;letter-spacing:-.14em;font-weight:800;flex:none;padding-right:4px}
 .entry-brand strong{font-size:clamp(1rem,2vw,1.25rem);letter-spacing:-.055em}
 .header-link{white-space:nowrap;flex-shrink:0;font-size:.875rem;min-height:44px;display:flex;align-items:center;padding:8px 0 8px 10px;color:#4f586c}
 .entry-deck{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;container-type:size}
@@ -112,7 +112,7 @@ body.mobile-home{height:100vh;height:100svh;padding:0;display:flex;flex-directio
 .small-label{font-size:.875rem;line-height:1.5;font-weight:650;color:#3155ed;letter-spacing:-.015em}
 .panel-title{font-size:clamp(1.7rem,3.6vw,2.9rem);line-height:1.3;letter-spacing:-.065em;font-weight:750;margin-top:12px}
 .mobile-home .button{min-height:52px;padding:13px 20px;font-size:1rem;gap:20px}
-.mobile-home .button:focus-visible,.mobile-home a:focus-visible,.mobile-home summary:focus-visible{outline:3px solid #3155ed;outline-offset:4px}
+.mobile-home .button:focus-visible,.mobile-home a:focus-visible,.mobile-home summary:focus-visible{outline:3px solid #0F766E;outline-offset:4px}
 .consultation-hero{display:grid;grid-template-columns:1.3fr 1fr;grid-template-areas:'message advisor' 'actions advisor';align-items:center;gap:30px 70px}
 .hero-message{grid-area:message;align-self:end}
 .hero-message h1{font-size:clamp(2rem,4.3vw,3.7rem);line-height:1.25;letter-spacing:-.065em;font-weight:750;margin:15px 0 18px}
@@ -146,15 +146,15 @@ body.mobile-home{height:100vh;height:100svh;padding:0;display:flex;flex-directio
 .supporting-links img{object-fit:contain;flex:none;border-radius:3px}
 .supporting-links span{min-width:0;line-height:1.55}
 .supporting-links b{font-weight:400;color:#3155ed;margin-left:6px}
-.panel-consult{background:#f5f7fc}
+.panel-consult{background:#F6F7F4}
 .application-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:25px 65px;align-items:start}
 .application-intro{padding-top:10px}
-.application-expectation{font-size:1rem;line-height:1.75;color:#536077;margin-top:22px}
-.office-hours{font-size:.875rem;line-height:1.6;color:#536077;margin-top:12px}
-.panel-consult .compact-form{border:1px solid #e0e5ef;border-radius:16px;padding:26px;background:#fff;box-shadow:0 10px 35px #152e6210}
+.application-expectation{font-size:1rem;line-height:1.75;color:#52615F;margin-top:22px}
+.office-hours{font-size:.875rem;line-height:1.6;color:#52615F;margin-top:12px}
+.panel-consult .compact-form{border:1px solid #D7E0DC;border-radius:16px;padding:26px;background:#fff;box-shadow:0 10px 35px #0F1B2D10}
 .preview-form-notice{font-size:.875rem;line-height:1.55;color:#546179;padding:12px 14px;background:#f2f5fa;border-radius:7px;margin-bottom:20px}
 .compact-form .field,.compact-form legend{font-size:.875rem;font-weight:650}
-.required-mark{color:#3155ed}
+.required-mark{color:#0F766E}
 .compact-form .fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .compact-form .field{min-width:0;margin-bottom:16px}
 .compact-form .field input,.compact-form .field textarea{border-radius:7px;font-size:1rem;padding:11px 12px}
@@ -165,27 +165,27 @@ body.mobile-home{height:100vh;height:100svh;padding:0;display:flex;flex-directio
 .compact-form .type-select input{width:15px;height:15px;flex-shrink:0}
 .optional-message{margin:0 0 10px}
 .optional-message summary{font-size:.875rem;font-weight:600;cursor:pointer;min-height:44px;padding:10px 0}
-.optional-message summary span{color:#6c7384;font-weight:400;margin-left:5px}
+.optional-message summary span{color:#52615F;font-weight:400;margin-left:5px}
 .optional-message .field{margin-top:8px}
 .compact-form .consent{font-size:.875rem;padding-top:16px;min-height:44px}
 .compact-form .privacy-summary{font-size:.875rem;margin-top:0}
 .compact-form .privacy-summary summary{min-height:44px;padding:12px 0;cursor:pointer}
 .compact-form .privacy-summary p{margin-top:6px}
 .compact-form .button{margin-top:16px;justify-content:space-between}
-.entry-footer{grid-column:1/-1;border-top:1px solid #dbe0eb;padding-top:20px;font-size:.875rem;color:#626d80;display:flex;align-items:start;justify-content:space-between;gap:18px 30px}
-.entry-footer strong{font-weight:600;color:#4c5870}
+.entry-footer{grid-column:1/-1;border-top:1px solid #D7E0DC;padding-top:20px;font-size:.875rem;color:#52615F;display:flex;align-items:start;justify-content:space-between;gap:18px 30px}
+.entry-footer strong{font-weight:600;color:#0F1B2D}
 .entry-footer p{margin-top:7px;line-height:1.8;overflow-wrap:anywhere}
 .entry-footer nav{display:flex;flex-wrap:wrap;gap:0 20px;max-width:340px;justify-content:flex-end}
 .entry-footer a{display:flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:3px}
 .page-rail{display:flex;align-items:center;justify-content:center;gap:5px;flex:none;background:#fff;border-top:1px solid #e8eaf0;min-height:44px}
-.page-rail a{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;font-size:.875rem;color:#6c7485;position:relative}
-.page-rail a[aria-current=page]{color:#3155ed;font-weight:800}
-.page-rail a[aria-current=page]::after{content:'';position:absolute;bottom:5px;width:13px;height:2px;background:#3155ed}
-.page-rail>span{color:#647087;font-size:.875rem;margin-left:8px;min-width:75px}
-.entry-dock{display:grid;grid-template-columns:.8fr 1.2fr;flex:none;border-top:1px solid #e0e5f0;padding-bottom:env(safe-area-inset-bottom);background:#fff;z-index:5}
+.page-rail a{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;font-size:.875rem;color:#52615F;position:relative}
+.page-rail a[aria-current=page]{color:#0F766E;font-weight:800}
+.page-rail a[aria-current=page]::after{content:'';position:absolute;bottom:5px;width:13px;height:2px;background:#0F766E}
+.page-rail>span{color:#52615F;font-size:.875rem;margin-left:8px;min-width:75px}
+.entry-dock{display:grid;grid-template-columns:.8fr 1.2fr;flex:none;border-top:1px solid #D7E0DC;padding-bottom:env(safe-area-inset-bottom);background:#F6F7F4;z-index:5}
 .entry-dock a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;font-size:1rem;font-weight:700;white-space:nowrap}
-.entry-dock a:last-child{background:#3155ed;color:#fff}
-.entry-deck:focus-visible{outline:2px solid #3155ed;outline-offset:-2px}
+.entry-dock a:last-child{background:#0F766E;color:#fff}
+.entry-deck:focus-visible{outline:2px solid #0F766E;outline-offset:-2px}
 /* Each page owns its overflow, so a long form never clips under the dock. */
 .paging-ready .entry-deck{overflow:hidden;scroll-behavior:auto}
 .paging-ready .entry-panel{height:100%;min-height:100%;overflow-y:auto;overscroll-behavior-y:contain;display:flex;flex-direction:column;align-items:stretch;scroll-behavior:auto}
@@ -194,7 +194,7 @@ body.mobile-home{height:100vh;height:100svh;padding:0;display:flex;flex-directio
 .is-editing .page-rail{display:none}
 @media(min-width:1100px){
  .entry-header{padding-inline:max(44px,calc((100% - 1080px)/2))}
- .entry-dock{padding-inline:max(44px,calc((100% - 1080px)/2));background:#f8f9fc}
+ .entry-dock{padding-inline:max(44px,calc((100% - 1080px)/2));background:#F6F7F4}
 }
 @media(max-width:900px){
  .consultation-hero{gap:24px 32px;grid-template-columns:1.25fr 1fr}
@@ -298,17 +298,17 @@ body.mobile-home{height:100vh;height:100svh;padding:0;display:flex;flex-directio
 .author-strip strong{font-size:1rem;font-weight:650;letter-spacing:-.025em;display:block}
 .author-strip span{font-size:.875rem;color:#637187;display:block;line-height:1.6;margin-top:2px}
 /* B: bold blue, three real questions; these are text, not fake controls. */
-.variant-b .panel-first{background:#294ae0;color:#fff}
+.variant-b .panel-first{background:#F6F7F4;color:#0F1B2D}
 .question-composition{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:'copy questions' 'person questions';gap:35px 75px}
 .question-copy{grid-area:copy;align-self:end}
-.variant-b .concept-label{color:#dae3ff}
+.variant-b .concept-label{color:#0F766E}
 .variant-b h1{font-size:clamp(2rem,4vw,3.45rem);line-height:1.34}
-.variant-b h1 em{color:#c8d8ff}
-.business-questions{grid-area:questions;list-style:none;padding:0;margin:0;border-top:1px solid #ffffff50}
-.business-questions li{padding:25px 0;border-bottom:1px solid #ffffff50;font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:500;line-height:1.55;letter-spacing:-.03em}
+.variant-b h1 em{color:#0F766E}
+.business-questions{grid-area:questions;list-style:none;padding:0;margin:0;border-top:1px solid #D7E0DC}
+.business-questions li{padding:25px 0;border-bottom:1px solid #D7E0DC;font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:500;line-height:1.55;letter-spacing:-.03em}
 .question-composition .author-strip{grid-area:person;align-self:start}
-.variant-b .author-strip span{color:#d2dfff}
-.variant-b .author-strip>img{border:2px solid #adc0ff}
+.variant-b .author-strip span{color:#52615F}
+.variant-b .author-strip>img{border:2px solid #7F928E}
 /* C: two real posts are the main visual. */
 .notes-composition{display:grid;grid-template-columns:.85fr 1.15fr;grid-template-areas:'copy posts' 'person posts';gap:28px 65px}
 .notes-copy{grid-area:copy;align-self:end}
@@ -372,6 +372,11 @@ body.mobile-home{height:100vh;height:100svh;padding:0;display:flex;flex-directio
 
 .legacy-anchor{position:absolute;top:0;left:0;width:0;height:0;overflow:hidden}
 
+.mobile-home .contact-channel{color:#0F766E;border-color:#7F928E}
+.mobile-home .contact-channel:hover{background:#E5F1ED;border-color:#0F766E}
+.mobile-home .button:hover,.mobile-home .entry-dock a:last-child:hover{background:#115E59}
+.mobile-home .privacy-summary{color:#52615F}
+.mobile-home ::selection{background:#0F766E;color:#FFFFFF}
 </style>
 </head>
 <body class="theme-b mobile-home variant variant-b" data-scroll="natural"><a class="skip" href="#deck">본문으로 건너뛰기</a><header class="entry-header"><a class="entry-brand" href="#start" aria-label="대윤세무회계 첫 화면"><span aria-hidden="true">dy.</span><strong>대윤세무회계</strong></a><nav class="page-rail" aria-label="페이지 이동"><a href="#start" aria-current="page" aria-label="1. 사업자 고민">1</a><a href="#consult" aria-label="2. 상담 신청">2</a><span id="current-page" class="sr-only">사업자 고민</span></nav></header><main class="entry-deck" id="deck" tabindex="0" aria-label="한 번 넘기면 다음 화면으로 이동"><section class="entry-panel panel-first" id="start" aria-labelledby="start-title" data-label="사업자 고민"><span id="main" class="legacy-anchor" aria-hidden="true"></span><span id="notes" class="legacy-anchor" aria-hidden="true"></span><div class="panel-inner first-composition question-composition"><div class="question-copy"><p class="concept-label">개인사업자부터 법인까지</p><h1 id="start-title">사업하다 생긴<br>세금 고민,<br><em>편하게 물어보세요.</em></h1></div><ul class="business-questions"><li>이 지출도<br>비용처리할 수 있나요?</li><li>세금 낼 돈은<br>얼마나 준비해야 하나요?</li><li>직원을 채용하면<br>무엇부터 챙겨야 하나요?</li></ul><div class="author-strip"><img src="/assets/images/business-notes-kim-minjun.png" alt="" width="56" height="56"><div><strong>김민준 세무사</strong><span>대윤세무회계 · 10년 이상 쌓아온 세무 경험</span></div></div></div></section><section class="entry-panel panel-consult" id="consult" aria-labelledby="consult-title" data-label="신청"><span id="inquiry" class="legacy-anchor" aria-hidden="true"></span><span id="approach" class="legacy-anchor" aria-hidden="true"></span><span id="faq" class="legacy-anchor" aria-hidden="true"></span><div class="panel-inner application-layout">
