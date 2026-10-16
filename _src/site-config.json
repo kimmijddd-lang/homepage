@@ -13,17 +13,17 @@
   },
   "hours": "평일 09:00–18:00",
   "address": {
-    "street": "강남대로112길 33, 3층",
+    "street": "테헤란로64길 14, 802~803호",
     "region": "서울특별시",
     "city": "강남구",
     "locality": "서울 강남구",
-    "neighborhood": "논현동",
-    "line": "서울 강남구 강남대로112길 33, 3층",
-    "full": "서울 강남구 강남대로112길 33, 3층 (논현동, 삼화빌딩)"
+    "neighborhood": "대치동",
+    "line": "서울 강남구 테헤란로64길 14, 802~803호",
+    "full": "서울 강남구 테헤란로64길 14, 802~803호 (대치동, 더나인 오피스텔)"
   },
-  "station": "신논현역",
-  "transit": "신논현역 인근",
-  "transitDetail": "신논현역 3번 출구 도보 5분",
+  "station": "선릉역",
+  "transit": "선릉역 인근",
+  "transitDetail": "선릉역 1번 출구 도보 약 3분",
   "maps": {
     "naver": "https://map.naver.com/p/entry/place/38274591",
     "kakao": "https://place.map.kakao.com/1856074339"
@@ -42,9 +42,7 @@
   "relocation": {
     "date": "2026-10-27",
     "announceBeforeMove": false,
-    "note": "선릉역 인근으로 이전. 이전 전에는 '이전 예정' 안내 문구를 게시하지 않는다(대표 결정 2026-10-15). 새 주소는 공개 저장소에 올리지 않도록 _src/relocation-next.json(.gitignore 대상, 작업 PC에만 있음)에 두고, 이전일에 `node _src/build.mjs --move` 로 address / station / transit / transitDetail / maps 자리에 옮긴다. 모든 페이지(제목·소개 문구·푸터·오시는 길·JSON-LD 포함)에 반영된다."
+    "note": "2026-10-16 대표 요청으로 선릉역 사무실 주소를 사이트에 반영함(이전일 2026-10-27). '이전 예정' 안내 문구는 게시하지 않는다(대표 결정 2026-10-15). 지도 링크는 기존 업체(네이버 플레이스·카카오맵) 정보의 주소를 수정하는 방식이라 기존 링크를 그대로 쓴다. 주소를 다시 바꿀 때는 address / station / transit / transitDetail / maps 값만 고치고 `node _src/build.mjs`를 실행하면 모든 페이지(제목·소개 문구·푸터·오시는 길·JSON-LD 포함)에 반영된다."
   },
-  "todo": [
-    "이전(10/27) 새 주소 대기 파일 _src/relocation-next.json 중 미정: 출구 번호·도보 시간, 새 사무실 네이버 플레이스·카카오맵 링크"
-  ]
+  "todo": []
 }
