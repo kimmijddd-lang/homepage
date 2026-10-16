@@ -124,9 +124,9 @@ img {
 
 .brand-wordmark {
   color: var(--color-primary);
-  font-size: 1.76rem;
+  font-size: 1.56rem;
   font-weight: 800;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.06em;
   line-height: 1;
 }
 
@@ -331,7 +331,7 @@ textarea {
 }
 
 .footer-brand .brand-wordmark {
-  font-size: calc(26 * var(--px));
+  font-size: calc(23 * var(--px));
 }
 
 .footer-brand .brand-name {
@@ -869,7 +869,7 @@ summary:focus-visible {
   }
 
   .brand-wordmark {
-    font-size: calc(26 * var(--px));
+    font-size: calc(23 * var(--px));
   }
 
   .brand-name {
