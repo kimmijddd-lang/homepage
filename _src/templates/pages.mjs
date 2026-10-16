@@ -279,7 +279,7 @@ export function renderServicesIndex(list, { cfg }) {
   const main = `${breadcrumb([{ href: '/', text: '홈' }, { text: '업무 안내' }])}
 
     <div class="container svc-index-hero">
-      <p class="svc-eyebrow">개인사업자와 법인 모두 상담할 수 있습니다</p>
+      <p class="svc-eyebrow">업종 제한 없이, 개인사업자와 법인 모두 상담합니다</p>
       <h1>업무 안내</h1>
       <p class="svc-lead">${esc(cfg.name)}가 운영하는 세무 업무를 목적별로 정리했습니다. 필요한 업무의 범위와 진행 방식은 각 페이지에서 자세히 확인하실 수 있습니다.</p>
     </div>
