@@ -1,9 +1,21 @@
+/* DY Sans: SUIT Variable(OFL)을 이 사이트에서 쓰는 글자만 남겨 줄인 수정본 (138KB). 처음 화면에는 이것만 불러온다. */
+@font-face {
+  font-family: "DY Sans";
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/DYSans-Variable-subset.woff2") format("woff2-variations");
+}
+
+/* 원본 SUIT Variable 전체: DY Sans 에 없는 한글이 생겼을 때만 내려받는 다음 순서 글꼴.
+   unicode-range 를 한글로 제한해 둔 이유: 원본에도 없는 기호(예: –)가 있을 때마다 610KB 를 받아 보지 않게 하려는 것. */
 @font-face {
   font-family: "SUIT Variable";
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
   src: url("/assets/fonts/SUIT-Variable.woff2") format("woff2-variations");
+  unicode-range: U+1100-11FF, U+3130-318F, U+AC00-D7A3;
 }
 
 :root {
@@ -58,7 +70,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "SUIT Variable", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: "DY Sans", "SUIT Variable", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.7;
@@ -949,6 +961,36 @@ summary:focus-visible {
 
   .main-nav a[aria-current="page"] {
     box-shadow: none;
+  }
+
+  .brand {
+    padding: 8px 0;
+  }
+
+  .privacy-summary summary {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .privacy-summary .text-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .footer-col {
+    gap: 0;
+  }
+
+  .footer-col strong {
+    padding-bottom: 6px;
+  }
+
+  .footer-col a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
   }
 
   .mobile-bar {

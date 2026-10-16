@@ -14,6 +14,7 @@
   "hours": "평일 09:00–18:00",
   "address": {
     "street": "테헤란로64길 14, 802~803호",
+    "postalCode": "06192",
     "region": "서울특별시",
     "city": "강남구",
     "locality": "서울 강남구",

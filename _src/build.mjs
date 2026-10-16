@@ -59,6 +59,7 @@ const values = {
   address_locality: cfg.address.locality,
   address_region: cfg.address.region,
   address_city: cfg.address.city,
+  address_postal: cfg.address.postalCode,
   address_line: cfg.address.line,
   address_full: cfg.address.full,
   transit: cfg.transit,
@@ -86,7 +87,7 @@ if (!cfg.address.full.startsWith(cfg.address.line)) {
 }
 values.address_detail = cfg.address.full.slice(cfg.address.line.length).trim();
 // 키 없는 구글 지도 퍼가기 주소 — 주소가 바뀌면 지도도 따라 바뀐다 (iframe 안에서만 열림)
-values.map_embed = `https://www.google.com/maps?q=${encodeURIComponent(cfg.address.line)}&hl=ko&z=17&output=embed`;
+values.map_embed = `https://www.google.com/maps?q=${encodeURIComponent(cfg.address.line.split(',')[0].trim())}&hl=ko&z=17&output=embed`;
 
 const escHtml = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

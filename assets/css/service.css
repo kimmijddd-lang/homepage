@@ -179,11 +179,12 @@ body[data-page^="service"] h3 {
 }
 
 .svc-split-head {
-  flex: 0 1 300px;
+  flex: 0 1 360px;
   min-width: 0;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 14px;
 }
 
 .svc-split h2 {
@@ -194,9 +195,10 @@ body[data-page^="service"] h3 {
 
 .svc-num {
   color: var(--color-primary);
-  font-size: calc(14 * var(--px));
+  font-size: calc(30 * var(--px));
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.045em;
 }
 
 .svc-checklist {
@@ -655,6 +657,14 @@ body[data-page^="service"] h3 {
 
   .svc-split h2,
   .svc-head h2 {
+    font-size: calc(24 * var(--px));
+  }
+
+  .svc-cost-link {
+    min-height: 44px;
+  }
+
+  .svc-num {
     font-size: calc(24 * var(--px));
   }
 

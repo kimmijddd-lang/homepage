@@ -188,7 +188,7 @@ body[data-page="home"] h3 {
 
 .home-section-num {
   color: var(--color-primary);
-  font-size: calc(34 * var(--px));
+  font-size: calc(40 * var(--px));
   font-variant-numeric: tabular-nums;
   font-weight: 800;
   letter-spacing: -0.045em;
@@ -196,7 +196,7 @@ body[data-page="home"] h3 {
 
 .home-section h2 {
   margin: 0;
-  font-size: calc(34 * var(--px));
+  font-size: calc(40 * var(--px));
   font-weight: 760;
   letter-spacing: -0.045em;
 }
@@ -628,6 +628,27 @@ body[data-page="home"] h3 {
   border: 0;
 }
 
+.home-approach-more {
+  display: none;
+}
+
+@media (min-width: 821px) {
+  #faq .container {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 48px;
+    align-items: start;
+  }
+
+  #faq .home-section-head {
+    margin-bottom: 0;
+  }
+
+  .home-faq {
+    max-width: none;
+  }
+}
+
 @media (max-width: 1000px) {
   .home-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -766,6 +787,21 @@ body[data-page="home"] h3 {
   .home-principle {
     margin-bottom: 36px;
     font-size: calc(18 * var(--px));
+  }
+
+  .home-approach-more {
+    display: inline-flex;
+    margin-top: 20px;
+  }
+
+  .home-services-note p a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  #approach .home-section-head .home-section-link {
+    display: none;
   }
 
   .home-faq .faq-item summary {
