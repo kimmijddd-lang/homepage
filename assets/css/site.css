@@ -185,6 +185,15 @@ img {
   cursor: pointer;
 }
 
+.nav-toggle .nav-icon-close,
+.nav-toggle[aria-expanded="true"] .nav-icon-open {
+  display: none;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-icon-close {
+  display: block;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -908,6 +917,23 @@ summary:focus-visible {
 
   .main-nav.is-open {
     display: flex;
+  }
+
+  /* 메뉴가 열리면 뒤 페이지를 어둡게 덮고 스크롤을 막는다 (헤더 z-index 20 아래) */
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  body.nav-open::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 15;
+    background: rgba(15, 27, 45, 0.35);
+  }
+
+  body.nav-open .mobile-bar {
+    display: none;
   }
 
   .main-nav .button {

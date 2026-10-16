@@ -80,6 +80,13 @@ values.office_area = `${cfg.address.locality} ${cfg.address.neighborhood}, ${cfg
 values.office_area_short = `${cfg.address.locality} ${cfg.station}`;
 values.home_title = `${cfg.station} 세무사 | ${cfg.name} ${cfg.representative} 세무사`;
 values.home_description = `${values.office_area} ${cfg.representative} 세무사 사무실. 개인·법인사업자 기장과 세금 신고, 급여·4대보험, 세무사 변경 상담.`;
+// 오시는 길 주소 두 번째 줄 — 전체 주소에서 도로명 주소를 뺀 나머지 (예: "(대치동, 더나인 오피스텔)")
+if (!cfg.address.full.startsWith(cfg.address.line)) {
+  throw new Error('site-config: address.full 이 address.line 으로 시작하지 않음');
+}
+values.address_detail = cfg.address.full.slice(cfg.address.line.length).trim();
+// 키 없는 구글 지도 퍼가기 주소 — 주소가 바뀌면 지도도 따라 바뀐다 (iframe 안에서만 열림)
+values.map_embed = `https://www.google.com/maps?q=${encodeURIComponent(cfg.address.line)}&hl=ko&z=17&output=embed`;
 
 const escHtml = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -118,6 +125,10 @@ function applyAttributes(html) {
   html = html.replace(/<form\b[^>]*\sdata-cfg-action="(\w+)"[^>]*>/g, (tag, key) => {
     if (!/\saction="[^"]*"/.test(tag)) throw new Error(`data-cfg-action 요소에 action 이 없음: ${tag}`);
     return tag.replace(/(\saction=")[^"]*(")/, (_, a, b) => `${a}${escHtml(valueOf(key))}${b}`);
+  });
+  html = html.replace(/<iframe\b[^>]*\sdata-cfg-src="(\w+)"[^>]*>/g, (tag, key) => {
+    if (!/\ssrc="[^"]*"/.test(tag)) throw new Error(`data-cfg-src 요소에 src 가 없음: ${tag}`);
+    return tag.replace(/(\ssrc=")[^"]*(")/, (_, a, b) => `${a}${escHtml(valueOf(key))}${b}`);
   });
   html = html.replace(/<input\b[^>]*\sdata-cfg-value="(\w+)"[^>]*>/g, (tag, key) => {
     if (!/\svalue="[^"]*"/.test(tag)) throw new Error(`data-cfg-value 요소에 value 가 없음: ${tag}`);

@@ -4,14 +4,28 @@
   const nav = document.querySelector("[data-nav]");
 
   if (navToggle && nav) {
+    const isNavOpen = () => navToggle.getAttribute("aria-expanded") === "true";
     const setNavOpen = (open) => {
       navToggle.setAttribute("aria-expanded", String(open));
       navToggle.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
       nav.classList.toggle("is-open", open);
+      body.classList.toggle("nav-open", open);
     };
 
+    // 메뉴 바깥(어둡게 덮인 부분 포함)을 누르면 닫는다.
+    document.addEventListener("click", (event) => {
+      if (isNavOpen() && !nav.contains(event.target) && !navToggle.contains(event.target)) {
+        setNavOpen(false);
+      }
+    });
+
+    // PC 폭으로 바뀌면 열린 상태를 정리한다.
+    window.matchMedia("(min-width: 821px)").addEventListener("change", (event) => {
+      if (event.matches) setNavOpen(false);
+    });
+
     navToggle.addEventListener("click", () => {
-      setNavOpen(navToggle.getAttribute("aria-expanded") !== "true");
+      setNavOpen(!isNavOpen());
     });
 
     nav.querySelectorAll("a").forEach((link) => {
@@ -19,7 +33,7 @@
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
+      if (event.key === "Escape" && isNavOpen()) {
         setNavOpen(false);
         navToggle.focus();
       }
