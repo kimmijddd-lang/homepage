@@ -632,49 +632,46 @@ body[data-page="home"] h3 {
   padding: 0 0 72px;
 }
 
-.home-stats-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.home-stat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 48px;
+  padding: 30px 40px;
+  border-radius: 18px;
+  background: var(--color-tint);
 }
 
-.home-stats-list li {
+.home-stat-num {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 22px 26px;
-  border: 1px solid var(--color-line);
-  border-radius: 14px;
-  background: var(--color-surface);
+  margin: 0;
 }
 
-.home-stats-list strong {
-  color: var(--color-primary);
-  font-size: calc(40 * var(--px));
+.home-stat-num strong {
+  color: var(--color-primary-deep);
+  font-size: calc(64 * var(--px));
   font-variant-numeric: tabular-nums;
   font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 1.15;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
 }
 
-.home-stats-list span {
-  color: var(--color-muted);
-  font-size: calc(15 * var(--px));
-  font-weight: 600;
-}
-
-.home-stats-lead {
-  margin: 20px 0 0;
+.home-stat-num span {
+  margin-top: 4px;
+  color: var(--color-primary-deep);
   font-size: calc(17 * var(--px));
+  font-weight: 700;
 }
 
-.home-stats-note {
-  margin: 6px 0 0;
-  color: var(--color-muted);
-  font-size: calc(13 * var(--px));
+.home-stat-text {
+  flex: 1 1 280px;
+  margin: 0;
+  color: var(--color-ink);
+  font-size: calc(20 * var(--px));
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.5;
 }
 
 .home-approach-more {
@@ -842,25 +839,21 @@ body[data-page="home"] h3 {
     padding-bottom: 44px;
   }
 
-  .home-stats-list {
-    gap: 8px;
+  .home-stat {
+    padding: 22px 22px;
+    gap: 10px;
   }
 
-  .home-stats-list li {
-    padding: 14px 12px;
+  .home-stat-num strong {
+    font-size: calc(44 * var(--px));
   }
 
-  .home-stats-list strong {
-    font-size: calc(24 * var(--px));
-  }
-
-  .home-stats-list span {
-    font-size: calc(13 * var(--px));
-  }
-
-  .home-stats-lead {
-    margin-top: 16px;
+  .home-stat-num span {
     font-size: calc(15 * var(--px));
+  }
+
+  .home-stat-text {
+    font-size: calc(16 * var(--px));
   }
 
   .home-approach-more {

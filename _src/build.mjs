@@ -75,7 +75,6 @@ const values = {
   opening_hours: cfg.openingHours,
   instagram_handle: cfg.social.instagramHandle,
   stat_clients: cfg.stats.clients,
-  stat_clients_note: cfg.stats.clientsNote,
 };
 
 // 위치가 바뀌면 달라지는 문구는 config 값에서 조합한다 (사무실 이전 때 한 번에 바뀌도록).
