@@ -4,15 +4,17 @@
         <a class="brand" href="/"><span class="brand-wordmark" aria-hidden="true">DY</span><span class="brand-name">{{name}}</span></a>
         <p>{{office_area}} {{representative}} 세무사 사무실. 개인·법인사업자 기장과 세무 상담.</p>
       </div>
-      <div class="footer-col">
+      <div class="footer-col footer-contact">
         <strong>연락처</strong>
         <a href="{{phone_href}}" data-event="phone_click">{{phone_display}}</a>
         <a href="{{email_href}}" data-event="email_click">{{email}}</a>
-        <a href="{{kakao_url}}" target="_blank" rel="noopener noreferrer" data-event="kakao_click">카카오 오픈채팅</a>
-        <a href="{{instagram}}" target="_blank" rel="noopener noreferrer">인스타그램 {{instagram_handle}}</a>
-        <a href="{{blog}}" target="_blank" rel="noopener noreferrer">네이버 블로그</a>
+        <div class="footer-social">
+          <a href="{{kakao_url}}" target="_blank" rel="noopener noreferrer" data-event="kakao_click"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 20l1.1-4.2A8.4 8.4 0 1 1 21 11.5z"></path></svg>카카오톡</a>
+          <a href="{{instagram}}" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6"></circle></svg>인스타그램</a>
+          <a href="{{blog}}" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4z"></path><path d="M13.5 6.5l4 4"></path></svg>블로그</a>
+        </div>
       </div>
-      <div class="footer-col">
+      <div class="footer-col footer-links">
         <strong>바로가기</strong>
         <a href="/services">업무 안내</a>
         <a href="/guides">세무 가이드</a>

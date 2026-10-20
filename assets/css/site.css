@@ -19,6 +19,7 @@
 }
 
 :root {
+  color-scheme: only light;
   /* 디자인 토큰 — 개편 팔레트 */
   --color-primary: #0f766e;
   --color-primary-deep: #115e59;
@@ -398,6 +399,39 @@ textarea {
 .footer-col a:hover {
   color: var(--color-primary);
   text-decoration: underline;
+}
+
+.footer-contact {
+  flex-basis: 330px;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.footer-col .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-surface);
+  font-weight: 600;
+}
+
+.footer-col .footer-social a:hover {
+  border-color: var(--color-primary);
+  text-decoration: none;
+}
+
+.footer-social svg {
+  flex: none;
+  color: var(--color-primary);
 }
 
 .footer-bottom {
@@ -991,6 +1025,22 @@ summary:focus-visible {
     display: flex;
     align-items: center;
     min-height: 44px;
+  }
+
+  .footer-col .footer-social a {
+    display: inline-flex;
+    min-height: 44px;
+    padding: 0 12px;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+  }
+
+  .footer-links strong {
+    grid-column: 1 / -1;
   }
 
   .mobile-bar {
