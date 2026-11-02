@@ -183,7 +183,7 @@
     return section ? section.id : "body";
   };
 
-  // 링크 주소로 이벤트 이름을 정한다: 카톡(채널·오픈채팅) → click_kakao, 전화 → click_call, 신청서 → click_form
+  // 링크 주소로 이벤트 이름을 정한다: 카톡 채널 → click_kakao, 전화 → click_call, 신청서 → click_form
   const eventFor = (link) => {
     const href = link.getAttribute("href") || "";
     if (href.startsWith("tel:")) return "click_call";
@@ -193,7 +193,7 @@
     } catch (_error) {
       return link.getAttribute("data-event");
     }
-    if (url.hostname === "pf.kakao.com" || url.hostname === "open.kakao.com") return "click_kakao";
+    if (url.hostname === "pf.kakao.com") return "click_kakao";
     if (url.origin === window.location.origin && url.pathname.replace(/\/$/, "") === "/contact") return "click_form";
     return link.getAttribute("data-event");
   };

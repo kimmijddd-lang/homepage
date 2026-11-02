@@ -53,7 +53,6 @@ const values = {
   phone_e164: cfg.phone.e164,
   email: cfg.email,
   email_href: `mailto:${cfg.email}`,
-  kakao_url: cfg.kakao.url,
   hours: cfg.hours,
   address_street: cfg.address.street,
   address_locality: cfg.address.locality,
@@ -168,7 +167,6 @@ const HARD_CODED = [
   cfg.phone.display,
   cfg.phone.href,
   cfg.email,
-  cfg.kakao.url,
   cfg.address.street,
   cfg.maps.naver,
   cfg.maps.kakao,
@@ -329,6 +327,11 @@ function instaLint() {
   }
 }
 instaLint();
+
+// 카카오 문의는 카카오톡 채널(kakao.channelChat) 하나만 쓴다. 오픈채팅 링크는 남기지 않는다 (2026-11-02 대표 결정).
+for (const [rel, html] of outputs) {
+  if (html.includes('open.kakao.com')) problems.push(`${rel}: 카카오 오픈채팅 링크가 남아 있음`);
+}
 
 if (checkOnly) {
   changed.forEach((rel) => console.log(`반영 필요: ${rel}`));

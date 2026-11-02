@@ -40,7 +40,7 @@ node _src/dev-server.mjs       # 로컬 서버
 | `*.vercel.app` 미리보기, localhost | `debug_mode` 로만 보냄 → GA4 관리 > DebugView 에서 확인 |
 | 그 밖의 주소 | 보내지 않음 |
 
-`site.js` 가 링크 주소를 보고 이벤트를 보낸다: 카톡(채널·오픈채팅) `click_kakao`, 전화 `click_call`, 신청서(`/contact`) `click_form`.
+`site.js` 가 링크 주소를 보고 이벤트를 보낸다: 카톡 채널 `click_kakao`, 전화 `click_call`, 신청서(`/contact`) `click_form`.
 값: `page_path`(누른 페이지), `button_location`(가장 가까운 `data-loc`: hero·sticky_bar·footer_cta·header·footer, 없으면 구역 id).
 `generate_lead` 는 신청서를 보낼 때 남긴 표시가 있을 때만 완료 화면에서 한 번 보낸다(직접 접속·새로고침은 세지 않음). `origin_path`·`origin_location` 은 신청서 버튼을 누른 곳.
 네이버 애널리틱스는 `analytics.naver` 에 사이트 ID 를 넣으면 운영 주소에서만 켜진다.
