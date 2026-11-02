@@ -1091,6 +1091,35 @@ summary:focus-visible {
     font-size: calc(16 * var(--px));
   }
 
+  /* 3칸 바: [카톡 상담] [전화] [신청서] */
+  .mobile-bar-3 {
+    gap: 8px;
+  }
+
+  .mobile-bar-3 a {
+    flex: 1 1 0;
+    min-width: 0;
+    gap: 6px;
+    padding: 0 6px;
+    white-space: nowrap;
+    font-size: calc(15 * var(--px));
+  }
+
+  .mobile-bar .mobile-bar-kakao {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  .mobile-bar .mobile-bar-form {
+    border: 1px solid var(--color-field);
+    background: var(--color-surface);
+    color: var(--color-ink);
+  }
+
+  .mobile-bar .mobile-bar-form svg {
+    stroke: var(--color-primary);
+  }
+
   body {
     padding-bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom, 0px));
   }

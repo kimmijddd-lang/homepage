@@ -75,7 +75,19 @@ const values = {
   opening_hours: cfg.openingHours,
   instagram_handle: cfg.social.instagramHandle,
   stat_clients: cfg.stats.clients,
+  kakao_channel: cfg.kakao.channelChat,
+  ga4_id: cfg.analytics.ga4,
+  analytics_host: cfg.analytics.productionHost,
+  naver_wa: cfg.analytics.naver,
+  insta_contact_href: `/contact?${cfg.insta.utm}`,
+  insta_profile_url: `${cfg.siteUrl}/insta?${cfg.insta.utm}`,
 };
+
+// 분석 값은 head 의 <script> 안에 들어가므로 형식을 엄격히 확인한다.
+if (!/^G-[A-Z0-9]{4,20}$/.test(cfg.analytics.ga4)) throw new Error(`site-config: analytics.ga4 형식이 아님 (${cfg.analytics.ga4})`);
+if (!/^[a-z0-9.-]+$/.test(cfg.analytics.productionHost)) throw new Error('site-config: analytics.productionHost 형식이 아님');
+if (!/^[a-zA-Z0-9]*$/.test(cfg.analytics.naver)) throw new Error('site-config: analytics.naver 형식이 아님 (영문·숫자만)');
+if (!/^(utm_(source|medium|campaign|content)=[a-zA-Z0-9_.-]{1,80}&?){4}$/.test(cfg.insta.utm)) throw new Error('site-config: insta.utm 은 utm 4개를 영문·숫자로');
 
 // 위치가 바뀌면 달라지는 문구는 config 값에서 조합한다 (사무실 이전 때 한 번에 바뀌도록).
 values.office_area = `${cfg.address.locality} ${cfg.address.neighborhood}, ${cfg.transit}`;
@@ -164,6 +176,9 @@ const HARD_CODED = [
   cfg.form.endpoint,
   cfg.social.instagramDm,
   cfg.station,
+  cfg.kakao.channelChat,
+  cfg.analytics.ga4,
+  cfg.insta.utm,
 ];
 
 // 아직 새 레이아웃으로 바뀌지 않은 페이지 (현재 없음).
@@ -199,7 +214,7 @@ for (const rel of [...targets].sort()) {
   outputs.set(rel, after);
 
   for (const name of REQUIRED_REGIONS) {
-    // mobile-bar 는 상담 폼 전용 변형(mobile-bar-form)도 허용한다.
+    // 같은 이름으로 시작하는 변형도 허용한다: mobile-bar-form(상담 폼), header-insta·footer-insta·mobile-bar-insta(/insta)
     if (!after.includes(`<!-- gen:${name}`)) problems.push(`${rel}: gen:${name} 영역 없음`);
   }
 
@@ -288,6 +303,32 @@ function seoLint() {
   indexable.forEach((rel, url) => url !== `${cfg.siteUrl}/` && !linked.has(url) && problems.push(`SEO 다른 페이지에서 링크되지 않음: ${url}`));
 }
 seoLint();
+
+// /insta (인스타 프로필 전용 페이지) 약속: 검색 제외, 메뉴·sitemap 에 없음, 정해진 문의 경로만, 금지 문구 없음
+function instaLint() {
+  const rel = join('insta', 'index.html');
+  const html = outputs.get(rel);
+  if (!html) {
+    problems.push('insta/index.html 없음');
+    return;
+  }
+  if (!/<meta name="robots" content="noindex/.test(html)) problems.push('insta: noindex 메타가 없음');
+  if (read(join(root, 'sitemap.xml')).includes('/insta')) problems.push('insta: sitemap.xml 에 들어 있음');
+  if (read(join(root, '_src', 'partials', 'header.html')).includes('/insta')) problems.push('insta: 상단 메뉴에 들어 있음');
+  for (const slug of ['creator-tax', 'ecommerce-tax', 'tax-accountant-switch']) {
+    if (html.includes(`/services/${slug}`)) problems.push(`insta: /services/${slug} 링크가 있음`);
+  }
+  // 문의 경로는 카카오톡 채널·신청서(같은 UTM)·전화만
+  const allowed = new Set([escHtml(cfg.kakao.channelChat), escHtml(values.insta_contact_href), cfg.phone.href, '/', '/privacy', '#content']);
+  for (const m of html.matchAll(/<a\b[^>]*\shref="([^"]*)"/g)) {
+    if (!allowed.has(m[1])) problems.push(`insta: 허용하지 않은 링크 ${m[1]}`);
+  }
+  const text = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ');
+  for (const word of ['서비스', '후기', 'DM']) {
+    if (text.includes(word)) problems.push(`insta: '${word}' 문구가 있음`);
+  }
+}
+instaLint();
 
 if (checkOnly) {
   changed.forEach((rel) => console.log(`반영 필요: ${rel}`));

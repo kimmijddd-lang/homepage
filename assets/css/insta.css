@@ -1,0 +1,515 @@
+/* 인스타 프로필 전용 한 장 페이지 (/insta) — 모바일 우선. 글꼴·색은 site.css 토큰을 그대로 쓴다. */
+
+body[data-page="insta"] {
+  --insta-bar-height: 78px;
+  padding-bottom: calc(var(--insta-bar-height) + env(safe-area-inset-bottom, 0px));
+  background: var(--color-bg);
+}
+
+body[data-page="insta"] main {
+  padding-bottom: 0;
+}
+
+.insta-wrap {
+  width: min(640px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* 상단: 로고 + 카톡 상담 */
+.insta-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 60px;
+}
+
+.insta-header .brand {
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.insta-header .brand-wordmark {
+  font-size: calc(23 * var(--px));
+}
+
+.insta-header .brand-name {
+  font-size: calc(17 * var(--px));
+}
+
+.insta-header-kakao {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: calc(14 * var(--px));
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.insta-header-kakao:hover {
+  background: var(--color-primary-deep);
+}
+
+/* 첫 화면 */
+.insta-hero {
+  padding: 30px 0 40px;
+}
+
+.insta-hero .insta-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.insta-eyebrow {
+  color: var(--color-primary);
+  font-size: calc(14 * var(--px));
+  font-weight: 700;
+}
+
+.insta-hero h1 {
+  font-size: calc(31 * var(--px));
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1.28;
+  text-wrap: initial;
+}
+
+.insta-hero h1 .accent {
+  color: var(--color-primary);
+}
+
+.insta-lead {
+  color: var(--color-muted);
+  font-size: calc(16 * var(--px));
+  line-height: 1.7;
+}
+
+.insta-actions,
+.insta-final-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.insta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 56px;
+  padding: 8px 18px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: calc(17 * var(--px));
+  font-weight: 750;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+}
+
+.insta-btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.22);
+}
+
+.insta-btn-primary:hover {
+  background: var(--color-primary-deep);
+  color: #fff;
+}
+
+.insta-btn-outline {
+  border-color: var(--color-field);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.insta-btn-outline:hover {
+  background: var(--color-tint);
+}
+
+.insta-actions .insta-btn-outline {
+  flex-direction: column;
+  gap: 0;
+  min-height: 62px;
+}
+
+.insta-btn small {
+  color: var(--color-muted);
+  font-size: calc(13 * var(--px));
+  font-weight: 600;
+}
+
+.insta-note {
+  color: var(--color-muted);
+  font-size: calc(13 * var(--px));
+  text-align: center;
+}
+
+.insta-trust {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.insta-trust li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 14px 12px;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-surface);
+}
+
+.insta-trust strong {
+  color: var(--color-primary-deep);
+  font-size: calc(20 * var(--px));
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.3;
+}
+
+.insta-trust span {
+  color: var(--color-muted);
+  font-size: calc(13 * var(--px));
+  line-height: 1.45;
+}
+
+/* 공통 구역 */
+.insta-section {
+  padding: 44px 0;
+}
+
+.insta-band {
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.insta-section h2,
+.insta-final h2 {
+  margin-bottom: 18px;
+  font-size: calc(24 * var(--px));
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.3;
+}
+
+.insta-section h3 {
+  font-size: calc(17 * var(--px));
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+
+.insta-section p {
+  color: var(--color-muted);
+  font-size: calc(15 * var(--px));
+  line-height: 1.65;
+}
+
+/* 3단계 */
+.insta-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.insta-steps li {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.insta-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-tint);
+  color: var(--color-primary-deep);
+  font-weight: 800;
+}
+
+.insta-steps h3 {
+  margin: 5px 0 4px;
+}
+
+/* 맡는 일 */
+.insta-work {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.insta-work li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px 18px;
+  border: 1px solid var(--color-line);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 12px;
+  background: var(--color-bg);
+}
+
+.insta-section .insta-work-note {
+  margin-top: 14px;
+  color: var(--color-ink);
+  font-weight: 650;
+}
+
+/* 세무사 소개 */
+.insta-profile {
+  display: grid;
+  grid-template-columns: minmax(0, 38fr) minmax(0, 62fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.insta-photo {
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  background: var(--color-tint);
+}
+
+.insta-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 8%;
+}
+
+.insta-facts {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.insta-facts div {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.insta-facts div:first-child {
+  padding-top: 0;
+}
+
+.insta-facts dt {
+  color: var(--color-muted);
+  font-size: calc(13 * var(--px));
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.insta-facts dd {
+  margin: 0;
+  font-size: calc(15 * var(--px));
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.insta-section .insta-quote {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 12px 12px 0;
+  background: var(--color-tint);
+  color: var(--color-ink);
+  font-size: calc(17 * var(--px));
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1.5;
+}
+
+/* 자주 묻는 질문 */
+.insta-faq {
+  border-top: 1px solid var(--color-line);
+}
+
+.insta-faq details {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.insta-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 0;
+  font-size: calc(16 * var(--px));
+  font-weight: 700;
+  list-style: none;
+  cursor: pointer;
+}
+
+.insta-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.insta-faq summary::after {
+  content: "+";
+  flex: none;
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.insta-faq details[open] summary::after {
+  content: "−";
+}
+
+.insta-faq details p {
+  padding: 0 0 16px;
+}
+
+/* 마지막 안내 */
+.insta-final {
+  padding: 48px 0 52px;
+  background: var(--color-tint);
+}
+
+.insta-final p {
+  color: var(--color-muted);
+  font-size: calc(15 * var(--px));
+}
+
+.insta-final-actions {
+  margin-top: 18px;
+}
+
+/* 하단 정보 */
+.insta-footer {
+  padding: 28px 0 32px;
+  border-top: 1px solid var(--color-line);
+  background: var(--color-footer);
+  color: var(--color-muted);
+  font-size: calc(13.5 * var(--px));
+  line-height: 1.7;
+}
+
+.insta-footer strong {
+  color: var(--color-ink);
+}
+
+.insta-footer-small {
+  margin-top: 8px;
+}
+
+.insta-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-ink);
+}
+
+/* 화면 아래 고정 바 — /insta 는 PC 에서도 보인다 */
+.insta-bar {
+  display: flex;
+  gap: 8px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  padding: 12px max(16px, calc((100% - 640px) / 2)) calc(12px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line);
+  background: var(--color-surface);
+  box-shadow: 0 -8px 24px rgba(15, 27, 45, 0.06);
+}
+
+.insta-bar a {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 52px;
+  padding: 0 6px;
+  border: 1px solid var(--color-field);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: calc(15 * var(--px));
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.insta-bar svg {
+  flex: none;
+  stroke: var(--color-primary);
+}
+
+.insta-bar .mobile-bar-kakao {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.insta-bar .mobile-bar-kakao svg {
+  stroke: #fff;
+}
+
+@media (min-width: 600px) {
+  .insta-hero {
+    padding: 56px 0 56px;
+  }
+
+  .insta-hero h1 {
+    font-size: calc(44 * var(--px));
+  }
+
+  .insta-trust {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .insta-work {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .insta-section {
+    padding: 60px 0;
+  }
+
+  .insta-section h2,
+  .insta-final h2 {
+    font-size: calc(30 * var(--px));
+  }
+
+  .insta-final-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .insta-final-actions .insta-btn {
+    flex: 1 1 180px;
+  }
+}

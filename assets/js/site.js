@@ -144,6 +144,8 @@
   });
   document.querySelectorAll('input[name="source_page"]').forEach((input) => { input.value = currentPath; });
 
+  // 방문 분석 이벤트. head 의 GA4 태그가 gtag 를 만들어 두면 GA4 로 보내고(미리보기·로컬은 디버그 모드),
+  // 태그가 없는 주소에서는 dataLayer 에만 남긴다.
   const trackEvent = (eventName, payload = {}) => {
     if (!eventName) {
       return;
@@ -156,21 +158,95 @@
     window.dataLayer.push({ event: eventName, ...payload });
   };
 
-  document.querySelectorAll("[data-event]").forEach((node) => {
-    node.addEventListener("click", () => {
-      trackEvent(node.getAttribute("data-event"), {
-        page_path: currentPath,
-        link_url: node.getAttribute("href") || "",
-      });
+  const readSession = (key) => {
+    try {
+      return JSON.parse(window.sessionStorage.getItem(key) || "null");
+    } catch (_error) {
+      return null;
+    }
+  };
+  const writeSession = (key, value) => {
+    try {
+      if (value === null) window.sessionStorage.removeItem(key);
+      else window.sessionStorage.setItem(key, JSON.stringify(value));
+    } catch (_error) { /* 저장이 막혀 있어도 상담·이동은 그대로 된다. */ }
+  };
+
+  // 버튼 위치: 가장 가까운 data-loc (hero, sticky_bar, footer_cta, header …), 없으면 머리글·바닥글·구역 id
+  const locationOf = (node) => {
+    const tagged = node.closest("[data-loc]");
+    if (tagged) return tagged.getAttribute("data-loc");
+    if (node.closest(".mobile-bar")) return "sticky_bar";
+    if (node.closest("header")) return "header";
+    if (node.closest("footer")) return "footer";
+    const section = node.closest("section[id], [id]");
+    return section ? section.id : "body";
+  };
+
+  // 링크 주소로 이벤트 이름을 정한다: 카톡(채널·오픈채팅) → click_kakao, 전화 → click_call, 신청서 → click_form
+  const eventFor = (link) => {
+    const href = link.getAttribute("href") || "";
+    if (href.startsWith("tel:")) return "click_call";
+    let url;
+    try {
+      url = new URL(href, window.location.href);
+    } catch (_error) {
+      return link.getAttribute("data-event");
+    }
+    if (url.hostname === "pf.kakao.com" || url.hostname === "open.kakao.com") return "click_kakao";
+    if (url.origin === window.location.origin && url.pathname.replace(/\/$/, "") === "/contact") return "click_form";
+    return link.getAttribute("data-event");
+  };
+
+  const formOriginKey = "taxdy_form_origin_v1";
+  const leadKey = "taxdy_lead_pending_v1";
+
+  document.addEventListener("click", (event) => {
+    const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
+    if (!link) return;
+    const name = eventFor(link);
+    if (!name) return;
+    const buttonLocation = locationOf(link);
+    trackEvent(name, {
+      page_path: currentPath,
+      button_location: buttonLocation,
+      link_url: link.getAttribute("href") || "",
+    });
+    if (name === "click_form") {
+      writeSession(formOriginKey, { page_path: currentPath, button_location: buttonLocation, timestamp: Date.now() });
+    }
+  });
+
+  // 신청서 제출: 보내는 순간 표시값만 남기고, 신청 완료 화면에서 그 표시가 있을 때 한 번만 generate_lead 를 보낸다.
+  // (직접 접속·새로고침은 신청 건수로 잡지 않는다.) 문서(document)에서 받으므로 폼 확인 검사(consult-form.js)가 막은 제출은 건너뛴다.
+  const leadForm = document.querySelector("form[data-lead-form]");
+  if (leadForm) {
+    // 미리보기 주소에서도 같은 주소의 완료 화면으로 돌아오게 한다 (운영 주소에서는 config 값과 같다).
+    const next = leadForm.querySelector('input[name="_next"]');
+    if (next) next.value = `${window.location.origin}/contact/thanks`;
+  }
+  document.addEventListener("submit", (event) => {
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement) || !form.hasAttribute("data-lead-form") || event.defaultPrevented) return;
+    const saved = readSession(formOriginKey);
+    const origin = saved && typeof saved.timestamp === "number" && Date.now() - saved.timestamp < lifetime ? saved : null;
+    writeSession(leadKey, {
+      timestamp: Date.now(),
+      origin_path: origin?.page_path || "",
+      origin_location: origin?.button_location || "",
     });
   });
 
-  document.querySelectorAll("form[data-track-submit]").forEach((form) => {
-    form.addEventListener("submit", () => {
-      trackEvent(form.getAttribute("data-track-submit"), {
-        page_path: currentPath,
-        form_name: form.getAttribute("name") || "contact_form",
+  if (currentPath === "/contact/thanks") {
+    const pending = readSession(leadKey);
+    writeSession(leadKey, null);
+    if (pending && typeof pending.timestamp === "number" && Date.now() - pending.timestamp < 60 * 60 * 1000) {
+      trackEvent("generate_lead", {
+        page_path: "/contact",
+        button_location: "contact_form",
+        origin_path: pending.origin_path || "direct",
+        origin_location: pending.origin_location || "direct",
       });
-    });
-  });
+    }
+  }
 })();

@@ -51,12 +51,24 @@
     {
       "source": "/privacy",
       "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/insta",
+      "destination": "/insta/index.html"
     }
   ],
   "headers": [
     {
       "source": "/_src/(.*)",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/insta",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    },
+    {
+      "source": "/insta/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
     },
     {
       "source": "/assets/fonts/(.*)",

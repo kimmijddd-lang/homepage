@@ -9,7 +9,18 @@
   },
   "email": "cptamj@naver.com",
   "kakao": {
-    "url": "https://open.kakao.com/o/sWdJyOKh"
+    "url": "https://open.kakao.com/o/sWdJyOKh",
+    "channelChat": "https://pf.kakao.com/_SUqaxb/chat"
+  },
+  "analytics": {
+    "ga4": "G-2QZ0CB65P8",
+    "productionHost": "www.taxdy.co.kr",
+    "naver": "",
+    "note": "GA4 는 productionHost 에서만 실제 집계한다. 미리보기(*.vercel.app)와 로컬은 debug_mode 로만 보내 DebugView 에서 확인한다. naver 에 네이버 애널리틱스 사이트 ID 를 넣으면 운영 주소에서만 함께 켜진다."
+  },
+  "insta": {
+    "utm": "utm_source=ig&utm_medium=social&utm_campaign=insta_landing&utm_content=link_in_bio",
+    "note": "인스타 프로필 링크와 /insta 안의 신청서 버튼이 같은 UTM 을 쓴다 (site.js 가 저장한 값이 신청서로 넘어갈 때 섞이지 않게)."
   },
   "hours": "평일 09:00–18:00",
   "address": {
@@ -48,5 +59,7 @@
     "announceBeforeMove": false,
     "note": "2026-10-16 대표 요청으로 선릉역 사무실 주소를 사이트에 반영함(이전일 2026-10-27). '이전 예정' 안내 문구는 게시하지 않는다(대표 결정 2026-10-15). 지도 링크는 기존 업체(네이버 플레이스·카카오맵) 정보의 주소를 수정하는 방식이라 기존 링크를 그대로 쓴다. 주소를 다시 바꿀 때는 address / station / transit / transitDetail / maps 값만 고치고 `node _src/build.mjs`를 실행하면 모든 페이지(제목·소개 문구·푸터·오시는 길·JSON-LD 포함)에 반영된다."
   },
-  "todo": []
+  "todo": [
+    "지도 링크 maps.naver(플레이스 38274591)가 2026-11-02 확인 때 아직 옛 주소(강남대로112길 33, 3층)로 나옴. maps.kakao(1856074339)도 업체 정보 주소 수정 심사 중. 업체 정보가 새 주소로 바뀌면 버튼이 새 위치를 보여 주는지 확인하고, 링크가 바뀌었으면 maps 값을 고친다."
+  ]
 }

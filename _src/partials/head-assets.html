@@ -5,3 +5,29 @@
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/DYSans-Variable-subset.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/site.css">
+  <script>
+    /* 방문 분석 (site-config analytics): 운영 주소에서만 실제 집계, 미리보기·로컬은 DebugView 전용 디버그 모드, 그 밖의 주소는 보내지 않음 */
+    (function () {
+      var host = location.hostname;
+      var mode = host === "{{analytics_host}}" ? "live" : /\.vercel\.app$|^localhost$|^127\.0\.0\.1$/.test(host) ? "debug" : "";
+      if (!mode) return;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag("js", new Date());
+      window.gtag("config", "{{ga4_id}}", mode === "debug" ? { debug_mode: true } : {});
+      var ga = document.createElement("script");
+      ga.async = true;
+      ga.src = "https://www.googletagmanager.com/gtag/js?id={{ga4_id}}";
+      document.head.appendChild(ga);
+      var naver = "{{naver_wa}}";
+      if (naver && mode === "live") {
+        window.wcs_add = window.wcs_add || {};
+        window.wcs_add.wa = naver;
+        var wcs = document.createElement("script");
+        wcs.async = true;
+        wcs.src = "https://wcs.pstatic.net/wcslog.js";
+        wcs.onload = function () { if (window.wcs) window.wcs_do(); };
+        document.head.appendChild(wcs);
+      }
+    })();
+  </script>

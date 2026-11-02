@@ -75,15 +75,15 @@ const breadcrumb = (crumbs) => `    <nav class="container svc-breadcrumb" aria-l
         .join('')}
     </nav>`;
 
-const ctaBand = ({ cfg, h2, p }) => `    <section class="svc-cta">
+const ctaBand = ({ cfg, h2, p }) => `    <section class="svc-cta" data-loc="footer_cta">
       <div class="container">
         <div class="svc-cta-copy">
           <h2>${esc(h2)}</h2>
           <p>${esc(p)}</p>
         </div>
         <div class="svc-cta-actions">
-          <a class="svc-cta-main" href="/contact" data-event="consult_click">상담 신청하기</a>
-          <a class="svc-cta-tel" href="${cfg.phone.href}" data-cfg-href="phone_href" data-event="phone_click"><span data-cfg-text="phone_display">${esc(cfg.phone.display)}</span></a>
+          <a class="svc-cta-main" href="/contact">상담 신청하기</a>
+          <a class="svc-cta-tel" href="${cfg.phone.href}" data-cfg-href="phone_href"><span data-cfg-text="phone_display">${esc(cfg.phone.display)}</span></a>
         </div>
       </div>
     </section>`;
@@ -148,13 +148,13 @@ export function renderService(s, { cfg }) {
         <p class="svc-lead">${esc(s.lead)}</p>
         <p class="svc-meta">작성·검토 ${esc(cfg.representative)} 세무사 · 수정일 ${esc(s.updated)}</p>
       </div>
-      <aside class="svc-glance" aria-label="한눈에 보기">
+      <aside class="svc-glance" aria-label="한눈에 보기" data-loc="hero">
         <p class="svc-glance-title">한눈에 보기</p>
         <dl class="svc-glance-list">
           ${s.glance.map((g) => `<div><dt>${esc(g.dt)}</dt><dd>${esc(g.dd)}</dd></div>`).join('\n          ')}
         </dl>
-        <a class="svc-btn svc-btn-primary" href="/contact" data-event="consult_click">${esc(s.ctaLabel)}</a>
-        <a class="svc-btn svc-btn-outline" href="${cfg.phone.href}" data-cfg-href="phone_href" data-event="phone_click">전화 <span data-cfg-text="phone_display">${esc(cfg.phone.display)}</span></a>
+        <a class="svc-btn svc-btn-primary" href="/contact">${esc(s.ctaLabel)}</a>
+        <a class="svc-btn svc-btn-outline" href="${cfg.phone.href}" data-cfg-href="phone_href">전화 <span data-cfg-text="phone_display">${esc(cfg.phone.display)}</span></a>
       </aside>
     </div>
 
