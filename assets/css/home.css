@@ -228,9 +228,10 @@ body[data-page="home"] h3 {
   text-decoration: underline;
 }
 
+/* 업무 카드 4개: 넓은 PC 한 줄 4칸, 좁은 PC·태블릿 2칸 2줄, 폰 1칸 */
 .home-cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -706,7 +707,8 @@ body[data-page="home"] h3 {
   }
 }
 
-@media (max-width: 1000px) {
+/* 화면 폭이 1160px 보다 좁으면 카드가 좁아져 제목이 두 줄로 갈리므로 2칸 2줄로 */
+@media (max-width: 1159px) {
   .home-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

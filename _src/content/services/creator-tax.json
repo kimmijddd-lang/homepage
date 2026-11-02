@@ -1,5 +1,7 @@
 {
   "slug": "creator-tax",
+  "listed": false,
+  "listedNote": "2026-11-02 대표 결정: 페이지는 두되 업무 안내 목록·홈·다른 페이지에서 링크하지 않는다 (sitemap 에는 남김).",
   "order": 5,
   "navLabel": "크리에이터 세무",
   "card": {

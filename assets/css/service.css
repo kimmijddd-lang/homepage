@@ -558,9 +558,10 @@ body[data-page^="service"] h3 {
   padding: 40px 0 48px;
 }
 
+/* 업무 4개: PC·태블릿 2칸 2줄, 폰 1칸 */
 .svc-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 

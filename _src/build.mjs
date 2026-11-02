@@ -182,6 +182,9 @@ const HARD_CODED = [
 // 아직 새 레이아웃으로 바뀌지 않은 페이지 (현재 없음).
 const LEGACY_PAGES = new Set([]);
 
+// 페이지는 두되 어디서도 링크하지 않는 업무 페이지 (content JSON 의 "listed": false). sitemap 에는 남긴다.
+const unlistedServices = new Set();
+
 // 데이터(_src/content)와 템플릿(_src/templates)으로 통째로 만드는 페이지. 이 파일들은 직접 고치지 않는다.
 function generatedPages() {
   const dir = join(root, '_src', 'content', 'services');
@@ -190,6 +193,7 @@ function generatedPages() {
     .map((f) => JSON.parse(read(join(dir, f))))
     .sort((a, b) => a.order - b.order);
   const pages = new Map();
+  services.filter((s) => s.listed === false).forEach((s) => unlistedServices.add(`/services/${s.slug}`));
   for (const s of services) pages.set(join('services', s.slug, 'index.html'), renderService(s, { cfg }));
   pages.set(join('services', 'index.html'), renderServicesIndex(services, { cfg }));
   return pages;
@@ -298,7 +302,16 @@ function seoLint() {
     indexable.forEach((rel, url) => !inMap.has(url) && problems.push(`SEO sitemap.xml 에 없음: ${url}`));
     inMap.forEach((url) => !indexable.has(url) && problems.push(`SEO sitemap.xml 에 있지만 색인 대상 페이지가 아님: ${url}`));
   }
-  indexable.forEach((rel, url) => url !== `${cfg.siteUrl}/` && !linked.has(url) && problems.push(`SEO 다른 페이지에서 링크되지 않음: ${url}`));
+  const unlistedUrls = new Set([...unlistedServices].map((p) => cfg.siteUrl + p));
+  indexable.forEach((rel, url) => url !== `${cfg.siteUrl}/` && !linked.has(url) && !unlistedUrls.has(url) && problems.push(`SEO 다른 페이지에서 링크되지 않음: ${url}`));
+  // 링크하지 않기로 한 업무 페이지로 가는 링크가 다른 페이지에 생기면 알린다 (그 페이지들끼리는 예외)
+  for (const [rel, html] of outputs) {
+    const self = `/${rel.split(sep).join('/').replace(/\/index\.html$/, '')}`;
+    if (unlistedServices.has(self)) continue;
+    for (const path of unlistedServices) {
+      if (new RegExp(`href="${path}["/?#]`).test(html)) problems.push(`${rel}: 목록에서 뺀 ${path} 로 가는 링크가 있음`);
+    }
+  }
 }
 seoLint();
 

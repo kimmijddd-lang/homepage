@@ -267,7 +267,9 @@ ${
 export function renderServicesIndex(list, { cfg }) {
   const title = '업무 안내 | 대윤세무회계';
   const description =
-    '개인사업자 기장, 법인 기장대리, 세무사 변경, 급여·4대보험, 크리에이터·이커머스 세무까지 대윤세무회계가 운영하는 세무 업무를 한눈에 안내합니다.';
+    '개인사업자 기장, 법인 기장대리, 급여·4대보험, 양도·상속·증여까지 대윤세무회계가 운영하는 세무 업무를 한눈에 안내합니다.';
+  // listed: false 인 업무 페이지는 목록에 넣지 않는다 (페이지 자체는 남김).
+  list = list.filter((s) => s.listed !== false);
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
