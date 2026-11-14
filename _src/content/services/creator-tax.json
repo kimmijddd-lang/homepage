@@ -1,7 +1,10 @@
 {
   "slug": "creator-tax",
   "listed": false,
-  "listedNote": "2026-11-02 대표 결정: 페이지는 두되 업무 안내 목록·홈·다른 페이지에서 링크하지 않는다 (sitemap 에는 남김).",
+  "listedNote": "2026-11-02 대표 결정: 페이지는 두되 업무 안내 목록·홈·다른 페이지에서 링크하지 않는다 (sitemap 에는 남김). 2026-11-14 대표 결정: 크리에이터 가이드 글(/guides/creator-tax-basics) 맨 아래에서만 연결한다 (linkedFrom). 홈·메뉴·업무 안내 목록에는 계속 넣지 않는다.",
+  "linkedFrom": [
+    "/guides/creator-tax-basics"
+  ],
   "order": 5,
   "navLabel": "크리에이터 세무",
   "card": {

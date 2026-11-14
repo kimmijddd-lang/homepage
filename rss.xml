@@ -5,7 +5,31 @@
     <link>https://www.taxdy.co.kr/</link>
     <description>대윤세무회계의 실무형 세무 가이드 피드</description>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 15 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 09:00:00 +0900</lastBuildDate>
+
+    <item>
+      <title>이 지출도 비용처리할 수 있나요? 사업자 경비 판단 기준 3가지</title>
+      <link>https://www.taxdy.co.kr/guides/business-expense-basics</link>
+      <guid>https://www.taxdy.co.kr/guides/business-expense-basics</guid>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 +0900</pubDate>
+      <description>사업 관련성·증빙·한도 세 가지 기준으로 사업자의 비용처리 여부를 판단하는 방법을 설명하는 가이드</description>
+    </item>
+
+    <item>
+      <title>세금 낼 돈은 얼마나 준비해야 하나요? 사업자 세금 일정과 자금 준비</title>
+      <link>https://www.taxdy.co.kr/guides/tax-payment-calendar</link>
+      <guid>https://www.taxdy.co.kr/guides/tax-payment-calendar</guid>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 +0900</pubDate>
+      <description>개인사업자와 법인이 세금을 내는 달과 예정고지·중간예납 기준, 납부 자금을 준비하는 방법을 설명하는 가이드</description>
+    </item>
+
+    <item>
+      <title>직원을 처음 채용하면 무엇부터 챙겨야 하나요? 4대보험·원천세 순서</title>
+      <link>https://www.taxdy.co.kr/guides/first-employee-checklist</link>
+      <guid>https://www.taxdy.co.kr/guides/first-employee-checklist</guid>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 +0900</pubDate>
+      <description>직원을 처음 채용한 사업자가 근로계약서, 4대보험 취득신고, 원천세, 지급명세서를 챙기는 순서와 기한을 설명하는 가이드</description>
+    </item>
 
     <item>
       <title>세무사 변경 방법 — 자료 이관부터 첫 신고까지</title>
