@@ -162,6 +162,8 @@ function* htmlFiles(dir) {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     if (entry.isDirectory()) {
       if (!SKIP_DIRS.has(entry.name)) yield* htmlFiles(join(dir, entry.name));
+    } else if (/^(naver|google)[0-9a-f]+\.html$/.test(entry.name)) {
+      // 검색엔진 소유 확인용 파일 (네이버 서치어드바이저·구글 서치콘솔). 페이지가 아니므로 반영·점검에서 뺀다.
     } else if (entry.name.endsWith('.html')) {
       yield join(dir, entry.name);
     }
