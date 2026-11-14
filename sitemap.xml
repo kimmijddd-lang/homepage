@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.taxdy.co.kr/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-11-14</lastmod>
   </url>
   <url>
     <loc>https://www.taxdy.co.kr/services</loc>
@@ -10,15 +10,15 @@
   </url>
   <url>
     <loc>https://www.taxdy.co.kr/services/individual-bookkeeping</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-11-14</lastmod>
   </url>
   <url>
     <loc>https://www.taxdy.co.kr/services/corporate-bookkeeping</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-11-14</lastmod>
   </url>
   <url>
     <loc>https://www.taxdy.co.kr/services/payroll-4ins</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-11-14</lastmod>
   </url>
   <url>
     <loc>https://www.taxdy.co.kr/services/creator-tax</loc>
@@ -34,7 +34,19 @@
   </url>
   <url>
     <loc>https://www.taxdy.co.kr/guides</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-11-14</lastmod>
+  </url>
+  <url>
+    <loc>https://www.taxdy.co.kr/guides/business-expense-basics</loc>
+    <lastmod>2026-11-14</lastmod>
+  </url>
+  <url>
+    <loc>https://www.taxdy.co.kr/guides/tax-payment-calendar</loc>
+    <lastmod>2026-11-14</lastmod>
+  </url>
+  <url>
+    <loc>https://www.taxdy.co.kr/guides/first-employee-checklist</loc>
+    <lastmod>2026-11-14</lastmod>
   </url>
   <url>
     <loc>https://www.taxdy.co.kr/guides/how-to-switch-tax-accountant</loc>
@@ -58,7 +70,7 @@
   </url>
   <url>
     <loc>https://www.taxdy.co.kr/contact</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-11-14</lastmod>
   </url>
   <url>
     <loc>https://www.taxdy.co.kr/privacy</loc>

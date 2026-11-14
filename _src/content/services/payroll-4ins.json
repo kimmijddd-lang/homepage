@@ -109,6 +109,10 @@
   "closingP": "현재 직원 수와 급여 구조, 가장 불편한 지점을 문의폼에 남겨주시면 검토 후 연락드립니다.",
   "related": [
     {
+      "href": "/guides/first-employee-checklist",
+      "text": "직원을 처음 채용하면 무엇부터 챙겨야 하나요?"
+    },
+    {
       "href": "/guides/vat-preparation-checklist",
       "text": "부가세 준비 체크리스트"
     },
