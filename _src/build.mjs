@@ -51,6 +51,7 @@ const values = {
   phone_display: cfg.phone.display,
   phone_href: cfg.phone.href,
   phone_e164: cfg.phone.e164,
+  office_phone_display: cfg.officePhone.display,
   email: cfg.email,
   email_href: `mailto:${cfg.email}`,
   hours: cfg.hours,
@@ -91,9 +92,11 @@ if (!/^(utm_(source|medium|campaign|content)=[a-zA-Z0-9_.-]{1,80}&?){4}$/.test(c
 // 위치가 바뀌면 달라지는 문구는 config 값에서 조합한다 (사무실 이전 때 한 번에 바뀌도록).
 values.office_area = `${cfg.address.locality} ${cfg.address.neighborhood}, ${cfg.transit}`;
 values.office_area_short = `${cfg.address.locality} ${cfg.station}`;
-values.home_title = `${cfg.station} 세무사 | ${cfg.name} ${cfg.representative} 세무사`;
-values.home_description = `${values.office_area} ${cfg.representative} 세무사 사무실. 개인·법인사업자 기장과 세금 신고, 급여·4대보험, 양도·상속·증여 상담.`;
-// 오시는 길 주소 두 번째 줄 — 전체 주소에서 도로명 주소를 뺀 나머지 (예: "(대치동, 더나인 오피스텔)")
+// 홈 제목·메타 설명은 지역 검색어를 담기 위해 직접 쓴다. station 만 바꿔도 이 문장은 바뀌지 않는다.
+values.home_title = `선릉 세무사 | 강남 세무사 기장 | ${cfg.name}`;
+values.home_description = `선릉역 인근 ${cfg.representative} 세무사. 강남 세무사 기장은 업종 제한 없이 개인·법인 모두 상담합니다. 세금 신고, 급여·4대보험, 양도·상속·증여.`;
+values.jsonld_description = `${values.office_area} ${cfg.representative} 세무사 사무실. 개인·법인사업자 기장과 세금 신고, 급여·4대보험, 양도·상속·증여 상담. 업종 제한 없이 상담합니다.`;
+// 오시는 길 주소 두 번째 줄 — 전체 주소에서 도로명 주소를 뺀 나머지 (예: "(대치동, 더 나인 오피스텔)")
 if (!cfg.address.full.startsWith(cfg.address.line)) {
   throw new Error('site-config: address.full 이 address.line 으로 시작하지 않음');
 }
@@ -166,6 +169,7 @@ const REQUIRED_REGIONS = ['head-assets', 'header', 'footer', 'mobile-bar'];
 const HARD_CODED = [
   cfg.phone.display,
   cfg.phone.href,
+  cfg.officePhone.display,
   cfg.email,
   cfg.address.street,
   cfg.maps.naver,

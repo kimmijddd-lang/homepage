@@ -63,11 +63,12 @@ node _src/dev-server.mjs       # 로컬 서버
 
 | 바뀌는 곳 | 쓰는 값 |
 | --- | --- |
-| 홈 `<title>`·og:title ("○○역 세무사 \| 대윤세무회계 김민준 세무사") | `station` |
-| 홈 description·og:description, 푸터 소개 문구 ("서울 강남구 ○○동, ○○역 인근 …") | `address.locality`·`address.neighborhood`·`transit` |
+| 푸터 소개 문구 ("서울 강남구 ○○동, ○○역 인근 …") | `address.locality`·`address.neighborhood`·`transit` |
 | 홈 오시는 길 (주소·교통·지도 버튼) | `address.full`·`transitDetail`·`maps` |
 | 모든 페이지 푸터 하단 주소, /contact 주소 | `address.line`·`address.street` |
-| 홈 JSON-LD (streetAddress·hasMap·sameAs) | `address.*`·`maps` |
+| 홈 JSON-LD (streetAddress·hasMap·sameAs·geo) | `address.*`·`maps`. geo 좌표는 `jsonld-home.html`에 적혀 있어 주소를 옮기면 함께 고친다 |
+
+홈 `<title>`·og:title·description 은 `build.mjs`의 `home_title`·`home_description`에 지역 검색어를 직접 적어 두었다. `--move`로 `station`만 바뀌면 이 문장은 그대로이므로, 사무실을 옮기면 함께 고친다.
 
 세무사 소개·업무 안내·가이드의 JSON-LD 는 홈의 사무실 정보를 `@id` 로 가리키므로 따로 고칠 것이 없다.
 

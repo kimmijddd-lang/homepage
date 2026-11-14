@@ -6,7 +6,7 @@
       "name": "{{name}}",
       "alternateName": "{{name}} 세무사",
       "url": "{{siteUrl}}/",
-      "description": "{{home_description}}",
+      "description": "{{jsonld_description}}",
       "image": "{{siteUrl}}/assets/images/og-kim-minjun.jpg",
       "logo": "{{siteUrl}}/assets/images/apple-touch-icon.png",
       "telephone": "{{phone_e164}}",
@@ -18,6 +18,11 @@
         "addressLocality": "{{address_city}}",
         "addressRegion": "{{address_region}}",
         "addressCountry": "KR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.50398,
+        "longitude": 127.05098
       },
       "openingHours": "{{opening_hours}}",
       "hasMap": "{{map_naver}}",
