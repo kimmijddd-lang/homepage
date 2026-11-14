@@ -51,6 +51,7 @@ const values = {
   phone_display: cfg.phone.display,
   phone_href: cfg.phone.href,
   phone_e164: cfg.phone.e164,
+  office_phone_display: cfg.officePhone.display,
   email: cfg.email,
   email_href: `mailto:${cfg.email}`,
   hours: cfg.hours,
@@ -168,6 +169,7 @@ const REQUIRED_REGIONS = ['head-assets', 'header', 'footer', 'mobile-bar'];
 const HARD_CODED = [
   cfg.phone.display,
   cfg.phone.href,
+  cfg.officePhone.display,
   cfg.email,
   cfg.address.street,
   cfg.maps.naver,

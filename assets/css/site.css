@@ -405,6 +405,10 @@ textarea {
   flex-basis: 330px;
 }
 
+.footer-office-phone {
+  color: var(--color-muted);
+}
+
 .footer-social {
   display: flex;
   flex-wrap: wrap;
@@ -566,6 +570,12 @@ summary:focus-visible {
 .consult-phone strong {
   font-size: 1.06rem;
   letter-spacing: -0.02em;
+}
+
+.consult-office-phone {
+  margin: -6px 0 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
 }
 
 .consult-channels {
