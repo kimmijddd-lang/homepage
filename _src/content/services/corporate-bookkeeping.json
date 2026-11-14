@@ -139,6 +139,10 @@
   "closingP": "업종, 자료 전달 방식, 현재 불편한 지점을 남겨주시면 검토 후 연락드립니다.",
   "related": [
     {
+      "href": "/guides/sole-proprietor-to-corporation",
+      "text": "개인사업자 법인전환, 언제가 좋을까요?"
+    },
+    {
       "href": "/guides/bookkeeping-fee-explained",
       "text": "세무사 기장료는 어떻게 정해지나요?"
     },
