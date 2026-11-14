@@ -22,14 +22,14 @@ const svg = (inner, size, stroke = 1.8) =>
 const ARROW = '<path d="M5 12h14M13 6l6 6-6 6"></path>';
 const CHECK = '<path d="M5 12.5l4.5 4.5L19 7.5"></path>';
 
-const head = ({ cfg, title, description, ogDescription, path, ld }) => `<!DOCTYPE html>
+const head = ({ cfg, title, description, ogDescription, path, ld, robots }) => `<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="robots" content="${robots}">
   <link rel="canonical" href="${cfg.siteUrl}${path}">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:type" content="website">
@@ -75,6 +75,8 @@ const breadcrumb = (crumbs) => `    <nav class="container svc-breadcrumb" aria-l
         .join('')}
     </nav>`;
 
+const KAKAO_ICON = '<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 20l1.1-4.2A8.4 8.4 0 1 1 21 11.5z"></path>';
+
 const ctaBand = ({ cfg, h2, p }) => `    <section class="svc-cta" data-loc="footer_cta">
       <div class="container">
         <div class="svc-cta-copy">
@@ -83,6 +85,7 @@ const ctaBand = ({ cfg, h2, p }) => `    <section class="svc-cta" data-loc="foot
         </div>
         <div class="svc-cta-actions">
           <a class="svc-cta-main" href="/contact">상담 신청하기</a>
+          <a class="svc-cta-kakao" href="${cfg.kakao.channelChat}" data-cfg-href="kakao_channel" target="_blank" rel="noopener noreferrer">${svg(KAKAO_ICON, 18, 2)}카톡 상담</a>
           <a class="svc-cta-tel" href="${cfg.phone.href}" data-cfg-href="phone_href"><span data-cfg-text="phone_display">${esc(cfg.phone.display)}</span></a>
         </div>
       </div>
@@ -93,6 +96,7 @@ const sectionHead = (num, title) =>
 
 export function renderService(s, { cfg }) {
   const path = `/services/${s.slug}`;
+  const robots = s.redirectTo ? 'noindex,follow' : 'index,follow,max-image-preview:large';
   let n = 0;
   const next = () => (n += 1);
 
@@ -154,7 +158,9 @@ export function renderService(s, { cfg }) {
           ${s.glance.map((g) => `<div><dt>${esc(g.dt)}</dt><dd>${esc(g.dd)}</dd></div>`).join('\n          ')}
         </dl>
         <a class="svc-btn svc-btn-primary" href="/contact">${esc(s.ctaLabel)}</a>
+        <a class="svc-btn svc-btn-kakao" href="${cfg.kakao.channelChat}" data-cfg-href="kakao_channel" target="_blank" rel="noopener noreferrer">${svg(KAKAO_ICON, 18, 2)}카톡 상담</a>
         <a class="svc-btn svc-btn-outline" href="${cfg.phone.href}" data-cfg-href="phone_href">전화 <span data-cfg-text="phone_display">${esc(cfg.phone.display)}</span></a>
+        <p class="svc-hours-note"><span data-cfg-text="hours">${esc(cfg.hours)}</span> · <span data-cfg-text="hours_note">${esc(cfg.hoursNote)}</span></p>
       </aside>
     </div>
 
@@ -261,7 +267,7 @@ ${
     : ''
 }`;
 
-  return `${head({ cfg, title: s.title, description: s.description, ogDescription: s.ogDescription, path, ld })}\n${shell(`service-${s.slug}`, main)}`;
+  return `${head({ cfg, title: s.title, description: s.description, ogDescription: s.ogDescription, path, ld, robots })}\n${shell(`service-${s.slug}`, main)}`;
 }
 
 export function renderServicesIndex(list, { cfg }) {
@@ -305,5 +311,5 @@ export function renderServicesIndex(list, { cfg }) {
 
 ${ctaBand({ cfg, h2: '어떤 업무가 맞는지 모르겠다면 먼저 상담하세요', p: '현재 상황을 남겨주시면 어떤 서비스가 맞는지 먼저 정리해 드립니다.' })}`;
 
-  return `${head({ cfg, title, description, path: '/services', ld })}\n${shell('services', main)}`;
+  return `${head({ cfg, title, description, path: '/services', ld, robots: 'index,follow,max-image-preview:large' })}\n${shell('services', main)}`;
 }

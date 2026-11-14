@@ -40,7 +40,8 @@
       ga.async = true;
       ga.src = "https://www.googletagmanager.com/gtag/js?id=G-2QZ0CB65P8";
       document.head.appendChild(ga);
-      var naver = "";
+      window.TAXDY_ANALYTICS = { naver: "", naverLeadType: "" };
+      var naver = window.TAXDY_ANALYTICS.naver;
       if (naver && mode === "live") {
         window.wcs_add = window.wcs_add || {};
         window.wcs_add.wa = naver;
@@ -76,6 +77,7 @@
           <a class="insta-btn insta-btn-outline" href="/contact?utm_source=ig&amp;utm_medium=social&amp;utm_campaign=insta_landing&amp;utm_content=link_in_bio" data-cfg-href="insta_contact_href"><span>상담 신청서 남기기</span><small>전화로 연락드려요</small></a>
         </div>
         <p class="insta-note"><span data-cfg-text="hours">평일 09:00–18:00</span> · 상담만으로 계약·결제가 진행되지 않아요</p>
+        <p class="insta-note" data-cfg-text="hours_note">주말·야간 문의는 카톡이나 신청서로 남겨 주시면 다음 영업일에 연락드립니다.</p>
         <ul class="insta-trust">
           <li><strong>2016년</strong><span>세무사 자격 취득</span></li>
           <li><strong>10년+</strong><span>세무 실무 경험</span></li>
@@ -100,7 +102,7 @@
             <span class="insta-step-num" aria-hidden="true">2</span>
             <div>
               <h3>세무사가 확인하고 연락</h3>
-              <p><span data-cfg-text="hours">평일 09:00–18:00</span>에 김민준 세무사가 내용을 보고 카톡이나 전화로 연락드려요.</p>
+              <p><span data-cfg-text="hours">평일 09:00–18:00</span>에 김민준 세무사가 내용을 보고 카톡이나 전화로 연락드려요. <span data-cfg-text="hours_note">주말·야간 문의는 카톡이나 신청서로 남겨 주시면 다음 영업일에 연락드립니다.</span></p>
             </div>
           </li>
           <li>

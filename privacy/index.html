@@ -38,7 +38,8 @@
       ga.async = true;
       ga.src = "https://www.googletagmanager.com/gtag/js?id=G-2QZ0CB65P8";
       document.head.appendChild(ga);
-      var naver = "";
+      window.TAXDY_ANALYTICS = { naver: "", naverLeadType: "" };
+      var naver = window.TAXDY_ANALYTICS.naver;
       if (naver && mode === "live") {
         window.wcs_add = window.wcs_add || {};
         window.wcs_add.wa = naver;
@@ -84,7 +85,7 @@
         <div class="article-stack">
           <article class="content-card card">
             <h2>1. 수집 항목</h2>
-            <p>필수 항목은 성함, 연락처, 수집·이용 동의 여부입니다. 사업 형태, 상담 주제, 문의 내용은 선택 항목입니다. 상담 신청 시 유입 경로 표시값(utm_source, utm_medium, utm_campaign, utm_content)과 문의 페이지 경로도 함께 전달됩니다. 주민등록번호, 계좌번호, 비밀번호 등 민감한 정보는 입력하지 마세요.</p>
+            <p>필수 항목은 성함, 연락처, 수집·이용 동의 여부입니다. 사업 형태, 상담 주제, 문의 내용은 선택 항목입니다. 상담 신청 시 유입 경로 표시값(utm_source, utm_medium, utm_campaign, utm_content, utm_term)과 검색 키워드(n_keyword, n_query), 광고 그룹(n_ad_group), 문의 페이지 경로도 함께 전달됩니다. 주민등록번호, 계좌번호, 비밀번호 등 민감한 정보는 입력하지 마세요.</p>
           </article>
           <article class="content-card card">
             <h2>2. 수집 목적</h2>

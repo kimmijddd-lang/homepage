@@ -39,7 +39,8 @@
       ga.async = true;
       ga.src = "https://www.googletagmanager.com/gtag/js?id=G-2QZ0CB65P8";
       document.head.appendChild(ga);
-      var naver = "";
+      window.TAXDY_ANALYTICS = { naver: "", naverLeadType: "" };
+      var naver = window.TAXDY_ANALYTICS.naver;
       if (naver && mode === "live") {
         window.wcs_add = window.wcs_add || {};
         window.wcs_add.wa = naver;
@@ -122,7 +123,7 @@
     <div class="container svc-hero">
       <div class="svc-hero-copy">
         <p class="svc-eyebrow">법인 · 월 기장과 신고</p>
-        <h1>법인 기장대리,<br>세무사가 매달 직접 검토합니다</h1>
+        <h1>법인 기장대리,<br>중요한 세무 판단은 세무사가 직접 검토합니다</h1>
         <p class="svc-lead">법인 세무 운영은 신고만 잘하는 것보다 매달 필요한 자료를 제때 모으고, 특이 거래를 마감 전에 확인하는 구조가 중요합니다. 대윤세무회계는 대표와 실무 담당자가 같은 설명을 반복하지 않도록 업종 제한 없이 법인의 기장 흐름을 잡습니다.</p>
         <p class="svc-meta">작성·검토 김민준 세무사 · 수정일 2026년 10월 15일</p>
       </div>
@@ -135,7 +136,9 @@
           <div><dt>함께 맡기기</dt><dd>급여·원천세·4대보험</dd></div>
         </dl>
         <a class="svc-btn svc-btn-primary" href="/contact">법인 기장 상담 신청</a>
+        <a class="svc-btn svc-btn-kakao" href="https://open.kakao.com/o/sWdJyOKh" data-cfg-href="kakao_channel" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 20l1.1-4.2A8.4 8.4 0 1 1 21 11.5z"></path></svg>카톡 상담</a>
         <a class="svc-btn svc-btn-outline" href="tel:+82-10-4946-4505" data-cfg-href="phone_href">전화 <span data-cfg-text="phone_display">010-4946-4505</span></a>
+        <p class="svc-hours-note"><span data-cfg-text="hours">평일 09:00–18:00</span> · <span data-cfg-text="hours_note">주말·야간 문의는 카톡이나 신청서로 남겨 주시면 다음 영업일에 연락드립니다.</span></p>
       </aside>
     </div>
 
@@ -178,10 +181,10 @@
       <div class="container svc-split">
         <div class="svc-split-head"><span class="svc-num">03</span><h2>이렇게 편해집니다</h2></div>
         <ul class="svc-checklist">
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>자료 요청 기준이 고정되어 담당자가 바뀌어도 커뮤니케이션 흐름이 흔들리지 않습니다.</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>자료 요청 기준이 고정되어 담당자가 바뀌어도 커뮤니케이션 흐름이 흔들리지 않도록 정리합니다.</span></li>
           <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>마감 직전이 아닌 월중에 특이 거래를 먼저 확인해 긴급 대응을 줄입니다.</span></li>
           <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>대표와 담당자가 무엇을 언제 보내야 하는지 명확해집니다.</span></li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>질문이 반복되는 항목은 가이드와 템플릿으로 정리해 응답 속도를 높입니다.</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>질문이 반복되는 항목은 가이드와 템플릿으로 정리해 더 빠르게 안내합니다.</span></li>
         </ul>
       </div>
     </section>
@@ -252,6 +255,10 @@
             <h3>결산 전에 별도 점검도 가능한가요?</h3>
             <p>가능합니다. 월별 기장 흐름 안에서 미리 확인하는 것이 가장 효율적이지만, 필요하면 결산 전 이슈 항목을 따로 검토할 수 있습니다.</p>
           </div>
+          <div>
+            <h3>세무사를 바꾸고 싶은데, 여기서 상담할 수 있나요?</h3>
+            <p>가능합니다. 상담 신청서에서 ‘세무사 변경을 알아보고 있어요’를 골라 주시면, 넘겨받을 자료와 첫 신고 일정을 확인하고 안내합니다. 개인사업자도 상담할 수 있습니다.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -264,6 +271,7 @@
         </div>
         <div class="svc-cta-actions">
           <a class="svc-cta-main" href="/contact">상담 신청하기</a>
+          <a class="svc-cta-kakao" href="https://open.kakao.com/o/sWdJyOKh" data-cfg-href="kakao_channel" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 20l1.1-4.2A8.4 8.4 0 1 1 21 11.5z"></path></svg>카톡 상담</a>
           <a class="svc-cta-tel" href="tel:+82-10-4946-4505" data-cfg-href="phone_href"><span data-cfg-text="phone_display">010-4946-4505</span></a>
         </div>
       </div>

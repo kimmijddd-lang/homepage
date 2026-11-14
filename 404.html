@@ -28,7 +28,8 @@
       ga.async = true;
       ga.src = "https://www.googletagmanager.com/gtag/js?id=G-2QZ0CB65P8";
       document.head.appendChild(ga);
-      var naver = "";
+      window.TAXDY_ANALYTICS = { naver: "", naverLeadType: "" };
+      var naver = window.TAXDY_ANALYTICS.naver;
       if (naver && mode === "live") {
         window.wcs_add = window.wcs_add || {};
         window.wcs_add.wa = naver;

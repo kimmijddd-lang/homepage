@@ -38,7 +38,8 @@
       ga.async = true;
       ga.src = "https://www.googletagmanager.com/gtag/js?id=G-2QZ0CB65P8";
       document.head.appendChild(ga);
-      var naver = "";
+      window.TAXDY_ANALYTICS = { naver: "", naverLeadType: "" };
+      var naver = window.TAXDY_ANALYTICS.naver;
       if (naver && mode === "live") {
         window.wcs_add = window.wcs_add || {};
         window.wcs_add.wa = naver;
@@ -82,6 +83,7 @@
           </div>
         </div>
         <p class="consult-note"><a class="text-link" href="tel:+82-10-4946-4505" data-cfg-href="phone_href" data-cfg-text="phone_display">010-4946-4505</a> · <span data-cfg-text="hours">평일 09:00–18:00</span></p>
+        <p class="consult-note" data-cfg-text="hours_note">주말·야간 문의는 카톡이나 신청서로 남겨 주시면 다음 영업일에 연락드립니다.</p>
       </div>
     </section>
   </main>

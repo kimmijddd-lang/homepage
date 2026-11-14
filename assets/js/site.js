@@ -116,27 +116,43 @@
   });
 
   // Carry only campaign labels across this visit; never store form contents.
-  const storageKey = "taxdy_visit_source_v2";
+  const storageKey = "taxdy_visit_source_v3";
   const params = new URLSearchParams(window.location.search);
-  const baseUtm = { utm_source: "", utm_medium: "", utm_campaign: "", utm_content: "" };
+  const asciiKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+  const keywordKeys = ["utm_term", "n_keyword", "n_query", "n_ad_group"];
+  const allKeys = [...asciiKeys, ...keywordKeys];
+  const emptyLabels = Object.fromEntries(allKeys.map((key) => [key, ""]));
   const now = Date.now();
   const lifetime = 30 * 60 * 1000;
-  const cleanLabel = (value) => typeof value === "string" && /^[a-zA-Z0-9_.-]{1,80}$/.test(value) ? value : "";
-  let stored = { ...baseUtm };
+  const cleanAscii = (value) => typeof value === "string" && /^[a-zA-Z0-9_.-]{1,80}$/.test(value) ? value : "";
+  const cleanKeyword = (value) => {
+    if (typeof value !== "string" || !value) return "";
+    let text = value;
+    try {
+      text = decodeURIComponent(value.replace(/\+/g, " "));
+    } catch (_error) {
+      /* 이미 디코딩된 값이면 그대로 쓴다. */
+    }
+    text = text.replace(/[\u0000-\u001F\u007F]/g, "").trim();
+    return text.length > 80 ? text.slice(0, 80) : text;
+  };
+  const cleanByKey = (key, value) => (asciiKeys.includes(key) ? cleanAscii(value) : cleanKeyword(value));
+  let stored = { ...emptyLabels };
   let timestamp = now;
   try {
     const previous = JSON.parse(window.sessionStorage.getItem(storageKey) || "null");
     if (previous && typeof previous.timestamp === "number" && now >= previous.timestamp && now - previous.timestamp < lifetime) {
-      Object.keys(baseUtm).forEach((key) => { stored[key] = cleanLabel(previous.labels?.[key]); });
+      allKeys.forEach((key) => { stored[key] = cleanByKey(key, previous.labels?.[key]); });
       timestamp = previous.timestamp;
     }
     window.localStorage.removeItem("taxdy_utm");
+    window.sessionStorage.removeItem("taxdy_visit_source_v2");
   } catch (_error) { /* Storage restrictions do not prevent consultation. */ }
-  if (Object.keys(baseUtm).some((key) => params.has(key))) {
+  if (allKeys.some((key) => params.has(key))) {
     // A new campaign starts fresh rather than mixing with the previous one.
-    stored = { ...baseUtm };
+    stored = { ...emptyLabels };
     timestamp = now;
-    Object.keys(baseUtm).forEach((key) => { stored[key] = cleanLabel(params.get(key)); });
+    allKeys.forEach((key) => { stored[key] = cleanByKey(key, params.get(key) || ""); });
   }
   try { window.sessionStorage.setItem(storageKey, JSON.stringify({ timestamp, labels: stored })); } catch (_error) {}
   Object.entries(stored).forEach(([key, value]) => {
@@ -247,6 +263,23 @@
         origin_path: pending.origin_path || "direct",
         origin_location: pending.origin_location || "direct",
       });
+      // 네이버 신청 전환. 계정 키와 전환 유형(TAXDY_ANALYTICS)이 채워지고 wcslog 가 로드된 뒤에만 1회 보낸다.
+      const sendNaverLead = () => {
+        const leadType = window.TAXDY_ANALYTICS && window.TAXDY_ANALYTICS.naverLeadType;
+        if (!leadType || !window.wcs || typeof window.wcs.trans !== "function") return false;
+        try {
+          window.wcs.trans({ type: leadType });
+          return true;
+        } catch (_error) {
+          return false;
+        }
+      };
+      if (!sendNaverLead()) {
+        const started = Date.now();
+        const timer = window.setInterval(() => {
+          if (sendNaverLead() || Date.now() - started > 4000) window.clearInterval(timer);
+        }, 200);
+      }
     }
   }
 })();

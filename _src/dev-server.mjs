@@ -21,8 +21,20 @@ const types = {
   '.woff2': 'font/woff2',
 };
 
+const redirects = new Map([
+  ['/services/tax-accountant-switch', '/services/corporate-bookkeeping'],
+  ['/services/tax-accountant-switch/', '/services/corporate-bookkeeping'],
+]);
+
 createServer(async (req, res) => {
-  const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+  const requestUrl = new URL(req.url, 'http://localhost');
+  const pathname = decodeURIComponent(requestUrl.pathname);
+  const redirectTo = redirects.get(pathname);
+  if (redirectTo) {
+    res.writeHead(308, { Location: redirectTo + requestUrl.search });
+    res.end();
+    return;
+  }
   let file = join(root, normalize(pathname));
   if (file !== root && !file.startsWith(root + sep)) {
     res.writeHead(403).end('403');
