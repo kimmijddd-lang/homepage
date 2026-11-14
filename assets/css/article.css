@@ -506,7 +506,7 @@ main {
 }
 
 .fact-rows dt {
-  flex: 0 0 132px;
+  flex: 0 0 148px;
   font-size: calc(15 * var(--px));
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -516,6 +516,10 @@ main {
   margin: 0;
   color: var(--color-muted);
   font-size: calc(15 * var(--px));
+}
+
+.content-card .card-intro {
+  margin-bottom: 14px;
 }
 
 .content-card .guide-note {
