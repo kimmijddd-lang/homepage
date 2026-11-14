@@ -193,7 +193,7 @@
     } catch (_error) {
       return link.getAttribute("data-event");
     }
-    if (url.hostname === "pf.kakao.com") return "click_kakao";
+    if (url.hostname === "open.kakao.com") return "click_kakao";
     if (url.origin === window.location.origin && url.pathname.replace(/\/$/, "") === "/contact") return "click_form";
     return link.getAttribute("data-event");
   };

@@ -345,9 +345,9 @@ function instaLint() {
 }
 instaLint();
 
-// 카카오 문의는 카카오톡 채널(kakao.channelChat) 하나만 쓴다. 오픈채팅 링크는 남기지 않는다 (2026-11-02 대표 결정).
+// 카카오 상담은 kakao.channelChat(오픈채팅) 하나만 쓴다. 예전 채널 주소(pf.kakao.com)는 남기지 않는다.
 for (const [rel, html] of outputs) {
-  if (html.includes('open.kakao.com')) problems.push(`${rel}: 카카오 오픈채팅 링크가 남아 있음`);
+  if (html.includes('pf.kakao.com')) problems.push(`${rel}: 예전 카카오 채널 링크(pf.kakao.com)가 남아 있음`);
 }
 
 if (checkOnly) {
