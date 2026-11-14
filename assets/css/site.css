@@ -815,10 +815,18 @@ summary:focus-visible {
 }
 
 .consult-faq h2 {
-  margin: 0 0 22px;
+  margin: 0 0 10px;
   font-size: 1.65rem;
   font-weight: 760;
   letter-spacing: -0.045em;
+}
+
+.consult-faq-intro {
+  margin: 0 0 22px;
+  max-width: 40rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
 }
 
 .consult-faq-grid {

@@ -265,9 +265,9 @@ ${
 }
 
 export function renderServicesIndex(list, { cfg }) {
-  const title = '업무 안내 | 대윤세무회계';
+  const title = '강남 세무사 기장 | 업무 안내 | 대윤세무회계';
   const description =
-    '개인사업자 기장, 법인 기장대리, 급여·4대보험, 양도·상속·증여까지 대윤세무회계가 운영하는 세무 업무를 한눈에 안내합니다.';
+    '선릉 세무사 김민준 사무실의 개인·법인 기장, 급여·4대보험, 양도·상속·증여 안내. 업종 제한 없이 상담합니다.';
   // listed: false 인 업무 페이지는 목록에 넣지 않는다 (페이지 자체는 남김).
   list = list.filter((s) => s.listed !== false);
   const ld = {
@@ -283,7 +283,7 @@ export function renderServicesIndex(list, { cfg }) {
     <div class="container svc-index-hero">
       <p class="svc-eyebrow">업종 제한 없이, 개인사업자와 법인 모두 상담합니다</p>
       <h1>업무 안내</h1>
-      <p class="svc-lead">${esc(cfg.name)}가 운영하는 세무 업무를 목적별로 정리했습니다. 필요한 업무의 범위와 진행 방식은 각 페이지에서 자세히 확인하실 수 있습니다.</p>
+      <p class="svc-lead">선릉 세무사 ${esc(cfg.representative)} 사무실에서 운영하는 세무 업무를 목적별로 정리했습니다. 강남 세무사 기장을 비롯한 업무의 범위와 진행 방식은 각 페이지에서 확인하실 수 있습니다.</p>
     </div>
 
     <section class="svc-section svc-section-last">
