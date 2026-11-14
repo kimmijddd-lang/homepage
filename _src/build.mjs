@@ -192,6 +192,8 @@ const LEGACY_PAGES = new Set([]);
 // 페이지는 두되 어디서도 링크하지 않는 업무 페이지 (content JSON 의 "listed": false).
 // redirectTo 가 있는 페이지는 noindex 로 만들고 sitemap 에서 빼며, 실제 안내는 vercel.json·dev-server 리다이렉트로 처리한다.
 const unlistedServices = new Set();
+// 목록에서 뺀 업무 페이지라도 content JSON 의 "linkedFrom" 에 적은 페이지에서는 링크할 수 있다 (예: 크리에이터 가이드 글 → 크리에이터 업무).
+const unlistedLinkAllowed = new Map();
 
 // 데이터(_src/content)와 템플릿(_src/templates)으로 통째로 만드는 페이지. 이 파일들은 직접 고치지 않는다.
 function generatedPages() {
@@ -202,6 +204,7 @@ function generatedPages() {
     .sort((a, b) => a.order - b.order);
   const pages = new Map();
   services.filter((s) => s.listed === false).forEach((s) => unlistedServices.add(`/services/${s.slug}`));
+  services.filter((s) => s.listed === false).forEach((s) => unlistedLinkAllowed.set(`/services/${s.slug}`, new Set(s.linkedFrom ?? [])));
   for (const s of services) pages.set(join('services', s.slug, 'index.html'), renderService(s, { cfg }));
   pages.set(join('services', 'index.html'), renderServicesIndex(services, { cfg }));
   return pages;
@@ -317,6 +320,7 @@ function seoLint() {
     const self = `/${rel.split(sep).join('/').replace(/\/index\.html$/, '')}`;
     if (unlistedServices.has(self)) continue;
     for (const path of unlistedServices) {
+      if (unlistedLinkAllowed.get(path)?.has(self)) continue;
       if (new RegExp(`href="${path}["/?#]`).test(html)) problems.push(`${rel}: 목록에서 뺀 ${path} 로 가는 링크가 있음`);
     }
   }
