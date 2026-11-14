@@ -74,11 +74,12 @@ const values = {
   thanks_url: `${cfg.siteUrl}/contact/thanks`,
   opening_hours: cfg.openingHours,
   instagram_handle: cfg.social.instagramHandle,
-  stat_clients: cfg.stats.clients,
+  hours_note: cfg.hoursNote,
   kakao_channel: cfg.kakao.channelChat,
   ga4_id: cfg.analytics.ga4,
   analytics_host: cfg.analytics.productionHost,
   naver_wa: cfg.analytics.naver,
+  naver_lead_type: cfg.analytics.naverLeadType || '',
   insta_contact_href: `/contact?${cfg.insta.utm}`,
   insta_profile_url: `${cfg.siteUrl}/insta?${cfg.insta.utm}`,
 };
@@ -87,6 +88,8 @@ const values = {
 if (!/^G-[A-Z0-9]{4,20}$/.test(cfg.analytics.ga4)) throw new Error(`site-config: analytics.ga4 형식이 아님 (${cfg.analytics.ga4})`);
 if (!/^[a-z0-9.-]+$/.test(cfg.analytics.productionHost)) throw new Error('site-config: analytics.productionHost 형식이 아님');
 if (!/^[a-zA-Z0-9]*$/.test(cfg.analytics.naver)) throw new Error('site-config: analytics.naver 형식이 아님 (영문·숫자만)');
+if (!/^[a-zA-Z0-9_-]*$/.test(cfg.analytics.naverLeadType || '')) throw new Error('site-config: analytics.naverLeadType 형식이 아님');
+if (typeof cfg.hoursNote !== 'string' || !cfg.hoursNote.trim()) throw new Error('site-config: hoursNote 가 비어 있음');
 if (!/^(utm_(source|medium|campaign|content)=[a-zA-Z0-9_.-]{1,80}&?){4}$/.test(cfg.insta.utm)) throw new Error('site-config: insta.utm 은 utm 4개를 영문·숫자로');
 
 // 위치가 바뀌면 달라지는 문구는 config 값에서 조합한다 (사무실 이전 때 한 번에 바뀌도록).
@@ -186,7 +189,8 @@ const HARD_CODED = [
 // 아직 새 레이아웃으로 바뀌지 않은 페이지 (현재 없음).
 const LEGACY_PAGES = new Set([]);
 
-// 페이지는 두되 어디서도 링크하지 않는 업무 페이지 (content JSON 의 "listed": false). sitemap 에는 남긴다.
+// 페이지는 두되 어디서도 링크하지 않는 업무 페이지 (content JSON 의 "listed": false).
+// redirectTo 가 있는 페이지는 noindex 로 만들고 sitemap 에서 빼며, 실제 안내는 vercel.json·dev-server 리다이렉트로 처리한다.
 const unlistedServices = new Set();
 
 // 데이터(_src/content)와 템플릿(_src/templates)으로 통째로 만드는 페이지. 이 파일들은 직접 고치지 않는다.

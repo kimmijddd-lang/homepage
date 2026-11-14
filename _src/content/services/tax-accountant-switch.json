@@ -1,7 +1,7 @@
 {
   "slug": "tax-accountant-switch",
   "listed": false,
-  "listedNote": "2026-11-02 대표 결정: 페이지는 두되 업무 안내 목록·홈·다른 페이지에서 링크하지 않는다 (sitemap 에는 남김).",
+  "listedNote": "2026-11-14 대표 결정: /services/tax-accountant-switch 는 법인 기장 페이지로 연결한다. vercel.json 과 로컬 dev-server 에서 리다이렉트하며, 이 페이지는 noindex 이고 sitemap 에서 뺀다.",
   "order": 3,
   "navLabel": "세무사 변경",
   "card": {
@@ -118,5 +118,6 @@
       "href": "/services/corporate-bookkeeping",
       "text": "법인 기장대리 서비스"
     }
-  ]
+  ],
+  "redirectTo": "/services/corporate-bookkeeping"
 }

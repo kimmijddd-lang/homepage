@@ -19,7 +19,8 @@
       ga.async = true;
       ga.src = "https://www.googletagmanager.com/gtag/js?id={{ga4_id}}";
       document.head.appendChild(ga);
-      var naver = "{{naver_wa}}";
+      window.TAXDY_ANALYTICS = { naver: "{{naver_wa}}", naverLeadType: "{{naver_lead_type}}" };
+      var naver = window.TAXDY_ANALYTICS.naver;
       if (naver && mode === "live") {
         window.wcs_add = window.wcs_add || {};
         window.wcs_add.wa = naver;

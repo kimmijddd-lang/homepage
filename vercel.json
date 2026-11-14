@@ -12,6 +12,16 @@
       "permanent": true
     },
     {
+      "source": "/services/tax-accountant-switch",
+      "destination": "/services/corporate-bookkeeping",
+      "permanent": true
+    },
+    {
+      "source": "/services/tax-accountant-switch/",
+      "destination": "/services/corporate-bookkeeping",
+      "permanent": true
+    },
+    {
       "source": "/claude.md",
       "destination": "/",
       "permanent": false
@@ -60,19 +70,39 @@
   "headers": [
     {
       "source": "/_src/(.*)",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     },
     {
       "source": "/insta",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     },
     {
       "source": "/insta/(.*)",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     },
     {
       "source": "/assets/fonts/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

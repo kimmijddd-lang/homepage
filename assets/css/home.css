@@ -686,6 +686,14 @@ body[data-page="home"] h3 {
   line-height: 1.5;
 }
 
+.home-hours-note {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+  font-size: calc(14 * var(--px));
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 .home-approach-more {
   display: none;
 }
