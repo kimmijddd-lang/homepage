@@ -938,3 +938,37 @@ body[data-page="home"] h3 {
     min-height: 240px;
   }
 }
+
+/* 가이드 카드 3개: PC·태블릿 3칸, 폰 1칸. 바탕이 밝은 구역이라 카드는 흰색 */
+.home-cards.home-cards-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-guides .home-card {
+  background: var(--color-surface);
+}
+
+.home-guides .home-card h3 {
+  align-items: flex-start;
+  font-size: calc(19 * var(--px));
+  line-height: 1.4;
+}
+
+.home-guides .home-card h3 svg {
+  margin-top: 4px;
+}
+
+@media (max-width: 820px) {
+  .home-cards.home-cards-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .home-guides .home-card h3 {
+    font-size: calc(17 * var(--px));
+  }
+}
+
+/* 히어로 제목 둘째 줄이 넘칠 때 의미 단위로 줄을 바꾼다 (마지막 줄에 한 단어만 남지 않게) */
+.home-hero h1 .h1-chunk {
+  display: inline-block;
+}
